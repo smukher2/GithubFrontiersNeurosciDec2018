@@ -1,0 +1,6 @@
+"","greenyellow....EndotheByothersCuffdiff2FCover20__"
+"1","ALDH1A1"
+"2","APCDD1"
+"3","FZD6"
+"4","RPH3AL"
+"5","TFRC"

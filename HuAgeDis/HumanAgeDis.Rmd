@@ -1,0 +1,1907 @@
+---
+title: "HumanAgeDis"
+author: "Shradha Mukherjee"
+date: "Last updated November 24, 2018"
+output: 
+  html_fragment: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE,message=FALSE)
+```
+
+## R Markdown
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. Html_fragmented is quicker to load than html, hence for this pipeline which genenerated a large mount of data, we have used html_fragment to report Rmarkdown.
+
+#Checklist for running this pipeline 
+  #1) GEO series number from publication or seatching GEO for dataset of interest, here GSE=GSE33000 and GSE=GSE43490 
+  #2) The GPL gene annotation file, here GPL=GPL4372 for GSE33000  and GPL=GPL6480 for GSE43490
+  #3) To reuse code for other studies replace the GEO and GPL numbers
+  #4) metadata file made by manually combining individual metadata files from GEO to give 'merge_GSE33000_GSE43490_metadata.csv'
+  #5) metadata coded file made manually from 'merge_GSE33000_GSE43490_metadata_SampleID.csv' outputed at end of merge code Step 12 to give 'merge_GSE33000_GSE43490_metadata_SampleID_Disease_single_coded'
+  code used is Study GSE33000=1, GSE43490=2; Gender Female=1, Male=2 ; Disease CON=1, DIS=2
+  #6) run code till step 28 and then based on cell type and trait associated module replace in code "black" or "HuAgeDis_07" with module name that is associated with trait or disease of interest. And replace hub gene names. 
+  #7) WGCNA assigns colors randomly (except few reserved colors like "grey" for unassigned genes). Therefore, upon re-run of this analysis it may call the age and disease associated microglia enriched "black" module by some other color such as "pink", in which case this color is specified step 29 onwards as described in point 6) above.
+  #8) The present analysis was done on MacOS, using knitToHtmlfragment.
+  
+  #9)To reuse this code for other datasets 
+  a) replace 1) and 2) input files above with equivalent files for the dataset
+  b) replace "HuAgeDis_" for module naming to pre-fix of users choice that is meaningful for the dataset. Here Hu=Human, Age=Age, Dis=Disease
+  c) in this pipeline human gene symbols are used
+
+####################################Getting raw data GSE33000####################################### 
+
+###Step1: Load required libraries ans setting working directory###
+
+```{r}
+#save working directory location
+wd<-getwd()
+wd
+```
+
+```{r}
+#Install packages by uncommenting two lines below if packages not already installed before
+#source("https://bioconductor.org/biocLite.R")
+#biocLite(c("GEOquery","Biobase", "limma", "R.utils", "lumi", "DT"))
+
+library(Biobase)
+library(GEOquery)
+library(lumi)
+library(R.utils)
+library(DT)
+library(limma)
+library(sva)
+library(pamr)
+```
+
+```{r}
+#At start of pipeline no input files are needed except the .Rproj which sets working directory to current directory and keeps R environment independent of other folders and the .Rmd R code
+list.files()
+```
+
+###Step2: Getting GEO expression data and metadata###
+  #2.1 Get GE0 data as R object
+```{r}
+# Saving series and platform gene annotation data from GEO to gset object
+gset <- getGEO("GSE33000", GSEMatrix =TRUE, AnnotGPL=TRUE)
+if (length(gset) > 1) idx <- grep("GPL4372", attr(gset, "names")) else idx <- 1
+gset <- gset[[idx]] 
+```
+
+  #2.2 keep only samples of interest
+```{r}
+#Interested in all samples so keeping everything. 
+```
+
+  #2.3 Getting GEO metadata of interest
+```{r}
+#Names of available phenotype data
+names(pData(gset))
+```
+
+```{r}
+metadata=data.frame(gset$geo_accession, gset$source_name_ch1, gset$`tissue:ch1`, gset$`gender:ch2`, gset$`age:ch2`,gset$`disease status:ch2`)
+head(metadata)
+write.csv(metadata,'GSE33000_metadata.csv')
+```
+
+  #2.4 Get GE0 raw expression data. 
+```{r}
+DT::datatable(exprs(gset)[1:3,])
+```
+
+```{r}
+#The expression data uploaded for this entry is Agilent dual color cy5 cy3 label microarray we will get this data
+exprList<-exprs(gset)
+write.table(exprList, "GSE33000_expression_data_originalfromGEO.txt", sep="\t", quote=F)
+```
+
+###Step3: Quantile normalization with lumi ###
+  #3.1 Reading and formatting expression data for normalization
+```{r}
+#Now we read in the raw expression values
+exprRaw<-read.delim('GSE33000_expression_data_originalfromGEO.txt',header=T, sep='\t')
+DT::datatable(exprRaw[1:3,])
+```
+
+```{r}
+#The original GSE33000 is in log base 10 log10 ratio (Cy5/Cy3) so lets convert it back to non-log scale. This we can determine by looking at the 1row-1column of the exprRaw datatable above and the 1st datapoint online reference to this data file both of which are -1.618405e-02 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1423780
+
+#conversiton back to non-log scale
+exprRaw1 = 10^exprRaw
+DT::datatable(exprRaw1[1:3,])
+write.table(exprRaw1, "GSE33000_expression_data_non-log.txt", sep="\t", quote=F)
+```
+
+  #3.2 Using lumi for quantile normalization  
+```{r}
+#Perform qualtile normalization on the raw expression data should be matrix format.
+exprLumi<-lumiN(as.matrix(exprRaw1),method="quantile")
+DT::datatable(exprLumi[1:3,])
+```
+
+  #3.3 log2+1 transformation
+```{r}
+#log2+1 transform the expression data. This step also changes it back to data frame format
+exprLog<-log2(exprLumi+1)
+DT::datatable(exprLog[1:3,])
+```
+
+  #3.4 Check for negative values. Negative values will not work in WGCNA
+```{r}
+exprRaw_ifneg<-apply(exprRaw, 1, function(row) any(row <0))
+length(which(exprRaw_ifneg)) #what is the length of negative numbers
+
+exprRaw1_ifneg<-apply(exprRaw1, 1, function(row) any(row <0))
+length(which(exprRaw1_ifneg)) #what is the length of negative numbers
+#0 means no negative values
+
+exprLumi_ifneg<-apply(exprLumi, 1, function(row) any(row <0))
+length(which(exprLumi_ifneg)) #what is the length of negative numbers
+#0 means no negative values 
+
+exprLog_ifneg<-apply(exprLog, 1, function(row) any(row <0))
+length(which(exprLog_ifneg)) #what is the length of negative numbers
+#0 means no negative values 
+```
+
+  #3.5 Check for max and min values. Ususally don't want max to be <100 
+```{r}
+exprRaw_max<-which.max(as.matrix(exprRaw))
+exprRaw_max
+exprRaw_min<-which.min(as.matrix(exprRaw))
+exprRaw_min
+
+exprRaw1_max<-which.max(as.matrix(exprRaw1))
+exprRaw1_max
+exprRaw1_min<-which.min(as.matrix(exprRaw1))
+exprRaw1_min
+
+exprLumi_max<-which.max(as.matrix(exprLumi))
+exprLumi_max
+exprLumi_min<-which.min(as.matrix(exprLumi))
+exprLumi_min
+
+exprLog_max<-which.max(as.matrix(exprLog))
+exprLog_max
+exprLog_min<-which.min(as.matrix(exprLog))
+exprLog_min
+```
+
+  #3.6 Descriptive or summary statistics of the data
+```{r}
+DT::datatable(summary(exprRaw))
+```
+
+```{r}
+DT::datatable(summary(exprRaw1))
+```
+
+```{r}
+DT::datatable(summary(exprLumi))
+```
+
+```{r}
+DT::datatable(summary(exprLog))
+```
+
+	#3.7 Visualization of GSE33000 alone
+```{r}
+pdf(file="Visualization_GSE33000_rawdata_transformation.pdf",height=5,width=5)
+par(mfrow=c(2,2))
+
+#exprRaw boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprRaw, outline=FALSE, las=2, cex=0.25, main="exprRaw", col="yellow")
+
+#exprRaw1 boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprRaw1, outline=FALSE, las=2, cex=0.25, main="exprRaw", col="yellow")
+
+#exprLumi boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprLumi, outline=FALSE, las=2, cex=0.25, main="exprLumi", col="yellow")
+
+#exprLog boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprLog, outline=FALSE, las=2, cex=0.25, main="exprLog", col="yellow")
+
+
+#exprRaw MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprRaw, legend= "all", main="exprRaw Study", cex=0.5)#like PCA plot
+
+#exprRaw1 MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprRaw1, legend= "all", main="exprRaw1 Study", cex=0.5)#like PCA plot
+
+#exprLumi MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprLumi, legend= "all", main="exprLumi Study", cex=0.5)#like PCA plot
+
+#exprLog MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprLog, legend= "all", main="exprLog Study", cex=0.5)#like PCA plot
+
+dev.off()
+```
+
+###Step4: Use GPL file to convert probe ID to GeneSymbol in exprLog that will be used for further analysis ###
+  #4.1 Getting GPL annotation file 
+```{r}
+GPLid<-annotation(gset)
+GPL_file<-getGEO(GPLid)
+## File stored at:
+## /var/folders/0g/5tz57sgx7090n5vttfqvs3ym0000gn/T//Rtmpv5hBUt/GPL4372.soft
+colnames(GPL_file@dataTable@table)
+write.table(GPL_file@dataTable@table,"GPL4372.txt", sep='\t', quote=F)
+```
+
+```{r}
+#We pick the ID or reporter ID and ORF or gene symbols from options displayed above. We need this to annotate expression data. Will use ID to combine.
+GPL_file1<-GPL_file@dataTable@table[,c("ID","ORF")]
+DT::datatable(head(GPL_file1))
+```
+
+  #4.2 preparing gene expression data exprLog for merging with annotation file
+```{r}
+exprGene=exprLog
+#colnames already are sample GSM id
+DT::datatable(head(exprGene))
+```
+
+```{r}
+#Add "ID" column that we will use for merging with annotation
+exprGene1=cbind(exprGene, rownames(exprGene))
+colnames(exprGene1)=c(colnames(exprGene),"ID")
+DT::datatable(head(exprGene1))
+```
+
+  #4.3 get gene expression data with gene symbols. GEO annotation is static and ensures that annotation of genes does not change over time.
+```{r}
+#This is complete gene expression with Gene symbol annotations
+#Save and use columns for pipelines as needed
+exprGene2=merge(exprGene1, GPL_file1, by="ID")
+dim(exprGene2)
+DT::datatable(head(exprGene2))
+write.csv(exprGene2, "GSE33000_Annotation_Expr_HuGene.csv")
+```
+
+```{r}
+save.image(file="preSVALM_GSE33000_temp.RData")
+```
+
+####################################Getting raw data GSE43490####################################### 
+
+###Step6: Getting GEO expression data and metadata###
+  #6.1 Get GE0 data as R object
+```{r}
+# Saving series and platform gene annotation data from GEO to gset object
+gset <- getGEO("GSE43490", GSEMatrix =TRUE, AnnotGPL=TRUE)
+if (length(gset) > 1) idx <- grep("GPL6480", attr(gset, "names")) else idx <- 1
+gset <- gset[[idx]] 
+```
+
+  #6.2 keep only samples of interest
+```{r}
+#these groups were selected on the GEO2R to keep only sunstanitia niagra samples
+gsms <- "XXXXXXXXXXXXXX1111111100000XXXXXXXXXXXXXX"
+sml <- c()
+for (i in 1:nchar(gsms)) { sml[i] <- substr(gsms,i,i) }
+# eliminate samples marked as "X"
+sel <- which(sml != "X")
+sml <- sml[sel]
+gset <- gset[ ,sel] 
+```
+
+  #6.3 Getting GEO metadata of interest
+```{r}
+#Names of available phenotype data
+names(pData(gset))
+```
+
+```{r}
+metadata=data.frame(gset$geo_accession, gset$source_name_ch1, gset$`gender:ch1`, gset$`age:ch1`,gset$`disease state:ch1`, gset$`disease stage:ch1`)
+head(metadata)
+write.csv(metadata,'GSE43490_metadata.csv')
+```
+
+  #6.4 Get GE0 raw expression data. 
+```{r}
+DT::datatable(exprs(gset)[1:3,])
+```
+
+```{r}
+#The expression data uploaded for this entry is Agilent single color cy3 label we will get this data
+exprList<-exprs(gset)
+write.table(exprList, "GSE43490_expression_data_originalfromGEO.txt", sep="\t", quote=F)
+```
+
+###Step7: Quantile normalization with lumi ###
+  #7.1 Reading and formatting expression data normalization
+```{r}
+#Now we read in the raw expression values
+exprRaw<-read.delim('GSE43490_expression_data_originalfromGEO.txt',header=T, sep='\t')
+DT::datatable(exprRaw[1:3,])
+```
+
+```{r}
+#The original GSE43490 is in log base 2 log2 single color Cy3 Lowess method normalized so lets convert it back to non-log scale. This we can determine by looking at the 1row-1column of the exprRaw datatable above and the 1st datapoint online reference to this data file both of which are	5.800456543 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1294104
+
+#conversiton back to non-log scale
+exprRaw1 = 2^exprRaw
+DT::datatable(exprRaw1[1:3,])
+write.table(exprRaw1, "GSE43490_expression_data_non-log.txt", sep="\t", quote=F)
+```
+
+  #7.2 Using lumi for quantile normalization  
+```{r}
+#Perform qualtile normalization on the raw expression data should be matrix format.
+exprLumi<-lumiN(as.matrix(exprRaw1),method="quantile")
+DT::datatable(exprLumi[1:3,])
+```
+
+  #7.3 log2+1 transformation
+```{r}
+#log2+1 transform the expression data. This step also changes it back to data frame format
+exprLog<-log2(exprLumi+1)
+DT::datatable(exprLog[1:3,])
+```
+
+  #7.4 Check for negative values. Negative values will not work in WGCNA
+```{r}
+exprRaw_ifneg<-apply(exprRaw, 1, function(row) any(row <0))
+length(which(exprRaw_ifneg)) #what is the length of negative numbers
+
+exprRaw1_ifneg<-apply(exprRaw1, 1, function(row) any(row <0))
+length(which(exprRaw1_ifneg)) #what is the length of negative numbers
+#0 means no negative values
+
+exprLumi_ifneg<-apply(exprLumi, 1, function(row) any(row <0))
+length(which(exprLumi_ifneg)) #what is the length of negative numbers
+#0 means no negative values 
+
+exprLog_ifneg<-apply(exprLog, 1, function(row) any(row <0))
+length(which(exprLog_ifneg)) #what is the length of negative numbers
+#0 means no negative values 
+```
+
+  #7.5 Check for max and min values. Ususally don't want max to be <100 
+```{r}
+exprRaw_max<-which.max(as.matrix(exprRaw))
+exprRaw_max
+exprRaw_min<-which.min(as.matrix(exprRaw))
+exprRaw_min
+
+exprRaw1_max<-which.max(as.matrix(exprRaw1))
+exprRaw1_max
+exprRaw1_min<-which.min(as.matrix(exprRaw1))
+exprRaw1_min
+
+exprLumi_max<-which.max(as.matrix(exprLumi))
+exprLumi_max
+exprLumi_min<-which.min(as.matrix(exprLumi))
+exprLumi_min
+
+exprLog_max<-which.max(as.matrix(exprLog))
+exprLog_max
+exprLog_min<-which.min(as.matrix(exprLog))
+exprLog_min
+```
+
+	#7.6 Visualization of GSE43490 alone
+```{r}
+pdf(file="Visualization_GSE43490_rawdata_transformation.pdf",height=5,width=5)
+par(mfrow=c(2,2))
+
+#exprRaw boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprRaw, outline=FALSE, las=2, cex=0.25, main="exprRaw", col="yellow")
+
+#exprRaw1 boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprRaw1, outline=FALSE, las=2, cex=0.25, main="exprRaw", col="yellow")
+
+#exprLumi boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprLumi, outline=FALSE, las=2, cex=0.25, main="exprLumi", col="yellow")
+
+#exprLog boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(exprLog, outline=FALSE, las=2, cex=0.25, main="exprLog", col="yellow")
+
+
+#exprRaw MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprRaw, legend= "all", main="exprRaw Study", cex=0.5)#like PCA plot
+
+#exprRaw1 MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprRaw1, legend= "all", main="exprRaw1 Study", cex=0.5)#like PCA plot
+
+#exprLumi MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprLumi, legend= "all", main="exprLumi Study", cex=0.5)#like PCA plot
+
+#exprLog MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(exprLog, legend= "all", main="exprLog Study", cex=0.5)#like PCA plot
+
+dev.off()
+```
+
+###Step8: Use GPL file to convert probe ID to GeneSymbol in exprLog that will be used for further analysis ###
+  #8.1 Getting GPL annotation file
+```{r}
+GPLid<-annotation(gset)
+GPL_file<-getGEO(GPLid)
+## File stored at:
+## /var/folders/0g/5tz57sgx7090n5vttfqvs3ym0000gn/T//Rtmpv5hBUt/GPL6480.soft
+colnames(GPL_file@dataTable@table)
+write.table(GPL_file@dataTable@table,"GPL6480.txt", sep='\t', quote=F)
+```
+
+```{r}
+#We pick the ID or reporter ID and ORF or gene symbols from options displayed above. We need this to annotate expression data. Will use ID to combine.
+GPL_file1<-GPL_file@dataTable@table[,c("ID","GENE_SYMBOL")]
+DT::datatable(head(GPL_file1))
+```
+
+  #8.2 preparing gene expression data exprLog for merging with annotation file
+```{r}
+exprGene=exprLog
+#colnames already are sample GSM id
+DT::datatable(head(exprGene))
+```
+
+```{r}
+#Add "ID" column that we will use for merging with annotation
+exprGene1=cbind(exprGene, rownames(exprGene))
+colnames(exprGene1)=c(colnames(exprGene),"ID")
+DT::datatable(head(exprGene1))
+```
+
+  #8.3 get gene expression data with gene symbols. GEO annotation is static and ensures that annotation of genes does not change over time.
+```{r}
+#This is complete gene expression with Gene symbol annotations
+#Save and use columns for pipelines as needed
+exprGene2=merge(exprGene1, GPL_file1, by="ID")
+dim(exprGene2)
+DT::datatable(head(exprGene2))
+write.csv(exprGene2, "GSE43490_Annotation_Expr_HuGene.csv")
+```
+
+```{r}
+#The files we needed are saved so we now clear workspace and delete files and folders that are not needed 
+save.image(file="preSVALM_GSE43490_temp.RData")
+rm(list=ls())
+gc()
+``` 
+  
+####################################Merging GSE33000 and  GSE43490####################################### 
+
+###Step9: Load required libraries , setting working directory and Import data###
+```{r}
+#save working directory location
+wd<-getwd()
+wd
+```
+
+```{r}
+#Install packages by uncommenting two lines below if packages not already installed before
+#source("https://bioconductor.org/biocLite.R")
+#biocLite(c("tidyr","dplyr"))
+library(dplyr) # used for general data wrangling
+library(tidyr) # used for tidying tables
+```
+
+```{r}
+GSE33000Expr=read.csv("GSE33000_Annotation_Expr_HuGene.csv", header =T, sep=',', na.strings = c("", "NA"))
+GSE33000Expr=GSE33000Expr %>% na.omit()
+
+GSE43490Expr=read.csv("GSE43490_Annotation_Expr_HuGene.csv", header =T, sep=',', na.strings = c("", "NA"))
+GSE43490Expr=GSE43490Expr %>% na.omit()
+```
+
+```{r}
+DT::datatable(GSE33000Expr[1:7,1:7])
+```
+
+```{r}
+DT::datatable(GSE43490Expr[1:7,1:7])
+```
+
+```{r}
+dim(GSE33000Expr)
+dim(GSE43490Expr)
+```
+
+###Step10: merge datasets ###
+
+```{r}
+#Rename the last column name of both datasets to same 'GeneHu'
+colnames(GSE33000Expr)[colnames(GSE33000Expr)=='ORF']='GeneHu'
+colnames(GSE43490Expr)[colnames(GSE43490Expr)=='GENE_SYMBOL']='GeneHu'
+```
+
+```{r}
+mergeExpr=merge(GSE33000Expr,GSE43490Expr, by='GeneHu')
+dim(mergeExpr)
+dim(GSE33000Expr)
+dim(GSE43490Expr)
+```
+
+```{r}
+#Except one ID column and one gene column, remove other non-sample annotation columns. 
+#Here picked GSE33000 ID column and gene column to save. Since in microarray probe IDs are unique genes are not unique
+mergeExpr=mergeExpr[-c(2,628,629)]
+dim(mergeExpr)
+```
+
+###Step11: Matching GSM or SRR number and replacing Sample_names of choice from merged metadata (same order as merging of expression data above)###
+#Also incuded is a match column step in this code to ensure match
+#Before importing the metadate file, decide and include a column of sample names of your liking and the Study or batch information column you have. 
+#The GSE33000_metadata.csv rows are followed by GSE43490_metadata.csv to make merged 'merge_GSE33000_GSE43490_metadata.csv'
+```{r}
+merge_metadata=read.csv('./InputHuAgeDis/merge_GSE33000_GSE43490_metadata.csv', header =T, sep=',')
+DT::datatable(head(merge_metadata))
+```
+
+```{r}
+#Number of rows of above metadata is same as number of columns of Expr data +2 for GeneHu and probe IDs
+dim(mergeExpr)
+dim(merge_metadata)
+```
+
+```{r}
+#Replace of column names in expression with sample names
+colnames(mergeExpr) <- merge_metadata$Sample_name[match(colnames(mergeExpr), merge_metadata$GEO_Accession)]
+colnames(mergeExpr)[1]<-"GeneHu"
+colnames(mergeExpr)[2]<-"IDprobe"
+```
+
+```{r}
+#Lets drop the GEO accession number from the metadata now
+merge_metadata=merge_metadata[,-c(1)]
+DT::datatable(head(merge_metadata))
+```
+
+###Step12: we can export the Expression data and Metadata with Sample_name for SVA LM analysis###
+```{r}
+write.csv(mergeExpr,"merge_GSE33000_GSE43490_Expr_GeneHu_SampleID.csv")
+write.csv(merge_metadata,"merge_GSE33000_GSE43490_metadata_SampleID.csv")
+```  
+
+```{r}
+save.image(file="preSVALM_merge_GSE33000_GSE43490_temp.RData")
+rm(list=ls())
+gc()
+``` 
+  
+####################################SVA+LM normalization for study or experiment or batch correction and removal of gender#######################################
+
+###Step13: Load libraries, set working directory and Import data###
+```{r}
+#save working directory location
+wd<-getwd()
+wd
+```
+
+```{r}
+#source("https://bioconductor.org/biocLite.R")
+#biocLite(c("sva","limma","bladderbatch","pamr"))
+library(limma)
+library(sva)
+library(pamr)
+library(ggplot2) # plot
+library(ggmap)#plots
+library(gplots)#plots
+library(RColorBrewer)#color pallet
+library(Hmisc)#for corelation plot
+library(viridis)#for corelation plot
+library(corrplot)#for corelation plot
+```
+
+```{r}
+#Metadata_coded
+metadata_coded=read.csv("./InputHuAgeDis/merge_GSE33000_GSE43490_metadata_SampleID_Disease_single_coded.csv", header=T, sep=',')
+#Expression data
+Expr_HuGene=read.csv("merge_GSE33000_GSE43490_Expr_GeneHu_SampleID.csv", header =T, sep=',')
+```
+
+```{r}
+dim(metadata_coded)
+dim(Expr_HuGene)
+```
+
+```{r}
+#Need to make sure that the Gene IDs are unique to specify rownames with Gene IDs
+Expr_HuGene = Expr_HuGene[!duplicated(Expr_HuGene$GeneHu),]
+dim(metadata_coded)
+dim(Expr_HuGene)
+#We lost some gene IDs are there are multiple probeIDs for genes IDs in microarray
+```
+
+```{r}
+Expr_HuGene_1=Expr_HuGene[,-c(1,2,3)] #get rid of some extra probe ID columns
+rownames(Expr_HuGene_1)=Expr_HuGene$GeneHu 
+Expr_HuGene_1=Expr_HuGene_1[complete.cases(Expr_HuGene_1), ]
+edata=Expr_HuGene_1
+```
+
+```{r}
+metadata_coded_1=metadata_coded[,3:7]
+rownames(metadata_coded_1)=metadata_coded$Sample_name
+pheno=metadata_coded_1
+```
+
+```{r}
+DT::datatable(pheno)
+```
+
+```{r}
+DT::datatable(edata[1:7,1:7])
+```
+
+```{r}
+dim(metadata_coded)
+dim(pheno)
+dim(Expr_HuGene)
+dim(edata)
+```
+
+```{r}
+#Make sure we did not lose any samples in expression data
+#Here in the output the 1st two and the last two should be same i.e. the first and last samples are same
+colnames(Expr_HuGene[4])
+colnames(edata[1])
+colnames(Expr_HuGene[640])
+colnames(edata[637])
+```
+
+###Step14: Preparing models for SVA (Surrogate variable adjustment)###
+```{r}
+#full model matrix, variable of interest and other variables
+#Put categorical variables ahead of numeric variables 
+#This dataset has two tissue sources.But the tissue here is also correlated with batch i.e. the two tissue is from two batches so this introduces computaational singularity and cannot be modeleed. So one of two such covariants can be used in mod. So here Study or batch is used and Tissue is not included in the model
+mod = model.matrix(~Study+Gender+Disease+Age, data=pheno)
+```
+
+```{r}
+#null model matrix all except the variable of interest 
+#To include only an intercept use mode 'mod0 = model.matrix(~1,data=pheno)'
+#Put categorical variables ahead of numeric variables
+mod0 = model.matrix(~Study+Gender,data=pheno)
+```
+
+###Step15: Running SVA (Surrogate variable adjustment)###
+```{r}
+#Estimation of Surrogate variable
+n.sv = num.sv(as.matrix(edata),mod,method="be") 
+```
+
+```{r}
+svobj = sva(as.matrix(edata),mod,mod0,n.sv=n.sv, B=20)
+```
+
+sva function returns a list of 4 components: 
+1) sv= matrix with columns corrosponding to estimate of surrogate variables 
+2) pprob.gam=probability that each gene is associated with one or more latent variables 
+3) pprob.b=probability that each gene is associated with our variable of interest 
+4) n.sv=number of surrogate variables 
+
+###Step16: Clean SVA adjusted expression data with LM regression###
+
+```{r}
+#Note here the column which we care about is not used pheno[c(-?)], Age in 3rd column, Disease in 4th column 
+pheno_sva=cbind(pheno[-c(3,4)],svobj$sv)
+reglm_sva<-lapply(1:nrow(edata), function(x){lm(unlist(edata[x,])~.,data=pheno_sva)})
+DT::datatable(pheno_sva)
+```
+
+```{r}
+residuals<-lapply(reglm_sva, function(x)residuals(summary(x)))
+residuals<-do.call(rbind, residuals)
+edata_adjresiduals<-residuals+matrix(apply(edata, 1, mean), nrow=nrow(residuals), ncol=ncol(residuals))
+```
+
+```{r}
+rownames(edata_adjresiduals)=rownames(edata)
+rownames(residuals)=rownames(edata)
+DT::datatable(edata_adjresiduals[1:7,1:7])
+dim(edata_adjresiduals)
+write.csv(edata_adjresiduals, "edata_adjresiduals.csv")
+```
+
+```{r}
+#Save .RData and clear environment to free up memory
+save.image(file="temp.RData")
+rm(list=ls())
+gc()
+```
+
+```{r}
+#This 'reglm_sva' is a big object so we remove it as we have saved the other variables we need 
+load(file="temp.RData")
+rm(reglm_sva)
+gc() 
+```
+
+###Step17: Visualization of before and after SVA and LM regression###
+
+#Before SVA and LM adjustment
+edata
+#After SVA and LM adjustment
+edata_adjresiduals
+
+```{r}
+#Summary Statistics edata
+DT::datatable(summary(edata[1:7,1:7]))
+write.csv(summary(edata),"summary_stats_edata.csv")
+```
+
+```{r}
+#Summary Statistics edata_adjresiduals
+DT::datatable(summary(edata_adjresiduals[1:7,1:7]))
+write.csv(summary(edata_adjresiduals),"summary_stats_edata_adjresiduals.csv")
+```
+
+```{r}
+pdf(file="Visualization_GSE33000_GSE43490_batch_before_and_after_SVA-LM.pdf",height=10,width=10)
+par(mfrow=c(2,2))
+
+#Before Correlation
+# Colorbar along the heatmap represents Study or batch
+nconditions <- nlevels(as.factor(pheno$Study))
+npal <- colorRampPalette(brewer.pal(nconditions, "Set1"))(nconditions)
+condition_colors <- npal[as.integer(pheno$Study)]
+heatmap.2(cor(edata), RowSideColors=condition_colors,
+          trace='none', cexRow=0.5, main='Sample correlations before SVA LM Study')
+
+#After Correlation
+# Colorbar along the heatmap represents Study
+nconditions <- nlevels(as.factor(pheno$Study))
+npal <- colorRampPalette(brewer.pal(nconditions, "Set1"))(nconditions)
+condition_colors <- npal[as.integer(pheno$Study)]
+heatmap.2(cor(edata_adjresiduals), RowSideColors=condition_colors,
+          trace='none',  cexRow=0.5, main='Sample correlations after SVA LM Study')
+
+#Before boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(edata, outline=FALSE, las=2, cex=0.25, main="before SVA LM Study", col="yellow")
+
+#After boxplot
+par(mai=c(1,0.8,1,0.8))
+boxplot(edata_adjresiduals, outline=FALSE, las=2, cex=0.25, main="after SVA LM Study", col="yellow")
+
+#Before MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(edata, col=condition_colors, legend= "all", main="before SVA LM Study", cex=0.5)#like PCA plot
+
+#After MDSplot, colored by Study
+par(mai=c(1,0.8,1,0.8))
+plotMDS(edata_adjresiduals, col=condition_colors, legend= "all", main="after SVA LM Study", cex=0.5)#like PCA plot
+
+#Before PCAplot, colored by Study or batch
+pca0=prcomp(t(edata), center=T, scale=T)
+names(pca0)
+#summary(pca0)
+pca0$x[1:3,1:3]
+
+plot(x=pca0$x[,1], y=pca0$x[,2],
+     cex=0,
+     xlab="PC1", ylab="PC2",
+     main="PC plot colored by Study or batch before SVA LM",
+     font=2
+)
+text(x=pca0$x[,1], y=pca0$x[,2],
+     labels=pheno$Age,
+     col=pheno$Study,
+     cex=0.7, font=2)
+legend("bottomright",
+       legend=c("GSE33000", "GSE43490"),
+       text.col=c("red", "blue")
+)
+
+#After PCAplot, colored by Study or batch
+pca0=prcomp(t(edata_adjresiduals), center=T, scale=T)
+names(pca0)
+#summary(pca0)
+pca0$x[1:3,1:3]
+
+plot(x=pca0$x[,1], y=pca0$x[,2],
+     cex=0,
+     xlab="PC1", ylab="PC2",
+     main="PC plot colored by Study or batch after SVA LM",
+     font=2
+)
+text(x=pca0$x[,1], y=pca0$x[,2],
+     labels=pheno$Age,
+     col=pheno$Study,
+     cex=0.7, font=2)
+legend("bottomright",
+       legend=c("GSE33000", "GSE43490"),
+       text.col=c("red", "blue")
+)
+
+dev.off()
+```
+
+###Step18: we can export the Expression data for WGCNA###
+```{r}
+#Export edata_adjustedresidual SVA and LM normalized data for WGCNA
+write.csv(edata_adjresiduals, "AgeDiseaseInterest_edata_adjresiduals_GeneID.csv")
+
+save.image(file="SVALM_temp.RData")
+```
+
+####################################Human WGCNA Disease and Age #######################################
+
+###Step19: Load libraries, setting working directories and Import data for WGCNA###
+```{r}
+#save working directory location
+wd<-getwd()
+wd
+```
+
+```{r}
+#Load additional functions required for this pipeline
+#Reference: Miller, J.A., Horvath, S., and Geschwind, D.H. (2010). Divergence of Human and mouse brain transcriptome highlights Alzheimer disease pathways. Proceedings of the National Academy of Sciences of the United States of America 107, 12698-12703.
+
+write.geneList <- function(PG, filename, allProbes=0, allGenes=0, probe="g")
+{
+## These functions write a genelist / probelist to a file of geneNames
+
+## USER inputs
+# PG = the probe/gene you want written to a gene list
+# allProbes = the list of probe names for the above probes
+# allGenes = the list of gene names for the corresponding probes
+# filename = the filename (can include folder)
+# probe = the default ("g") says PG is a gene and doesn''t need to be converted
+#         to a gene.  Otherwise PG is assumed to be a probe and converted
+
+gene = PG
+if (probe!="g") {
+  gene = probe2Gene(PG,allProbes,allGenes)
+}
+write(gene,filename,sep="\n")
+
+}
+
+cor.test.l = function(x){
+## Performs a Pearson correlation on a vector of genes
+ ct = cor.test(x,var)
+ return(c(ct$est,ct$p.val))
+}
+```
+
+```{r}
+#library(BiocInstaller)
+#biocLite("qvalue")
+#install.packages(c("impute","dynamicTreeCut","flashClust","Hmisc","WGCNA","stringi","enrichR"))
+library(impute)
+library(dynamicTreeCut)
+library(qvalue)
+library(flashClust)
+library(Hmisc)
+library(WGCNA)
+library(stringi)
+library(stringr)
+library(enrichR)#for pathway analysis
+options(stringsAsFactors = FALSE)
+```
+
+```{r}
+#Human Metadata
+metadata=read.csv("./InputHuAgeDis/merge_GSE33000_GSE43490_metadata_SampleID_Disease_single.csv", header=T, sep=',')
+metadata_1=metadata[,3:7]
+rownames(metadata_1)=metadata$Sample_name
+pheno=metadata_1
+
+#Human Metadata coded
+metadata_coded=read.csv("./InputHuAgeDis/merge_GSE33000_GSE43490_metadata_SampleID_Disease_single_coded.csv", header=T, sep=',')
+metadata_1_coded=metadata_coded[,3:7]
+rownames(metadata_1_coded)=metadata$Sample_name
+pheno_coded=metadata_1_coded
+
+#Human Expression data 
+Expr_HuGene=read.csv("AgeDiseaseInterest_edata_adjresiduals_GeneID.csv", header =T, sep=',')
+Expr_HuGene_1=Expr_HuGene[,-1]
+rownames(Expr_HuGene_1)=Expr_HuGene$X
+Expr_HuGene_1=Expr_HuGene_1[complete.cases(Expr_HuGene_1), ]
+edata=Expr_HuGene_1
+```
+
+```{r}
+#Human Aging data
+datExprA1g=edata
+metadataA1g=pheno
+metadataA1g_coded=pheno_coded
+```
+
+```{r}
+#Remove unused variables
+rm(metadata)
+rm(metadata_1)
+rm(pheno)
+rm(metadata_coded)
+rm(metadata_1_coded)
+rm(pheno_coded)
+rm(Expr_HuGene)
+rm(Expr_HuGene_1)
+rm(edata)
+```
+
+```{r}
+DT::datatable(datExprA1g[1:7,1:7])
+```
+
+```{r}
+dim(datExprA1g)
+```
+
+###Step20: Removal of outliers and missing values using WGCNA package function 'goodSamplesGenes'###
+```{r}
+#Before applying 'goodSamplesGenes'
+dim(datExprA1g)
+```
+
+```{r}
+#check and applying 'goodSamplesGenes' on data A1
+gsg = goodSamplesGenes(datExprA1g, verbose = 3)
+gsg$allOK
+if (!gsg$allOK)
+{
+if (sum(!gsg$goodGenes)>0)
+#printFlush(paste("Removing genes:", paste(names(datExprA1g)[!gsg$goodGenes], collapse = ", ")));
+if (sum(!gsg$goodSamples)>0)
+#printFlush(paste("Removing samples:", paste(rownames(datExprA1g)[!gsg$goodSamples], collapse = ", ")));
+# Removal step
+datExprA1g = datExprA1g[gsg$goodSamples, gsg$goodGenes]
+}
+```
+
+```{r}
+#After applying 'goodSamplesGenes'
+dim(datExprA1g)
+```
+
+###Step 21: Optional: This step allows selection of top 7000 most variable genes, not most expressed genes (this minimizes noise and is compuationally efficient)### 
+#In the present analysis we have used all 7301 genes
+```{r}
+#Transpose data
+datExprA1g1=as.data.frame(t(datExprA1g))
+names(datExprA1g1)=rownames(datExprA1g)
+rownames(datExprA1g1)=names(datExprA1g)
+DT::datatable(datExprA1g1[1:7,1:7])
+```
+
+```{r}
+#Calculate variance
+var = apply(datExprA1g1, 2, var)
+dat = rbind(datExprA1g1,var)
+rownames(dat) = c(rownames(datExprA1g1), "variance")
+#order columns by variance
+dat1 = dat[,order(dat["variance",], decreasing=T)]
+```
+
+```{r}
+#Remove row containing variance values
+#Here we select all genes
+dat2 = dat1[1:dim(datExprA1g1)[1],1:dim(datExprA1g1)[2]]
+#To select only a given number of top genes like top7000 uncomment line below
+#dat2 = dat1[1:dim(datExprA1g1)[1],1:7000]
+
+datExprA1g2=as.data.frame(t(dat2))
+names(datExprA1g2)=rownames(dat2)
+rownames(datExprA1g2)=names(dat2)
+```
+
+```{r}
+#remove unused variables
+rm(var)
+
+rm(dat1)
+```
+
+```{r}
+#Comparison of data A1 after variance based selction
+dim(datExprA1g)
+DT::datatable(datExprA1g[1:7,1:7])
+
+dim(datExprA1g2)
+DT::datatable(datExprA1g2[1:7,1:7])
+```
+
+################################################here onwards will use datExprA1g2#############################################
+
+###Step22: Pick soft power and detect modules in data A1###
+```{r}
+#softPower estimate after 'goodSamplesgoodGenes' and variance based selection
+#Pick power for the data A1
+powers = c(c(1:10), seq(from = 12, to=40, by=2))
+sftA1 = pickSoftThreshold(datExprA1g2, RsquaredCut=0.80, powerVector = powers, networkType="signed", moreNetworkConcepts=TRUE, verbose = 5, blockSize=5000)
+
+par(mfrow = c(1,2));
+cex1 = 0.9;
+#scale-free topology fit index as function of soft-thresholding power
+plot(sftA1$fitIndices[,1], -sign(sftA1$fitIndices[,3])*sftA1$fitIndices[,2],
+xlab="Soft Threshold (power)",ylab="Scale Free Topology Model Fit,signed R^2",type="n",
+main = paste("Scale independence"));
+text(sftA1$fitIndices[,1], -sign(sftA1$fitIndices[,3])*sftA1$fitIndices[,2],
+labels=powers,cex=cex1,col="red");
+#this line corresponds to using R^2 cut-off of h
+abline(h=0.90,col="red")
+# Mean connectivity as a function of the soft-thresholding power
+plot(sftA1$fitIndices[,1], sftA1$fitIndices[,5],
+xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
+main = paste("Mean connectivity"))
+text(sftA1$fitIndices[,1], sftA1$fitIndices[,5], labels=powers, cex=cex1,col="red")
+dev.print(pdf, "A1_auto-power_plot.pdf",height=10,width=18)
+#sftA1$powerEstimate is systems best guess
+softPowerA1=sftA1$powerEstimate
+softPowerA1
+```
+
+```{r}
+#set soft power to value 12 for signed networks if above automatic detection detects low power.
+softPowerA1=12
+
+```
+
+```{r}
+#Calculate weighted adjacency
+adjacencyA1 = adjacency(t(datExprA1g2),power=softPowerA1,type="signed");
+diag(adjacencyA1)=0
+#Turn adjacency into topology overlap matrix
+TOM=TOMsimilarity(adjacencyA1, TOMType="signed")
+dissTOMA1 = 1-TOM
+#Hierarchial clustering based on TOM
+geneTreeA1 = flashClust(as.dist(dissTOMA1), method="average")
+```
+
+```{r}
+#Display the networks visually:
+#pdf("dendrogram.pdf",height=6,width=16)
+#par(mar=c(1,1,1,1))
+#par(mfrow=c(1,2))
+plot(geneTreeA1,xlab="",sub="",main="Gene clustering on TOM-based dissimilarity (A1)",
+labels=FALSE,hang=0.04);
+#dev.off() 
+dev.print(pdf,file="dendrogram.pdf",height=5,width=10)
+```
+
+```{r}
+#Modules for dataset A1 or modulesA1
+mColorh=NULL
+mColorhL=NULL
+for (ds in 0:3){
+tree = cutreeHybrid(dendro = geneTreeA1, pamStage=TRUE,
+minClusterSize = (30-3*ds), cutHeight = 0.99,
+deepSplit = ds, distM = dissTOMA1)
+mColorh=cbind(mColorh,labels2colors(tree$labels));
+mColorhL=cbind(mColorhL, paste("HuAgeDis_", str_pad(tree$labels, 2, pad="0"), sep="" ))
+}
+#pdf("Module_choices.pdf", height=10,width=25);
+plotDendroAndColors(geneTreeA1, mColorh, paste("dpSplt =",0:3), main = "",dendroLabels=FALSE);
+#dev.off()
+dev.print(pdf,file="Module_choices.pdf", height=5,width=10)
+```
+
+```{r}
+#Picked deepSplit or dpSplit 2 which gives small number of large modules
+modulesA1 = mColorh[,3] #color labels of modules
+modulesA1L= mColorhL[,3] #numeric label of modules
+#number of genes per module
+```
+
+```{r}
+#Principal component for visualization
+PCs1A = moduleEigengenes(t(datExprA1g2), colors=modulesA1)
+ME_1A = PCs1A$eigengenes
+distPC1A = 1-abs(cor(ME_1A,use="p"))
+distPC1A = ifelse(is.na(distPC1A), 0, distPC1A)
+pcTree1A = hclust(as.dist(distPC1A),method="a")
+MDS_1A = cmdscale(as.dist(distPC1A),2)
+colorsA1 = names(table(modulesA1))
+
+par(mfrow=c(1,1), mar=c(0, 3, 1, 1) + 0.1, cex=1)
+plot(pcTree1A, xlab="",ylab="",main="",sub="")
+dev.print(pdf,file="ModuleEigengeneVisualizationsTree.pdf",height=5,width=10)
+par(mfrow=c(1,1), mar=c(0, 3, 1, 1) + 0.1, cex=1)
+plot(MDS_1A, col= colorsA1, main="MDS plot", cex=2, pch=19)
+dev.print(pdf,file="ModuleEigengeneVisualizationsMDS.pdf",height=5,width=5)
+```
+
+```{r}
+PCs1AL = moduleEigengenes(t(datExprA1g2), colors=modulesA1L)
+ME_1AL = PCs1AL$eigengenes
+distPC1AL = 1-abs(cor(ME_1AL,use="p"))
+distPC1AL = ifelse(is.na(distPC1AL), 0, distPC1AL)
+pcTree1AL = hclust(as.dist(distPC1AL),method="a")
+MDS_1AL = cmdscale(as.dist(distPC1AL),2)
+colorsA1L = names(table(modulesA1L))
+
+par(mfrow=c(1,1), mar=c(0, 3, 1, 1) + 0.1, cex=1)
+plot(pcTree1AL, xlab="",ylab="",main="",sub="")
+dev.print(pdf,file="ModuleEigengeneVisualizationsTreelabels.pdf",height=5,width=10)
+par(mfrow=c(1,1), mar=c(0, 3, 1, 1) + 0.1, cex=1)
+#plot(MDS_1AL, col= colorsA1L, main="MDS plot", cex=2, pch=19)
+#dev.print(pdf,file="ModuleEigengeneVisualizationsMDSlabels.pdf",height=5,width=5)
+```
+
+###Step23A: Module membership (kME) for network comparison and identification of hub genes###
+```{r}
+#kME to measure of correlations between each gene and each ME
+#for data A1
+geneModuleMembership1 = signedKME(t(datExprA1g2), ME_1A)
+colnames(geneModuleMembership1)=paste("PC",colorsA1,".cor",sep="");
+MMPvalue1=corPvalueStudent(as.matrix(geneModuleMembership1),dim(datExprA1g2)[[2]]);
+colnames(MMPvalue1)=paste("PC",colorsA1,".pval",sep="");
+Gene = rownames(datExprA1g2)
+kMEtable1 = cbind(Gene,Gene,modulesA1)
+for (i in 1:length(colorsA1))
+kMEtable1 = cbind(kMEtable1, geneModuleMembership1[,i], MMPvalue1[,i])
+colnames(kMEtable1)=c("PSID","Gene","Module",sort(c(colnames(geneModuleMembership1),
+colnames(MMPvalue1))))
+write.csv(kMEtable1,"kMEtable1colors.csv")
+```
+
+```{r}
+#Hub genes are genes that show significant correlation with MEs and high within-module connectivity 
+#kME values are used to compare data A1 to determine which genes have extremely high kME values in networks
+#and are thus genes are hubs in both networks 
+#ref: modified from https://support.bioconductor.org/p/94701/
+topGenesKME = NULL
+for (c in 1:length(colorsA1)){
+kMErank1 = rank(-geneModuleMembership1[,c])
+#maxKMErank = rank(apply(cbind(kMErank1,kMErank2+.00001),1,max))
+#topGenesKME = cbind(topGenesKME,Gene[maxKMErank<=10])
+topGenesKME = cbind(topGenesKME,Gene[order(kMErank1, decreasing=FALSE)][1:10])
+}
+colnames(topGenesKME) = colorsA1
+topGenesKME
+write.csv(topGenesKME,"A1_HubGenestopGenesKMEcolorsRankSorted.csv")
+#These genes or probes represent the top 10 hub genes for modules in data A1 networks.
+```
+
+```{r}
+#Hub genes are genes that show significant correlation with MEs and high within-module connectivity 
+#kME values are used to compare data A1 to determine which genes have extremely high kME values in networks
+#and are thus genes are hubs in both networks 
+topGenesKME = NULL
+for (c in 1:length(colorsA1)){
+kMErank1 = rank(-geneModuleMembership1[,c])
+maxKMErank = rank(apply(cbind(kMErank1),1,max))
+#maxKMErank = rank(apply(cbind(kMErank1,kMErank2+.00001),1,max))
+topGenesKME = cbind(topGenesKME,Gene[maxKMErank<=10])
+}
+colnames(topGenesKME) = colorsA1
+topGenesKME
+write.csv(topGenesKME,"A1_HubGenestopGenesKMEcolorsRankUnsorted.csv")
+#These genes or probes represent the top 10 hub genes for modules in data A1 networks.
+```
+
+#Same as above for labeled modules
+```{r}
+#kME to measure of correlations between each gene and each ME
+#for data A1
+geneModuleMembership1L = signedKME(t(datExprA1g2), ME_1AL)
+colnames(geneModuleMembership1L)=paste("PC",colorsA1L,".cor",sep="");
+MMPvalue1L=corPvalueStudent(as.matrix(geneModuleMembership1L),dim(datExprA1g2)[[2]]);
+colnames(MMPvalue1L)=paste("PC",colorsA1L,".pval",sep="");
+GeneL = rownames(datExprA1g2)
+kMEtable1L = cbind(GeneL,GeneL,modulesA1L)
+for (i in 1:length(colorsA1L))
+kMEtable1L = cbind(kMEtable1L, geneModuleMembership1L[,i], MMPvalue1L[,i])
+colnames(kMEtable1L)=c("PSID","Gene","Module",sort(c(colnames(geneModuleMembership1L),
+colnames(MMPvalue1L))))
+write.csv(kMEtable1L,"kMEtable1labels.csv")
+```
+
+```{r}
+#Hub genes are genes that show significant correlation with MEs and high within-module connectivity 
+#kME values are used to compare data A1 to determine which genes have extremely high kME values in networks
+#and are thus genes are hubs in both networks 
+#ref: modified from https://support.bioconductor.org/p/94701/
+topGenesKMEL = NULL
+for (c in 1:length(colorsA1L)){
+kMErank1L = rank(-geneModuleMembership1L[,c])
+#maxKMErank = rank(apply(cbind(kMErank1,kMErank2+.00001),1,max))
+#topGenesKMEL = cbind(topGenesKMEL,GeneL[maxKMErankL<=10])
+topGenesKMEL = cbind(topGenesKMEL,GeneL[order(kMErank1L, decreasing=FALSE)][1:10])
+}
+colnames(topGenesKMEL) = colorsA1L
+topGenesKMEL
+write.csv(topGenesKMEL,"A1_HubGenestopGenesKMElabelsRankSorted.csv")
+#These genes or probes represent the top 10 hub genes for modules in data A1 networks.
+```
+
+```{r}
+#Hub genes are genes that show significant correlation with MEs and high within-module connectivity 
+#kME values are used to compare data A1 to determine which genes have extremely high kME values in networks
+#and are thus genes are hubs in both networks 
+topGenesKMEL = NULL
+for (c in 1:length(colorsA1L)){
+kMErank1L = rank(-geneModuleMembership1L[,c])
+maxKMErankL = rank(apply(cbind(kMErank1L),1,max))
+#maxKMErank = rank(apply(cbind(kMErank1,kMErank2+.00001),1,max))
+topGenesKMEL = cbind(topGenesKMEL,GeneL[maxKMErankL<=10])
+}
+colnames(topGenesKMEL) = colorsA1L
+topGenesKMEL
+write.csv(topGenesKMEL,"A1_HubGenestopGenesKMElabelsRankUnsorted.csv")
+#These genes or probes represent the top 10 hub genes for modules in data A1 networks.
+```
+
+###Step23B: Intramodular connectivity (kIM or kWithin) and whole network connectivity (kTotal) for network comparison###
+```{r}
+#Ref: WGCNA tutorial Steve Horvath Peter Langfelder 2011
+#intramodular connectivity is mathematically the sum of module edge weights or "degree" of connectivity between a given node or gene and other genes or nodes within the module. 
+#For colors
+IntraModularConnectivity1=intramodularConnectivity(adjacencyA1,modulesA1)
+```
+
+```{r}
+#We get the color labels for the genes 
+GeneModule1=kMEtable1[,c("PSID","Gene","Module")]
+rownames(GeneModule1)=rownames(kMEtable1)
+```
+
+```{r}
+#merge the intramodular connectivity dataframe with module names by rownames that are gene symbols
+IntraModularConnectivity2=merge(GeneModule1,IntraModularConnectivity1, by="row.names")
+#drop the extra row.name column
+IntraModularConnectivity3=IntraModularConnectivity2[,-c(1)]
+DT::datatable(head(IntraModularConnectivity3))
+```
+
+```{r}
+#export kWithin and kTotal for all genes 
+write.csv(IntraModularConnectivity1,"kWithintable1colors.csv")
+```
+
+#Same as above for labeled modules
+```{r}
+#Ref: WGCNA tutorial Steve Horvath Peter Langfelder 2011
+#intramodular connectivity is mathematically the sum of module edge weights or "degree" of connectivity between a given node or gene and other genes or nodes within the module. 
+#For colors
+IntraModularConnectivity1L=intramodularConnectivity(adjacencyA1,modulesA1L)
+```
+
+```{r}
+#We get the number labels for the genes 
+GeneModule1L=kMEtable1L[,c("PSID","Gene","Module")]
+rownames(GeneModule1L)=rownames(kMEtable1L)
+```
+
+```{r}
+#merge the intramodular connectivity dataframe with module names by rownames that are gene symbols
+IntraModularConnectivity2L=merge(GeneModule1L,IntraModularConnectivity1L, by="row.names")
+#drop the extra row.name colums
+IntraModularConnectivity3L=IntraModularConnectivity2L[,-c(1)]
+DT::datatable(head(IntraModularConnectivity3L))
+```
+
+```{r}
+#export kWithin and kTotal for all genes 
+write.csv(IntraModularConnectivity1L,"kWithintable1labels.csv")
+```
+
+###Step24: Generating files for doing GO, KEEG and Reactome annotation of genes in a given module###
+```{r}
+#Make a folder first called 'Module_GeneskMEHubs' change full path below as per your system
+dir.create("./Module_GeneskMEHubs")
+folder = "Module_GeneskMEHubs/"
+for (c in colorsA1){
+fn = paste(folder, c, ".txt",sep="");
+write.geneList(Gene[modulesA1==c], fn)
+};
+write(Gene,paste(folder,"all.txt",sep=""))
+#The folder should now have files titled "<color>.txt" that contain the gene names of every gene in that module,as well as a file titled "all.txt" that has every gene in your data set.
+```
+
+```{r}
+#make a summary file of all the genes in modules, similar to kME files but with only genes and module names as above
+geneListsModuleSummary=cbind(Gene,modulesA1)
+write.csv(geneListsModuleSummary,"geneListsModuleSummarycolors.csv")
+```
+
+#Same as above for labeled modules
+```{r}
+#Make a folder first called 'Module_GeneskMEHubs' change full path below as per your system
+folder = "Module_GeneskMEHubs/"
+for (c in colorsA1L){
+fn = paste(folder, c, ".txt",sep="");
+write.geneList(GeneL[modulesA1L==c], fn)
+};
+write(GeneL,paste(folder,"allL.txt",sep=""))
+#The folder should now have files titled "<color>.txt" that contain the gene names of every gene in that module,as well as a file titled "all.txt" that has every gene in your data set.
+```
+
+```{r}
+#make a summary file of all the genes in modules, similar to kME files but with only genes and module names as above
+geneListsModuleSummaryL=cbind(GeneL,modulesA1L)
+write.csv(geneListsModuleSummaryL,"geneListsModuleSummarylabels.csv")
+```
+
+###Step25: Visualization of trait module relatonships for data A1###
+#In this step we use the coded metadata files
+
+#Relating modules to physiological traits for A1
+```{r}
+# For data A1
+# Define numbers of genes and samples
+nGenesA1 = nrow(datExprA1g2)
+nSamplesA1 = ncol(datExprA1g2)
+# Recalculate MEs with color labels
+MEs0A1= moduleEigengenes(t(datExprA1g2),modulesA1)$eigengenes
+MEsA1= orderMEs(MEs0A1)
+modTraitCorA1 = cor(MEsA1, metadataA1g_coded, use = "p")
+modTraitPA1 = corPvalueStudent(modTraitCorA1, nSamplesA1)
+textMatrixA1 = paste(signif(modTraitCorA1, 2), "\n(",
+signif(modTraitPA1, 1), ")", sep = "")
+dim(textMatrixA1) = dim(modTraitCorA1)
+par(mar = c(6, 8.5, 3, 3))
+# Display the correlation values within a heatmap plot
+labeledHeatmap(Matrix = modTraitCorA1, xLabels = names(metadataA1g_coded),
+yLabels = names(MEsA1), ySymbols = names(MEsA1), 
+colorLabels =FALSE,colors=greenWhiteRed(50),textMatrix=textMatrixA1,
+setStdMargins = FALSE, cex.text = 0.5, zlim = c(-1,1),
+main = paste("A1_Module-trait relationships colors"))
+dev.print(pdf,"A1_relating modules to trait colors.pdf", width=5, height=5)
+
+#This is for color module trait table
+colnames(modTraitPA1) = paste("p.value.", colnames(modTraitCorA1), sep="");
+out3<-cbind(Module=rownames(modTraitCorA1), modTraitCorA1, modTraitPA1)
+dim(out3)
+write.table(out3, "A1_relating modules to trait colors.csv", sep=",",row.names=F)
+```
+
+#Same as above for labeled modules
+#Relating modules to physiological traits for A1
+```{r}
+# For data A1
+# Define numbers of genes and samples
+nGenesA1L = nrow(datExprA1g2)
+nSamplesA1L = ncol(datExprA1g2)
+# Recalculate MEs with color labels
+MEs0A1L= moduleEigengenes(t(datExprA1g2),modulesA1L)$eigengenes
+MEsA1L= orderMEs(MEs0A1L)
+modTraitCorA1L = cor(MEsA1L, metadataA1g_coded, use = "p")
+modTraitPA1L = corPvalueStudent(modTraitCorA1L, nSamplesA1L)
+textMatrixA1L = paste(signif(modTraitCorA1L, 2), "\n(",
+signif(modTraitPA1L, 1), ")", sep = "")
+dim(textMatrixA1L) = dim(modTraitCorA1L)
+par(mar = c(6, 8.5, 3, 3))
+# Display the correlation values within a heatmap plot
+labeledHeatmap(Matrix = modTraitCorA1L, xLabels = names(metadataA1g_coded),
+yLabels = names(MEsA1L), ySymbols = names(MEsA1L), 
+colorLabels =FALSE,colors=greenWhiteRed(50),textMatrix=textMatrixA1L,
+setStdMargins = FALSE, cex.text = 0.5, zlim = c(-1,1),
+main = paste("A1_Module-trait relationships labels"))
+dev.print(pdf,"A1_relating modules to trait labels.pdf", width=5, height=5)
+
+#This is for label module trait table
+colnames(modTraitPA1L) = paste("p.value.", colnames(modTraitCorA1L), sep="");
+out3L<-cbind(Module=rownames(modTraitCorA1L), modTraitCorA1L, modTraitPA1L)
+dim(out3L)
+write.table(out3L, "A1_relating modules to trait labels.csv", sep=",",row.names=F)
+```
+
+```{r}
+save.image(file="temp.RData")
+rm(list=ls())
+gc()
+#To reload uncomment code below
+#load(file="temp.RData")
+```
+
+###Step26: Additional step for conversion of gene symbols mouse to Human gene symbols
+
+```{r}
+load(file="temp.RData")
+```
+
+```{r}
+library(Rcpp)
+library(stringi)
+library(biomaRt)
+#The useMart() function can now be used to connect to a specified BioMart database, this must be a valid name given by listMarts(). In the next example we choose to query the Ensembl BioMart database.
+listMarts()
+```
+
+```{r}
+ensembl=useMart("ensembl")
+listDatasets(ensembl)
+```
+
+```{r}
+CellType=read.csv('./InputHuAgeDis/CellType_GSE52564_FCover20_Signature.csv', header=T, sep=',')
+```
+
+```{r}
+CellType=CellType[!duplicated(CellType$Gene_mouse),]
+rownames(CellType)=CellType$Gene_mouse
+```
+
+```{r}
+mouse = useMart('ENSEMBL_MART_ENSEMBL', dataset = 'mmusculus_gene_ensembl')
+Human = useMart('ENSEMBL_MART_ENSEMBL', dataset = 'hsapiens_gene_ensembl')
+myMap = getLDS(attributes = "mgi_symbol", filters = 'mgi_symbol',
+    values = CellType$Gene_mouse, mart = mouse, 
+    attributesL = c("hgnc_symbol"), martL = Human)
+```
+
+```{r}
+#Some genes will be duplicates (HLA), so let's make them unique.
+myMap=myMap[!duplicated(myMap$HGNC.symbol), ]
+#unique(myMap$HGNC.symbol)
+```
+
+```{r}
+myMap_new<-myMap
+names(myMap_new) <- c("Gene_mouse", "HuGene")
+DT::datatable(head(myMap_new))
+```
+
+```{r}
+CellType_Hu=merge(CellType,myMap_new,by='Gene_mouse')
+colnames(CellType_Hu)[colnames(CellType_Hu)=="Gene_mouse"] <- "MsGene"
+CellType_Hu=CellType_Hu[c("HuGene","CellType_Vs_Others","MsGene")]
+CellType_Hu=CellType_Hu[!duplicated(CellType_Hu$HuGene), ]
+rownames(CellType_Hu)=CellType_Hu$HuGene
+CellType_Hu=CellType_Hu[,-1]
+```
+
+```{r}
+write.csv(CellType_Hu,"CellType_GSE52564_FCover20_Signature_Hu.csv")
+```
+
+```{r}
+celltype=read.csv("CellType_GSE52564_FCover20_Signature_Hu.csv",sep=',')
+cellTypeGeneCount=as.data.frame(table(celltype$CellType_Vs_Others))
+cellTypeGeneCount
+write.csv(cellTypeGeneCount,"CellType_GSE52564_FCover20_Signature_Hu_GeneCount.csv")
+```
+
+###Step27: Enrichment test for comparison with Cuffdiff2 defined cell type signature genes from microglia, neuron, astrocyte, (precursor, new, mature)oligodendrocyte, endothelial cells###
+```{r}
+#This is the actual calulation of hypergeometric enrichment
+enrichmentsCellType = userListEnrichment(rownames(datExprA1g2), modulesA1,"CellType_GSE52564_FCover20_Signature_Hu.csv", "", "enrichmentsCellType_Sigificantcolors.csv")
+```
+
+#Saving results
+```{r}
+#List of genes that overlap between modules and cell type
+enrichmentsCellType_OvGenes=enrichmentsCellType[[2]]
+dir.create("./enrichmentsCellType_OvGenes")
+for (i in 1:length(enrichmentsCellType_OvGenes)) {
+  write.csv(enrichmentsCellType_OvGenes[i], file=paste0("enrichmentsCellType_OvGenes/", names(enrichmentsCellType_OvGenes)[i], ".txt"))
+}
+
+#List of genes that overlap between modules and cell type
+enrichmentsCellType_NumOvGenes_pvalue=enrichmentsCellType[[1]]
+write.csv(enrichmentsCellType_NumOvGenes_pvalue,"enrichments_NumOvGenes_pvalue_colors.csv")
+```
+
+```{r}
+geneListsModuleSummary=read.csv('geneListsModuleSummarycolors.csv', sep=',')
+enrichmentsSummary=read.csv('enrichments_NumOvGenes_pvalue_colors.csv', sep=',')
+```
+
+```{r}
+geneListsModuleSummaryMod=table(geneListsModuleSummary$modulesA1)
+geneListsModuleSummaryMod=as.data.frame(geneListsModuleSummaryMod)
+write.csv(geneListsModuleSummaryMod, "geneListsModuleSummarycolors_GeneCount.csv")
+
+colnames(geneListsModuleSummaryMod)=c("InputCategories", "Freq")
+geneListsModuleSummaryMod
+enrichmentsSummarymergeMod=merge(enrichmentsSummary,geneListsModuleSummaryMod, by="InputCategories")
+write.csv(enrichmentsSummarymergeMod,"enrichments_SummarymergeMod_colors.csv")
+```
+
+#Same as above for labeled modules
+```{r}
+enrichmentsCellTypeL = userListEnrichment(rownames(datExprA1g2), modulesA1L,"CellType_GSE52564_FCover20_Signature_Hu.csv", "", "enrichmentsCellType_Sigificantlabels.csv")
+
+enrichmentsCellType_OvGenesL=enrichmentsCellTypeL[[2]]
+for (i in 1:length(enrichmentsCellType_OvGenesL)) {
+  write.csv(enrichmentsCellType_OvGenesL[i], file=paste0("enrichmentsCellType_OvGenes/", names(enrichmentsCellType_OvGenesL)[i], ".txt"))
+}
+
+enrichmentsCellType_NumOvGenes_pvalueL=enrichmentsCellTypeL[[1]]
+write.csv(enrichmentsCellType_NumOvGenes_pvalueL,"enrichments_NumOvGenes_pvalue_labels.csv")
+```
+
+```{r}
+geneListsModuleSummaryL=read.csv('geneListsModuleSummarylabels.csv', sep=',')
+enrichmentsSummaryL=read.csv('enrichments_NumOvGenes_pvalue_labels.csv', sep=',')
+```
+
+```{r}
+geneListsModuleSummaryModL=table(geneListsModuleSummaryL$modulesA1L)
+geneListsModuleSummaryModL=as.data.frame(geneListsModuleSummaryModL)
+write.csv(geneListsModuleSummaryModL, "geneListsModuleSummarylabels_GeneCount.csv")
+
+colnames(geneListsModuleSummaryModL)=c("InputCategories", "Freq")
+enrichmentsSummarymergeModL=merge(enrichmentsSummaryL,geneListsModuleSummaryModL, by="InputCategories")
+write.csv(enrichmentsSummarymergeModL,"enrichments_SummarymergeMod_labels.csv")
+```
+
+###Step 28: Cross-pipeline preservation and hypergeometric test: Qualitatively and quantitatively measure cross-species, cross-pipeline and/or any cross-dataset network preservation at the module level###
+#Will export the files for preservation analysis and hypergeometric test 
+```{r}
+#Export expression file
+write.csv(datExprA1g2,"ForPres&Hyper_HuAgeDis_datExprA1g2.csv")
+#Export the module and gene names for use Preservation and hypergeometric test 
+write.csv(kMEtable1[,c("PSID","Gene","Module")],"ForPres&Hyper_HuAgeDis_GeneModule.csv")
+write.csv(kMEtable1L[,c("PSID","Gene","Module")],"ForPres&Hyper_HuAgeDis_GeneModuleL.csv")
+```
+
+########################################below select black module which has microglia genes###################################################################
+
+###Step29: Annotation of module enriched with microglia signature genes###
+#Select enrichR databases
+```{r}
+dbs <- listEnrichrDbs()
+dbs
+```
+
+```{r}
+#select pathway databases of choice from above
+dbs_select<-c("GO_Biological_Process_2018", "KEGG_2016", "Reactome_2016")
+```
+
+#Select color module of interest
+```{r}
+SelectGeneListA1=read.csv('geneListsModuleSummarycolors.csv',header=T, sep=',')
+SelectGeneListA1=SelectGeneListA1$Gene[modulesA1=='black']
+```
+
+```{r}
+#compare for enrichment with our Genes
+enriched <- enrichr(SelectGeneListA1, dbs_select)
+```
+
+```{r}
+#GO Biological Process results
+SelectGeneListA1_GOBiologicalProcess<-as.data.frame(enriched[["GO_Biological_Process_2018"]])
+write.csv(SelectGeneListA1_GOBiologicalProcess,file="SelectGeneListA1_GOBiologicalProcess_black.csv")
+```
+
+```{r}
+GOBiologicalProcessData<-SelectGeneListA1_GOBiologicalProcess[order(-SelectGeneListA1_GOBiologicalProcess$Combined.Score),]
+GOBiologicalProcessData<-GOBiologicalProcessData[1:10,]
+```
+
+```{r}
+ggplot(data=GOBiologicalProcessData, aes(x=Term, y=-log10(Adjusted.P.value), fill=Combined.Score))+
+  geom_bar(position="stack", stat="identity")+
+  labs(title="GOBiologicalProcess Comparison")+
+  #theme(axis.text.x=element_text(angle=90,hjust=1)) +
+  coord_flip()+
+labs(y="-log10(Adjusted.P.value)")+
+  scale_fill_gradient(low="grey",high="black")
+dev.print(pdf,"SelectGeneListA1_GOBiologicalProcessTop10plot_black.pdf", width=15, height=5)
+```
+
+```{r}
+#KEEG pathway results
+SelectGeneListA1_KEEGpathway<-as.data.frame(enriched[["KEGG_2016"]])
+write.csv(SelectGeneListA1_KEEGpathway,file="SelectGeneListA1_KEEGpathway_black.csv")
+```
+
+```{r}
+KEEGpathwayData<-SelectGeneListA1_KEEGpathway[order(-SelectGeneListA1_KEEGpathway$Combined.Score),]
+KEEGpathwayData<-KEEGpathwayData[1:10,]
+```
+
+```{r}
+ggplot(data=KEEGpathwayData, aes(x=Term, y=-log10(Adjusted.P.value), fill=Combined.Score))+
+  geom_bar(position="stack", stat="identity")+
+  labs(title="KEEGpathway Comparison")+
+  #theme(axis.text.x=element_text(angle=90,hjust=1)) +
+  coord_flip()+
+  labs(y="-log10(Adjusted.P.value)")+
+  scale_fill_gradient(low="grey",high="black")
+dev.print(pdf,"SelectGeneListA1_KEEGpathwayTop10plot_black.pdf", width=10, height=5)
+```
+
+```{r}
+#Reactome pathway results
+SelectGeneListA1_Reactome<-as.data.frame(enriched[["Reactome_2016"]])
+write.csv(SelectGeneListA1_Reactome,"SelectGeneListA1_Reactome_black.csv")
+```
+
+```{r}
+ReactomeData<-SelectGeneListA1_Reactome[order(-SelectGeneListA1_Reactome$Combined.Score),]
+ReactomeData<-ReactomeData[1:10,]
+```
+
+```{r}
+ggplot(data=ReactomeData, aes(x=Term, y=-log10(Adjusted.P.value), fill=Combined.Score))+
+  geom_bar(position="stack", stat="identity")+
+  labs(title="Reactome Comparison")+
+  #theme(axis.text.x=element_text(angle=90,hjust=1)) +
+  coord_flip()+
+  labs(y="-log10(Adjusted.P.value)")+
+  scale_fill_gradient(low="grey",high="black")
+dev.print(pdf,"SelectGeneListA1_ReactomeTop10plot_black.pdf", width=10, height=5)
+```
+
+#########################################hub genes from black module which is aging and disease associated ahd has microglia genes###################################################################
+###Step30: Aging association and plot of 'microglia' genes enriched in 'black' module in aging data A1###
+```{r}
+#Microglia genes in black module are stored in a variable for plotting. This can be replace with any choice of genes present in a given module.  
+black_Microglia_hubgenes=c("TBXAS1","PTPRC","TYROBP","ITGB2","MYO1F","CYBA","LST1","SLC7A7","RNASET2","FCER1G")
+summary(black_Microglia_hubgenes)
+```
+
+```{r}
+#view metadata and expression data A1
+DT::datatable(metadataA1g_coded)
+DT::datatable(datExprA1g2)
+```
+
+```{r}
+#storing variable
+Age=metadataA1g_coded$Age
+head(Age)
+```
+
+```{r}
+#corelation test with variable on expression and modules
+var = Age
+datAge = t(apply(datExprA1g2,1,cor.test.l))
+
+var = Age
+datAgeM = t(apply(t(ME_1A),1,cor.test.l))
+
+#Find the Age-related expression in data A1
+colnames(datAge)=c("CorrAge","PvalAge")
+dim(datAge[datAge[,2]<0.01,])
+DT::datatable(datAge[datAge[,2]<0.01,])
+write.csv(datAge[datAge[,2]<0.01,],"A1_datAge_sig_trait_table_form.csv")
+
+#Find the Age-related modules in data A1
+#this is visually represented in the trait plot 'A1_relating modules to trait.pdf'
+colnames(datAgeM)=c("CorrAge","PvalAge")
+datAgeM[datAgeM[,2]<0.01,]
+write.csv(datAgeM[datAgeM[,2]<0.01,],"A1_datAgeM_sig_trait_table_form.csv")
+```
+
+```{r}
+#Export the correlation with Age and p-value 
+datAge_black_Microglia_hubgenes=datAge[black_Microglia_hubgenes,]
+DT::datatable(datAge_black_Microglia_hubgenes)
+write.csv(datAge_black_Microglia_hubgenes,"A1_datAge_black_Microglia_hubgenes.csv")
+```
+
+```{r}
+#Scatterplot of genes
+#If get error in kniting the Rmd then uncomment line below
+#par(mar=c(1,1,1,1))
+pdf(file="A1_Age_black_Microglia_hubgenes_Scatterplot.pdf", width=10, height=10)
+par(mfrow=c(2,2))
+for (i in black_Microglia_hubgenes[1:length(black_Microglia_hubgenes)]) {
+  verboseScatterplot(Age, as.numeric(datExprA1g2[i,]),main=i, las=2, abline=TRUE, xlab="Age", ylab="")
+}
+dev.off()
+```
+
+```{r}
+#Scatterplot of module
+verboseScatterplot(Age, as.numeric(ME_1A[,"MEblack"]), main="black ME expr. -", las=2, abline=TRUE, xlab="Age", ylab="")
+dev.print(pdf,"A1_Age_black_Scatterplot.pdf", width=5, height=5)
+```
+
+###Step31: Disease association and plot of 'microglia' hubgenes enriched in 'black' module in Disease data A1###
+#Coding of variables used is ND=2, and CON=1
+
+```{r}
+#view metadata and expression data A1
+DT::datatable(metadataA1g_coded)
+DT::datatable(datExprA1g2)
+```
+
+```{r}
+#storing variable
+Disease=metadataA1g_coded$Disease
+head(Disease)
+```
+
+```{r}
+#corelation test with variable on expression and modules
+var = Disease
+datDisease = t(apply(datExprA1g2,1,cor.test.l))
+
+var = Disease
+datDiseaseM = t(apply(t(ME_1A),1,cor.test.l))
+
+#Find the Disease-related expression in dataA1
+colnames(datDisease)=c("CorrDisease","PvalDisease")
+dim(datDisease[datDisease[,2]<0.01,])
+DT::datatable(datDisease[datDisease[,2]<0.01,])
+write.csv(datDisease[datDisease[,2]<0.01,],"A1_datDisease_sig_trait_table_form.csv")
+
+#Find the Disease-related modules in dataA1
+#this is visually represented in the trait plot 'A1_relating modules to trait.pdf'
+colnames(datDiseaseM)=c("CorrDisease","PvalDisease")
+datDiseaseM[datDiseaseM[,2]<0.01,]
+write.csv(datDiseaseM[datDiseaseM[,2]<0.01,],"A1_datDiseaseM_sig_trait_table_form.csv")
+```
+
+```{r}
+#Export the correlation with Disease and p-value 
+datDisease_black_Microglia_hubgenes=datDisease[black_Microglia_hubgenes,]
+DT::datatable(datDisease_black_Microglia_hubgenes)
+write.csv(datDisease_black_Microglia_hubgenes,"A1_datDisease_black_Microglia_hubgenes.csv")
+```
+
+```{r}
+#Boxplot of genes
+#If get error in kniting the Rmd then uncomment line below
+#par(mar=c(1,1,1,1))
+pdf(file="A1_Disease_black-Microglia_Boxplot.pdf", width=10, height=10)
+par(mfrow=c(2,2))
+for (i in black_Microglia_hubgenes[1:length(black_Microglia_hubgenes)]) {
+  verboseBoxplot(as.numeric(datExprA1g2[i,]), Disease, main=i, las=2, pt.col = "black", pt.bg = "grey", notch=FALSE, xlab="Disease ND=2, and CON=1", ylab="")
+}
+dev.off()
+```
+
+```{r}
+#Boxplot of module
+verboseBoxplot(as.numeric(ME_1A[,"MEblack"]), Disease, main="black ME expr. -", las=2, pt.col = "black", pt.bg = "grey", notch=FALSE, xlab="Disease ND=2, and CON=1", ylab="")
+dev.print(pdf,"A1_Disease_black_Boxplot.pdf", width=5, height=5)
+```
+
+###Step32: Export network file for VisaNT and Cytoscape
+#Ref1: https://scholarscompass.vcu.edu/cgi/viewcontent.cgi?article=5500&context=etd
+#Ref2: https://www.stat.wisc.edu/~yandell/statgen/ucla/WGCNA/wgcna.html
+
+```{r}
+#Export using already generated TOM and power
+TOM = TOM
+
+#Select module
+sel_module= "black"
+
+#We have many diffent modules this function only keeps those modules that match with our selected module name  
+inModule = is.finite(colorsA1==sel_module)
+#Select only those genes that are in the selected module. In keeping with microarrya nomenclature modProbes is the default name of the genes in modules    for the WGCNA package. 
+probes = rownames(datExprA1g2)
+modProbes = probes[inModule]
+#modProbes = substring(modProbes,1,25)
+length(modProbes)
+#this number should match with the number of genes in the selected module name
+  
+#Select the corresponding Topological Overlap for the selected module i.e. only those genes are selected that belong to the selected module
+modTOM = TOM[inModule, inModule];
+dimnames(modTOM) = list(modProbes, modProbes)
+
+#Export the network into files for VisANT for the selected module. 
+vis = exportNetworkToVisANT(modTOM,file = paste("VisANTInput-", sel_module, "-blackUnsortedAllModGenes.txt", sep=""),weighted = TRUE, threshold = 0)
+vis[1:3,]
+
+#Connectivity or weights is a.k.a. kIM or kWithin 'kME hub genes' connection with other nodes or genes within module
+vis_kMEhubs1=vis[which(vis$from==black_Microglia_hubgenes),]
+
+vis_kMEhubs2=vis_kMEhubs1
+#optional select connections from hub genes, start at 0.01 if this gives too many connections to increase by 0.01 by uncomenting line below
+#vis_kMEhubs2=vis_kMEhubs1[which(vis_kMEhubs1$weight>0.01),] #
+
+vis_kMEhubs3=vis_kMEhubs2[order(-vis_kMEhubs2$weight),] #order by stronger to weaker connectivity
+
+#export output
+write.table(vis_kMEhubs3, paste0("VisANTInput-", sel_module, "--blackHubGenesOrdered.txt", sep=""),row.names=F, col.names=F, quote=F)
+```
+
+#Cytoscape Export
+```{r}
+#Export using already generated TOM and power
+TOM = TOM
+
+#Select module
+sel_module= "black"
+  
+#We have many diffent moduledynalicLabels this function only keeps those moduledynamicLabels that match with our selected module name  
+inModule = is.finite(colorsA1==sel_module)
+#Select only those genes that are in the selected module
+genes=rownames(datExprA1g2)
+modGenes=genes[inModule]
+length(modGenes)
+#this number should match with the number of genes in the selected module name
+  
+#Select the corresponding Topological Overlap for the selected module i.e. only those genes are selected that belong to the selected module
+modTOM = TOM[inModule, inModule]
+dimnames(modTOM) = list(modGenes, modGenes)
+  
+  
+#Export the network into edge and node list files for Cytoscape for the selected module and use as input for cytoscape
+#threshold start at 0.02 if this gives too many connections increase by 0.01 
+cyt = exportNetworkToCytoscape(modTOM,
+                               edgeFile=paste("CytoEdge",paste(sel_module,collapse="-"),"black.txt",sep=""),
+                               nodeFile=paste("CytoNode",paste(sel_module,collapse="-"),"black.txt",sep=""),
+                               weighted = TRUE, threshold = 0.02,nodeNames=modGenes,
+                               altNodeNames = modGenes, nodeAttr = colorsA1[sel_module])
+```
+
+###Step33: Summary of kME kWithin and number of connections for black module hub genes
+```{r}
+vis_kMEhubs4=as.data.frame(table(vis_kMEhubs3$from))
+colnames(vis_kMEhubs4)=c("Gene","NumberOfConnections")
+rownames(vis_kMEhubs4)=vis_kMEhubs4$Gene
+```
+
+```{r}
+#Create a summary file of kME, kWithin and intramodules connections
+merge1=merge(vis_kMEhubs4,IntraModularConnectivity1L, by="row.names")
+merge2=merge(merge1, kMEtable1, by="Gene")
+#drop extra row.names column
+merge3=merge2[,-c(2)]
+write.csv(merge3, "kWithinConnectionskME_blackHubs.csv")
+```
+
+```{r}
+sessionInfo()
+toLatex(sessionInfo())
+```
+
+```{r}
+#save image
+save.image(file="WGCNA_temp.RData")
+```
+
+```{r}
+#Organize of files
+library(filesstrings)
+
+dir.create("Plots")
+file.move(list.files(pattern = '*.pdf'), "Plots")
+
+dir.create("Module_Trait&CellType&GO")
+file.move(list.files(pattern = 'A1_dat*'), "Module_Trait&CellType&GO")
+file.move(list.files(pattern = 'A1_relating*'), "Module_Trait&CellType&GO")
+file.move(list.files(pattern = 'SelectGeneListA1*'), "Module_Trait&CellType&GO")
+file.move(list.files(pattern = 'geneListsModuleSummary*'), "Module_Trait&CellType&GO") 
+file.move(list.files(pattern = 'A1_datAge*'), "Module_Trait&CellType&GO")
+file.move(list.files(pattern = 'A1_datDisease*'), "Module_Trait&CellType&GO")
+
+file.move(list.files(pattern = "enrichments_Num*"), "enrichmentsCellType_OvGenes")
+file.move(list.files(pattern = "enrichments_Sum*"), "enrichmentsCellType_OvGenes")
+file.move(list.files(pattern = "enrichmentsCellType_Sig*"), "enrichmentsCellType_OvGenes")
+
+file.move(list.files(pattern = "A1_HubGenestop*"), "Module_GeneskMEHubs")
+file.move(list.files(pattern = "ForPres&Hyper*"), "Module_GeneskMEHubs")
+file.move(list.files(pattern = "kWithin*"), "Module_GeneskMEHubs")
+file.move(list.files(pattern = "kMEtable1*"), "Module_GeneskMEHubs")
+file.move(list.files(pattern = "kWithinConnectionskME*"), "Module_GeneskMEHubs")
+
+dir.create("SVA_LM_csv")
+file.move(list.files(pattern = "edata*"), "SVA_LM_csv")
+file.move(list.files(pattern = "top*"), "SVA_LM_csv")
+file.move(list.files(pattern = "summary_stats*"), "SVA_LM_csv")
+
+dir.create("VisANTCytoscape")
+file.move(list.files(pattern = "VisANTInput*"), "VisANTCytoscape")
+file.move(list.files(pattern = "CytoEdge*"), "VisANTCytoscape")
+file.move(list.files(pattern = "CytoNode*"), "VisANTCytoscape")
+
+#these input files are intermediate generated files and if not yet saved they are saved separately in a folder for storing original gene id conversions and annotation at the time of analysis
+dir.create("Intermediate")
+file.move(list.files(pattern = "merge_GSE33000_GSE43490*"), "Intermediate")
+file.move(list.files(pattern = "GSE33000*"), "Intermediate")
+file.move(list.files(pattern = "GSE43490*"), "Intermediate")
+file.move(list.files(pattern = "GPL*"), "Intermediate")
+file.move(list.files(pattern='CellType_GSE52564_FCover20_Signature_Hu_GeneCount.csv'), "Intermediate")
+file.move(list.files(pattern='CellType_GSE52564_FCover20_Signature_Hu.csv'), "Intermediate")
+```
+
+```{r}
+#Remove .RData and clear environment to free up memory
+rm(list=ls())
+file.remove("temp.RData")
+gc()
+```

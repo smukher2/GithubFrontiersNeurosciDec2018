@@ -1,0 +1,15 @@
+Run,Sample_name,Study,Astrocyte,neuron,oligodendrocyte_precursor_cells,newly_formed_oligodendrocytes,myelinating_oligodendrocytes,microglia,endothelial_cells,cell_type,tissue
+SRR1033783,astro_SRR1033783,GSE52564,astro,other,other,other,other,other,other,Astrocyte,cerebral cortex
+SRR1033784,astro_SRR1033784,GSE52564,astro,other,other,other,other,other,other,Astrocyte,cerebral cortex
+SRR1033785,neuron_SRR1033785,GSE52564,other,neuron,other,other,other,other,other,neuron,cerebral cortex
+SRR1033786,neuron_SRR1033786,GSE52564,other,neuron,other,other,other,other,other,neuron,cerebral cortex
+SRR1033787,preoligo_SRR1033787,GSE52564,other,other,preoligo,other,other,other,other,oligodendrocyte precursor cells,cerebral cortex
+SRR1033788,preoligo_SRR1033788,GSE52564,other,other,preoligo,other,other,other,other,oligodendrocyte precursor cells,cerebral cortex
+SRR1033789,newoligo_SRR1033789,GSE52564,other,other,other,newoligo,other,other,other,newly formed oligodendrocytes,cerebral cortex
+SRR1033790,newoligo_SRR1033790,GSE52564,other,other,other,newoligo,other,other,other,newly formed oligodendrocytes,cerebral cortex
+SRR1033791,myeoligo_SRR1033791,GSE52564,other,other,other,other,myeoligo,other,other,myelinating oligodendrocytes,cerebral cortex
+SRR1033792,myeoligo_SRR1033792,GSE52564,other,other,other,other,myeoligo,other,other,myelinating oligodendrocytes,cerebral cortex
+SRR1033793,microglia_SRR1033793,GSE52564,other,other,other,other,other,microglia,other,microglia,cerebral cortex
+SRR1033794,microglia_SRR1033794,GSE52564,other,other,other,other,other,microglia,other,microglia,cerebral cortex
+SRR1033795,endo_SRR1033795,GSE52564,other,other,other,other,other,other,endo,endothelial cells,cerebral cortex
+SRR1033796,endo_SRR1033796,GSE52564,other,other,other,other,other,other,endo,endothelial cells,cerebral cortex

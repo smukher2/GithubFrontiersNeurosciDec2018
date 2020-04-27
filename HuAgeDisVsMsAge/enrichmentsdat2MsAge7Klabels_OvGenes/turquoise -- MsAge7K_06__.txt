@@ -1,0 +1,6 @@
+"","turquoise....MsAge7K_06__"
+"1","KCNIP1"
+"2","LZTS1"
+"3","PRKCD"
+"4","SLC10A4"
+"5","TRPC3"

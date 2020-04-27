@@ -1,0 +1,3 @@
+"","magenta....NewOligoByothersCuffdiff2FCover20__"
+"1","BCAS1"
+"2","RTKN2"

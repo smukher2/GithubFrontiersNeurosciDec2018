@@ -1,0 +1,8 @@
+"","greenyellow....AstroByothersCuffdiff2FCover20__"
+"1","ANXA2"
+"2","FAM20A"
+"3","IGFBP2"
+"4","SLC13A3"
+"5","SNCAIP"
+"6","TNFAIP8"
+"7","VCAM1"

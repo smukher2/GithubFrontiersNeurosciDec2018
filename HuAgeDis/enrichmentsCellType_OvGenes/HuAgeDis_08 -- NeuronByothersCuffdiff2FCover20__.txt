@@ -1,0 +1,6 @@
+"","HuAgeDis_08....NeuronByothersCuffdiff2FCover20__"
+"1","DCTN1"
+"2","GRIN1"
+"3","MAPT"
+"4","RUSC1"
+"5","SYP"

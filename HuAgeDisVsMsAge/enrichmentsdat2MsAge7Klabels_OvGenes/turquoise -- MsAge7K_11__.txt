@@ -1,0 +1,7 @@
+"","turquoise....MsAge7K_11__"
+"1","ABCC8"
+"2","ABLIM3"
+"3","ADCY1"
+"4","PLEKHG5"
+"5","SERTAD4"
+"6","SLC26A10"

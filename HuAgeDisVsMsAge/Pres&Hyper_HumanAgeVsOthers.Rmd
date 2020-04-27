@@ -1,0 +1,316 @@
+---
+title: "Pres&Hyper_HumanAgeVsOthers"
+author: "Shradha Mukherjee"
+date: "Last updated November 24, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE,message=FALSE)
+```
+
+## R Markdown
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. 
+
+##Checklist for running this pipeline: 
+  #1)The input data for this pipeline, 
+dat1colors:'ForPres&Hyper_HuAgeDis_GeneModule.csv' and 'ForPres&Hyper_HuAgeDis_datExprA1g2.csv' from 'HumanAgeDis'
+
+dat2labels, results output 'MsAge7K':'ForPres&Hyper_MsAge7K_GeneModuleL.csv' and 'ForPres&Hyper_MsAge7K_datExprA1g2.csv' from 'HumanAgeDis'
+
+  #2) data 'dat1colors' is the data from which we input the colors or module definition of the preservation analysis
+
+  #3) To reuse this code for other datasets 
+  a) replace 1) and 2) input files above with equivalent files for the dataset
+  b) replace "HuAgeDis" and "MsAge7K" with appropriate names for the dataset 
+  c) in this pipeline human gene symbols are used
+
+###Step 1: Load libraries, working directory and Import data for WGCNA###
+###Focussing on data sets A1 and A2, and common genes between them###
+```{r}
+#save working directory location
+wd<-getwd()
+wd
+```
+
+```{r}
+#Load additional functions required for this pipeline
+#Reference: Miller, J.A., Horvath, S., and Geschwind, D.H. (2010). Divergence of Human and mouse brain transcriptome highlights Alzheimer disease pathways. Proceedings of the National Academy of Sciences of the United States of America 107, 12698-12703.
+
+write.geneList <- function(PG, filename, allProbes=0, allGenes=0, probe="g")
+{
+## These functions write a genelist / probelist to a file of geneNames
+
+## USER inputs
+# PG = the probe/gene you want written to a gene list
+# allProbes = the list of probe names for the above probes
+# allGenes = the list of gene names for the corresponding probes
+# filename = the filename (can include folder)
+# probe = the default ("g") says PG is a gene and doesn''t need to be converted
+#         to a gene.  Otherwise PG is assumed to be a probe and converted
+
+gene = PG
+if (probe!="g") {
+  gene = probe2Gene(PG,allProbes,allGenes)
+}
+write(gene,filename,sep="\n")
+
+}
+
+cor.test.l = function(x){
+## Performs a Pearson correlation on a vector of genes
+ ct = cor.test(x,var)
+ return(c(ct$est,ct$p.val))
+}
+```
+
+```{r}
+#library(BiocInstaller)
+#biocLite("qvalue")
+#install.packages(c("impute","dynamicTreeCut","flashClust","Hmisc","WGCNA","stringi","enrichR","DT","filesstrings"))
+library(impute)
+library(DT)
+library(dynamicTreeCut)
+library(qvalue)
+library(flashClust)
+library(Hmisc)
+library(WGCNA)
+library(stringi)
+library(stringr)
+library(filesstrings)
+library(enrichR)#for pathway analysis
+options(stringsAsFactors = FALSE)
+```
+
+###Step2: Preparation of data for preservation analysis dat1colors###
+#Import dat1colors for analysis
+```{r}
+#Obtain this listMod of choice from the WGCNA pipeline to which the dataset needs to be compared with
+dat1colors=read.csv('./InputPreservation/ForPres&Hyper_HuAgeDis_GeneModule.csv', sep=',')
+DT::datatable(dat1colors[1:3,])
+```
+
+```{r}
+# This module assignment colors. Check column name and label appropriately 
+#Assigning module dynamic labels does not work for preservation
+dat1colors = dat1colors$Module
+head(dat1colors)
+```
+
+```{r}
+# the following data frame contains the gene expression data: columns are genes, rows are arrays (samples)
+dat1Expr=read.csv('./InputPreservation/ForPres&Hyper_HuAgeDis_datExprA1g2.csv', sep=',')
+DT::datatable(dat1Expr[1:3,1:3])
+```
+
+```{r}
+#tranpose expression data so that samples are along rows and genes are colnames
+dat1Expr_1 <- t(dat1Expr[,-1])
+colnames(dat1Expr_1)=dat1Expr$X
+dat1Expr=dat1Expr_1
+rm(dat1Expr_1)
+dim(dat1Expr)
+DT::datatable(dat1Expr[1:3,1:3])
+```
+
+```{r}
+no.samples <- dim(dat1Expr)[1]
+no.samples
+```
+
+#####################################################################for comparison with MsAge7K modules##################################################################################
+
+###Step 3: Preparation of data for preservation analysis MsAge7K###
+#Import dat2labels for analysis
+```{r}
+#Obtain this listMod of choice from the WGCNA pipeline to which the dataset needs to be compared with
+dat2labels=read.csv('./InputPreservation/ForPres&Hyper_MsAge7K_GeneModuleL.csv', sep=',')
+DT::datatable(dat2labels[1:3,])
+```
+
+```{r}
+# This module assignment colors. Check column name and label appropriately 
+#Assigning module dynamic labels does not work for preservation
+dat2labels = dat2labels$Module
+head(dat2labels)
+```
+
+```{r}
+# the following data frame contains the gene expression data: columns are genes, rows are arrays (samples)
+dat2Expr=read.csv('./InputPreservation/ForPres&Hyper_MsAge7K_datExprA1g2.csv', sep=',')
+DT::datatable(dat2Expr[1:3,1:3])
+```
+
+```{r}
+#tranpose expression data so that samples are along rows and genes are colnames
+dat2Expr_1 <- t(dat2Expr[,-1])
+colnames(dat2Expr_1)=dat2Expr$X
+dat2Expr=dat2Expr_1
+rm(dat2Expr_1)
+dim(dat2Expr)
+DT::datatable(dat2Expr[1:3,1:3])
+```
+
+###Step 4: Preservation analysis with dat1colors vs dat2labels MsAge7K###
+#Calculation of module preservation using first dataset or previous analysis module colors
+#Ref: Langfelder, P., Luo, R., Oldham, M. C., and Horvath, S. (2011). Is my network module preserved and reproducible? PLoS Comput. Biol. 7. doi:10.1371/journal.pcbi.1001057.
+```{r}
+setLabels1 = c("HuAgeDis_colors", "MsAge7K_labels");
+multiExpr1 = list(A = list(data = dat1Expr), B = list(data = dat2Expr));
+multiColor1 = list(A = dat1colors)
+```
+
+```{r}
+system.time( {
+mp1 = modulePreservation(multiExpr1, multiColor1,
+referenceNetworks = 1,
+nPermutations = 30,
+maxGoldModuleSize= 100,
+maxModuleSize = 3000,
+randomSeed = 1,
+quickCor = 0,
+verbose = 3)
+} );
+#Note: can change maxModuleSize to your biggest module size or else a random smaple of 1000 genes will be used for preservation calculation
+```
+
+```{r}
+#Analysis and display of module preservation results using previous module colors
+ref = 1
+test = 2
+statsObs1 = cbind(mp1$quality$observed[[ref]][[test]][, -1], mp1$preservation$observed[[ref]][[test]][, -1])
+statsZ1 = cbind(mp1$quality$Z[[ref]][[test]][, -1], mp1$preservation$Z[[ref]][[test]][, -1]);
+```
+
+```{r}
+# Compare preservation to quality:
+print( cbind(statsObs1[, c("medianRank.pres", "medianRank.qual")],
+signif(statsZ1[, c("Zsummary.pres", "Zsummary.qual")], 2)) )
+```
+
+```{r}
+# Module labels and module sizes are also contained in the results
+modColors1 = rownames(mp1$preservation$observed[[ref]][[test]])
+moduleSizes1 = mp1$preservation$Z[[ref]][[test]][, 1];
+# leave grey and gold modules out
+plotMods1 = !(modColors1 %in% c("grey", "gold"));
+# Text labels for points
+text1 = modColors1[plotMods1];
+# Auxiliary convenience variable
+plotData1 = cbind(mp1$preservation$observed[[ref]][[test]][, 2], mp1$preservation$Z[[ref]][[test]][, 2])
+# Main titles for the plot
+mains = c("Preservation Median rank", "Preservation Zsummary");
+# Start the plot
+sizeGrWindow(10, 5);
+pdf(file="HuAgeDis_colors_vs_MsAge7K_labels_preservation.pdf", width=30, height=15)
+par(mfrow = c(1,2))
+par(mar = c(4.5,4.5,2.5,1))
+for (p in 1:2)
+{
+min = min(plotData1[, p], na.rm = TRUE);
+max = max(plotData1[, p], na.rm = TRUE);
+# Adjust ploting ranges appropriately
+if (p==2)
+{
+if (min > -max/10) min = -max/10
+ylim = c(min - 0.1 * (max-min), max + 0.1 * (max-min))
+} else
+ylim = c(max + 0.1 * (max-min), min - 0.1 * (max-min))
+plot(moduleSizes1[plotMods1], plotData1[plotMods1, p], col = 1, bg = modColors1[plotMods1], pch = 21,
+main = mains[p],
+cex = 2,
+ylab = mains[p], xlab = "Module size", log = "x",
+ylim = ylim,
+xlim = c(10, 7000), cex.lab = 2, cex.axis = 2, cex.main =1.4)
+labelPoints(moduleSizes1[plotMods1], plotData1[plotMods1, p], text1, cex = 2, offs = 0.08);
+# For Zsummary, add threshold lines
+if (p==2)
+{
+abline(h=0)
+abline(h=2, col = "blue", lty = 2)
+abline(h=10, col = "darkgreen", lty = 2)
+}
+}
+# If plotting into a file, close it
+dev.off()
+```
+
+In general, the higher the value of "Zsummary.pres" the more preserved the module is between data sets:5<Z<10 indicates moderate preservation, while Z>10 indicates high preservation. 
+We find several modules which are highly preserved between A1 and A2. Bonferoni corrected log base 10 p-value are also shown to be significant below.
+```{r}
+#Preservation Z summary
+mp_Zsummary=as.data.frame(mp1$preservation$Z)
+write.csv(mp_Zsummary, "HuAgeDis_colors_vs_MsAge7K_labels_preservation_Zsummary.csv")
+```
+
+```{r}
+#Preservation Bonferoni corrected log base 10 p-value
+mp_logp_Bonfsummary=as.data.frame(mp1$preservation$log.pBonf)
+mp_logp_Bonfsummary[,-c(1)]
+write.csv(mp_logp_Bonfsummary[,-c(1)], "HuAgeDis_colors_vs_MsAge7K_labels_preservation_logP_Bonfsummary.csv")
+```
+
+###Step 5: Enrichment test for comparison with dat1colors vs dat2labels MsAge7K ###
+```{r}
+#Format and prepare dat2labels for enrichment test
+dat2labels=read.csv("./InputPreservation/ForPres&Hyper_MsAge7K_GeneModuleL.csv",sep=',')
+dat2labels_1=dat2labels[,c("Module", "Gene")]
+rownames(dat2labels_1)=dat2labels_1$Gene
+DT::datatable(dat2labels_1[1:3,])
+write.csv(dat2labels_1,"ForEnrich_dat2MsAge7Klabels_Hu.csv")
+```
+
+```{r}
+#count of number of genes per module
+dat2labels=dat2labels_1
+rm(dat2labels_1)
+dat2labelsGeneCount=as.data.frame(table(dat2labels$Module))
+#dat2labelsGeneCount
+write.csv(dat2labelsGeneCount,"ForEnrich_dat2MsAge7Klabels_Hu_GeneCount.csv")
+```
+
+```{r}
+#This is the actual hypergeometric enrichment test step
+modulesA1=dat1colors
+enrichmentsdat2labels = userListEnrichment(colnames(dat1Expr), modulesA1,"ForEnrich_dat2MsAge7Klabels_Hu.csv", "", "enrichmentsdat2MsAge7Klabels_colors.csv")
+```
+
+```{r}
+#Saving results of enrichment
+enrichmentsdat2labels_OvGenes=enrichmentsdat2labels[[2]]
+dir.create("./enrichmentsdat2MsAge7Klabels_OvGenes")
+for (i in 1:length(enrichmentsdat2labels_OvGenes)) {
+  write.csv(enrichmentsdat2labels_OvGenes[i], file=paste0("enrichmentsdat2MsAge7Klabels_OvGenes/", names(enrichmentsdat2labels_OvGenes)[i], ".txt"))
+}
+
+enrichmentsdat2labels_NumOvGenes_pvalue=enrichmentsdat2labels[[1]]
+write.csv(enrichmentsdat2labels_NumOvGenes_pvalue,"enrichmentsdat2MsAge7K_NumOvGenes_pvalue_colors.csv")
+```
+
+```{r}
+sessionInfo()
+toLatex(sessionInfo())
+```
+
+```{r}
+#save image
+save.image(file="PreservationEnrichment_temp.RData")
+```
+
+```{r}
+#Organize of files
+library(filesstrings)
+
+file.move(list.files(pattern = "enrichmentsdat2MsAge7Klabels_colors.csv"), "enrichmentsdat2MsAge7Klabels_OvGenes")
+file.move(list.files(pattern = "enrichmentsdat2MsAge7K_NumOvGenes_pvalue_colors.csv"), "enrichmentsdat2MsAge7Klabels_OvGenes")
+file.move(list.files(pattern = "ForEnrich*"), "enrichmentsdat2MsAge7Klabels_OvGenes")
+
+dir.create("PreservationResults")
+file.move(list.files(pattern = "HuAgeDis_colors_vs_MsAge7K_labels*"), "PreservationResults")
+```
+
+```{r}
+#clear environment to free up memory
+rm(list=ls())
+gc()
+```

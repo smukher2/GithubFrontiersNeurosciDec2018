@@ -1,0 +1,4382 @@
+<?xml version="1.0"?>
+
+<VisAnt ver="1.5" species="hsa" nodecount="2756" fs="0" net_size="1139,609" edgeopp="false" db_online="true" fineArt="true" autoFit="true" bgcolor="255 255 255">
+	<pathway name="05152" title="Tuberculosis"/>
+	<pathway name="05150" title="Staphylococcus aureus infection"/>
+	<pathway name="05142" title="Chagas disease (American trypanosomiasis)"/>
+	<pathway name="04145" title="Phagosome"/>
+	<pathway name="05322" title="Systemic lupus erythematosus"/>
+	<pathway name="04142" title="Lysosome"/>
+	<pathway name="05133" title="Pertussis"/>
+	<pathway name="04612" title="Antigen processing and presentation"/>
+	<pathway name="04380" title="Osteoclast differentiation"/>
+	<pathway name="04610" title="Complement and coagulation cascades"/>
+	<pathway name="05020" title="Prion diseases"/>
+	<method name="M0015" desc="Electron microscopy" weight="null" type="E" visible="true" species="rsion=" color="255,0,0"/>
+	<method name="M0014" desc="cross-linking studies" weight="0" type="E" visible="true" species="rsion=" color="176,48,96"/>
+	<method name="M0079" desc="Co-fractionation" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0013" desc="copurification" weight="0" type="E" visible="true" species="rsion=" color="85,26,139"/>
+	<method name="M0078" desc="Protein-RNA" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0012" desc="Competition binding" weight="0" type="E" visible="true" species="rsion=" color="12,254,34"/>
+	<method name="M0077" desc="Dosage Rescue" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0011" desc="Co-sedimentation " weight="null" type="E" visible="true" species="rsion=" color="84,117,184"/>
+	<method name="M0076" desc="Dosage Lethality" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0010" desc="coimmunoprecipitation" weight="0" type="E" visible="true" species="rsion=" color="25,110,6"/>
+	<method name="M0075" desc="Phenotypic Enhancement" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0074" desc="Reconstituted Complex" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0073" desc="Invivo" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0072" desc="imaging techniques" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0071" desc="x-ray crystallography" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0070" desc="nuclear magnetic resonance" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0106" desc="Predicted Arabidopsis molecular interactions (PAIR)" weight="null" type="C" visible="true" color="0,0,0"/>
+	<method name="M0105" desc="Positive Genetic" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0104" desc="Negative Genetic" weight="null" type="E" visible="true" species="rsion=" color="0,0,0"/>
+	<method name="M9901" desc="Connection of Shared Components" weight="0" type="C" visible="true" color="185,191,180"/>
+	<method name="M0103" desc="isothermal titration calorimetry" weight="null" type="E" visible="true" species="rsion=" color="0,0,0"/>
+	<method name="M0102" desc="solid phase assay" weight="null" type="E" visible="true" species="rsion=" color="0,0,0"/>
+	<method name="M0101" desc="phosphatase assay" weight="null" type="E" visible="true" color="255,0,0"/>
+	<method name="M0006" desc="Affinity Column" weight="0" type="E" visible="true" species="rsion=" color="191,88,3"/>
+	<method name="M0100" desc="ubiquitin reconstruction" weight="null" type="E" visible="true" color="0,255,0"/>
+	<method name="M0069" desc="protein complementation assay" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0068" desc="protein array" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0067" desc="pull down" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0066" desc="enzymatic study" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M1005" desc="COG - Homologies " weight="null" type="null" visible="true" species="rsion=" color="255,82,4"/>
+	<method name="M0065" desc="anti tag coimmunoprecipitation" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M1004" desc="GeneQuiz - Marginal Similarity " weight="null" type="null" visible="true" species="rsion=" color="0,69,198"/>
+	<method name="M0064" desc="TFSVM (Predicted TF by SVM)" weight="0" type="C" visible="false" color="200,25,100"/>
+	<method name="M1003" desc="EUROFAN - Disruption " weight="null" type="null" visible="true" species="rsion=" color="255,85,106"/>
+	<method name="M0063" desc="colocalization/visualisation technologies" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M1002" desc="SGD - Gene Registry" weight="null" type="null" visible="true" species="rsion=" color="255,150,47"/>
+	<method name="M0062" desc="electron microscopy" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M1001" desc="GeneQuiz - Clear Similarity" weight="null" type="null" visible="true" species="rsion=" color="34,150,47"/>
+	<method name="M0061" desc="resonance energy transfer" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M1000" desc="GeneQuiz - 3D Homology " weight="null" type="null" visible="true" species="rsion=" color="34,150,209"/>
+	<method name="M0060" desc="far western blotting" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M5001" desc="Tandem Affinity Mass. Spec Complex Determination from Gavin, et al." weight="null" type="g" visible="true" color="0,0,0"/>
+	<method name="M0059" desc="genetic synthetic phenotype" weight="null" type="E" visible="true" color="193,100,42"/>
+	<method name="M6002" desc="(Bio-)Chemical Reaction" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0058" desc="genetic suppression" weight="null" type="E" visible="true" color="28,144,242"/>
+	<method name="M6001" desc="drug target gene" weight="null" type="E" visible="true" color="255,153,153"/>
+	<method name="M0057" desc="genetic,suppression expression alteration" weight="null" type="E" visible="true" color="123,109,238"/>
+	<method name="M0056" desc="genetic,suppression mutation" weight="null" type="E" visible="true" color="0,51,153"/>
+	<method name="M0055" desc="genetic,synthetic growth effect" weight="null" type="E" visible="true" color="144,176,17"/>
+	<method name="M0054" desc="genetic,conditional synthetic lethal" weight="null" type="E" visible="true" color="242,103,26"/>
+	<method name="M0053" desc="filter binding" weight="null" type="E" visible="true" color="255,0,204"/>
+	<method name="M0052" desc="fluorescence technology" weight="0" type="E" visible="true" color="0,153,153"/>
+	<method name="M0051" desc="elisa" weight="enzyme-linked immunosorbent assay" type="0" visible="true" color="193,100,42"/>
+	<method name="M0050" desc="phage display" weight="0" type="E" visible="true" color="166,195,96"/>
+	<method name="M0049" desc="surface plasmon resonance" weight="0" type="E" visible="true" color="137,220,101"/>
+	<method name="M0048" desc="structure based prediction" weight="0" type="E" visible="true" color="174,121,131"/>
+	<method name="M0047" desc="genetic,synthetic lethality" weight="0" type="E" visible="true" color="91,167,147"/>
+	<method name="M0046" desc="Bayesian Predicted Interaction" weight="0" type="C" visible="true" color="162,230,60"/>
+	<method name="M0045" desc="affinity technology" weight="0" type="E" visible="true" color="139,169,9"/>
+	<method name="M0044" desc="Affinity Precipitation" weight="0" type="E" visible="true" color="8,130,224"/>
+	<method name="M0043" desc="Screened ChromoImmunoPrecipitation" weight="null" type="E" visible="true" species="rsion=" color="0,0,0"/>
+	<method name="M0042" desc="Chromatin Immunoprecipitation (ChIP)" weight="0" type="E" visible="true" species="rsion=" color="100,14,33"/>
+	<method name="M0041" desc="Transcription Factor" weight="0" type="E" visible="true" species="rsion=" color="22,214,233"/>
+	<method name="M9999" desc="KEGG Pathway" weight="100" type="E" visible="true" species="rsion=" color="250,51,131"/>
+	<method name="M0039" desc="transient coexpression" weight="0" type="E" visible="true" species="rsion=" color="34,255,209"/>
+	<method name="M0038" desc="gene neighbourhoods" weight="0" type="C" visible="true" species="rsion=" color="205,95,245"/>
+	<method name="M0037" desc="phylogenetic profile" weight="0" type="C" visible="true" species="rsion=" color="6,185,76"/>
+	<method name="M0036" desc="domain fusion" weight="0" type="C" visible="true" species="rsion=" color="205,95,138"/>
+	<method name="M0035" desc="X-ray" weight="null" type="E" visible="true" species="rsion=" color="125,93,66"/>
+	<method name="M0034" desc="two hybrid test" weight="0" type="E" visible="true" species="rsion=" color="0,0,255"/>
+	<method name="M0099" desc="unknown" weight="0" type="E" visible="true" species="rsion=" color="0,0,0"/>
+	<method name="M0098" desc="electrophoretic mobility shift assay" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0033" desc="cosedimentation" weight="0" type="E" visible="true" species="rsion=" color="125,93,66"/>
+	<method name="M0032" desc="Sizing Column" weight="null" type="E" visible="true" species="rsion=" color="25,110,6"/>
+	<method name="M0097" desc="comigration in non denaturing gel electrophoresis" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0096" desc="blue native page" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0031" desc="Other Biophysical" weight="0" type="E" visible="true" species="rsion=" color="125,93,255"/>
+	<method name="M0095" desc="protein kinase assay" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0030" desc="other genetic" weight="0" type="E" visible="true" species="rsion=" color="125,182,97"/>
+	<method name="M0094" desc="confocal microscopy" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0093" desc="inferred by curator" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0092" desc="peptide array" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0091" desc="inferred by author" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0090" desc="dihydrofolate reductase reconstruction" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0029" desc="monoclonal antibody" weight="null" type="E" visible="true" species="rsion=" color="0,182,212"/>
+	<method name="M0028" desc="mass spectrometry studies of complexes" weight="0" type="E" visible="true" species="rsion=" color="255,182,212"/>
+	<method name="M0027" desc="Interaction adhesion assay " weight="null" type="E" visible="true" species="rsion=" color="255,0,212"/>
+	<method name="M0026" desc="In vitro binding" weight="0" type="E" visible="true" color="255,0,90"/>
+	<method name="M0025" desc="colocalization by immunostaining" weight="0" type="E" visible="true" color="255,165,0"/>
+	<method name="M0024" desc="Immunoprecipitation" weight="null" type="E" visible="true" color="105,67,159"/>
+	<method name="M0089" desc="anti bait coimmunoprecipitation" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0088" desc="tandem affinity purification" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0087" desc="Functional Linkage Network" weight="null" type="C" visible="true" color="204,204,225"/>
+	<method name="M0086" desc="Synthetic Haploinsufficiency" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0021" desc="western blot" weight="null" type="E" visible="true" color="129,94,42"/>
+	<method name="M0085" desc="chromatography technology" weight="null" type="E" visible="true" color="232,14,133"/>
+	<method name="M0020" desc="genetic,tetrad analysis" weight="0" type="E" visible="true" species="rsion=" color="204,113,0"/>
+	<method name="M0084" desc="Invitro" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0083" desc="Biochemical Activity" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0082" desc="Dosage Growth Defect" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0081" desc="Synthetic Rescue" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0080" desc="Phenotypic Suppression" weight="null" type="E" visible="true" color="0,0,0"/>
+	<method name="M0019" desc="Gel retardation assays " weight="0" type="E" visible="true" color="158,240,27"/>
+	<method name="M0018" desc="molecular sieving" weight="0" type="E" visible="true" color="142,146,215"/>
+	<VScreen x1="-57" y1="-30" x2="1198" y2="631" w="1141" h="601" ps="4" />
+	<VScreen x1="-119" y1="-62" x2="1255" y2="661" w="1141" h="601" ps="4" />
+	<VScreen x1="-186" y1="-98" x2="1308" y2="701" w="1139" h="609" ps="4" />
+	<Nodes size="4">
+		<VNodes x="499" y="523" counter="4" w="0" h="0">
+			<vlabel>ENPP4</vlabel>
+			<data name="ENPP4" index="2456" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.020310663"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.014618921"/>
+			</data>
+		</VNodes>
+		<VNodes x="724" y="170" counter="212" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>C4B</vlabel>
+			<data name="C4B" index="2302" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.121233883"/>
+				<link to="C1QB" method="M0039" weight="M0039=0.10101491"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.094052292"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.093289439"/>
+				<link to="ITGB2" method="M0039" weight="M0039=0.088389844"/>
+				<link to="CTSZ" method="M0039" weight="M0039=0.059195544"/>
+				<link to="FCGR2C" method="M0039" weight="M0039=0.056047562"/>
+				<link to="LY86" method="M0039" weight="M0039=0.044052017"/>
+				<link to="GAB2" method="M0039" weight="M0039=0.041938062"/>
+				<link to="CD300C" method="M0039" weight="M0039=0.041596164"/>
+				<link to="PPL" method="M0039" weight="M0039=0.040921091"/>
+				<link to="HPGDS" method="M0039" weight="M0039=0.038745819"/>
+				<link to="IFITM1" method="M0039" weight="M0039=0.036174692"/>
+				<link to="HLA-DOB" method="M0039" weight="M0039=0.035130825"/>
+				<link to="GNGT2" method="M0039" weight="M0039=0.033667344"/>
+				<link to="SEC14L5" method="M0039" weight="M0039=0.031833905"/>
+				<link to="HVCN1" method="M0039" weight="M0039=0.031578321"/>
+				<link to="SERPING1" method="M0039" weight="M0039=0.030902111"/>
+				<link to="ITPR3" method="M0039" weight="M0039=0.030085089"/>
+				<link to="TLE2" method="M0039" weight="M0039=0.02812022"/>
+				<link to="PLIN4" method="M0039" weight="M0039=0.027358701"/>
+				<link to="RFTN1" method="M0039" weight="M0039=0.026754797"/>
+				<link to="C6ORF10" method="M0039" weight="M0039=0.026692166"/>
+				<link to="TMEM243" method="M0039" weight="M0039=0.026166635"/>
+				<link to="COL2A1" method="M0039" weight="M0039=0.025961437"/>
+				<link to="NLRC5" method="M0039" weight="M0039=0.023616597"/>
+				<link to="ADGRG6" method="M0039" weight="M0039=0.022904848"/>
+				<link to="KRT2" method="M0039" weight="M0039=0.022792839"/>
+				<link to="ARSG" method="M0039" weight="M0039=0.022546788"/>
+				<link to="ZSWIM7" method="M0039" weight="M0039=0.021894962"/>
+				<link to="CWF19L2" method="M0039" weight="M0039=0.02131282"/>
+				<link to="LACC1" method="M0039" weight="M0039=0.020595886"/>
+				<link to="LPXN" method="M0039" weight="M0039=0.019528597"/>
+				<link to="AFF1" method="M0039" weight="M0039=0.018998675"/>
+				<link to="TBXAS1" method="M0039" weight="M0039=0.018826373"/>
+				<link to="GJB2" method="M0039" weight="M0039=0.018387428"/>
+				<link to="TLR3" method="M0039" weight="M0039=0.018078964"/>
+				<link to="LDLRAD3" method="M0039" weight="M0039=0.018053038"/>
+				<link to="CTNNA3" method="M0039" weight="M0039=0.017907545"/>
+				<link to="FAH" method="M0039" weight="M0039=0.017842953"/>
+				<link to="PGM5" method="M0039" weight="M0039=0.017761282"/>
+				<link to="CORT" method="M0039" weight="M0039=0.017311698"/>
+				<link to="SLC46A3" method="M0039" weight="M0039=0.017252163"/>
+				<link to="C21ORF91" method="M0039" weight="M0039=0.017061798"/>
+				<link to="SOD3" method="M0039" weight="M0039=0.016468607"/>
+				<link to="TNFRSF1B" method="M0039" weight="M0039=0.016421756"/>
+				<link to="PPP1R14A" method="M0039" weight="M0039=0.016358572"/>
+				<link to="CRTAC1" method="M0039" weight="M0039=0.016228024"/>
+				<link to="SMIM1" method="M0039" weight="M0039=0.016113424"/>
+				<link to="RHOG" method="M0039" weight="M0039=0.016064551"/>
+				<link to="RTP1" method="M0039" weight="M0039=0.015980796"/>
+				<link to="SERPINF2" method="M0039" weight="M0039=0.015878799"/>
+				<link to="DQX1" method="M0039" weight="M0039=0.015530787"/>
+				<link to="SPSB1" method="M0039" weight="M0039=0.015451166"/>
+				<link to="PRDM8" method="M0039" weight="M0039=0.015026569"/>
+				<link to="GAS2L3" method="M0039" weight="M0039=0.014432415"/>
+				<link to="CDC25A" method="M0039" weight="M0039=0.014313871"/>
+				<link to="RRAS" method="M0039" weight="M0039=0.014303988"/>
+				<link to="LIPH" method="M0039" weight="M0039=0.014279039"/>
+				<link to="SHC4" method="M0039" weight="M0039=0.014026804"/>
+				<link to="LILRA4" method="M0039" weight="M0039=0.01402116"/>
+				<link to="CABLES1" method="M0039" weight="M0039=0.013785225"/>
+				<link to="CRABP2" method="M0039" weight="M0039=0.013755404"/>
+				<link to="RASSF4" method="M0039" weight="M0039=0.013665582"/>
+				<link to="CSRP1" method="M0039" weight="M0039=0.013662319"/>
+				<link to="DAAM2" method="M0039" weight="M0039=0.013650891"/>
+				<link to="RHOJ" method="M0039" weight="M0039=0.013600499"/>
+				<link to="PLEKHF1" method="M0039" weight="M0039=0.013574203"/>
+				<link to="REEP6" method="M0039" weight="M0039=0.013449673"/>
+				<link to="CPQ" method="M0039" weight="M0039=0.013216515"/>
+				<link to="PLA1A" method="M0039" weight="M0039=0.013173211"/>
+				<link to="CYP3A5" method="M0039" weight="M0039=0.013106586"/>
+				<link to="RHPN2" method="M0039" weight="M0039=0.013070186"/>
+				<link to="CORO6" method="M0039" weight="M0039=0.013065736"/>
+				<link to="CD82" method="M0039" weight="M0039=0.013041787"/>
+				<link to="SEMA3B" method="M0039" weight="M0039=0.012891269"/>
+				<link to="IL17RC" method="M0039" weight="M0039=0.012888773"/>
+				<link to="NECAP2" method="M0039" weight="M0039=0.012665812"/>
+				<link to="RBP1" method="M0039" weight="M0039=0.012539573"/>
+				<link to="PTPN14" method="M0039" weight="M0039=0.01229417"/>
+				<link to="MYL1" method="M0039" weight="M0039=0.011996009"/>
+				<link to="C2ORF74" method="M0039" weight="M0039=0.011845705"/>
+				<link to="FAM180A" method="M0039" weight="M0039=0.011811302"/>
+				<link to="BABAM2" method="M0039" weight="M0039=0.011708069"/>
+				<link to="TBATA" method="M0039" weight="M0039=0.011491983"/>
+				<link to="NAT8" method="M0039" weight="M0039=0.011407821"/>
+				<link to="NLRC3" method="M0039" weight="M0039=0.011314925"/>
+				<link to="APOL1" method="M0039" weight="M0039=0.01124716"/>
+				<link to="NRROS" method="M0039" weight="M0039=0.010980687"/>
+				<link to="ADAMTS14" method="M0039" weight="M0039=0.010972494"/>
+				<link to="ERAP1" method="M0039" weight="M0039=0.010969618"/>
+				<link to="IL18BP" method="M0039" weight="M0039=0.010868641"/>
+				<link to="ZC3H12A" method="M0039" weight="M0039=0.01081713"/>
+				<link to="TMPRSS11A" method="M0039" weight="M0039=0.010769293"/>
+				<link to="DCN" method="M0039" weight="M0039=0.010691674"/>
+				<link to="ANKH" method="M0039" weight="M0039=0.010556959"/>
+				<link to="ALX3" method="M0039" weight="M0039=0.010544886"/>
+				<link to="TNFRSF11A" method="M0039" weight="M0039=0.010472234"/>
+				<link to="MANBA" method="M0039" weight="M0039=0.010440753"/>
+				<link to="SPOCK3" method="M0039" weight="M0039=0.010299335"/>
+				<link to="FADS6" method="M0039" weight="M0039=0.010288544"/>
+				<link to="SNAPC4" method="M0039" weight="M0039=0.01024875"/>
+				<link to="NOV" method="M0039" weight="M0039=0.010202171"/>
+				<link to="BTG1" method="M0039" weight="M0039=0.010141424"/>
+				<link to="LRP2BP" method="M0039" weight="M0039=0.010130409"/>
+				<link to="ASB2" method="M0039" weight="M0039=0.010083784"/>
+			</data>
+		</VNodes>
+		<VNodes x="230" y="256" counter="2" w="0" h="0">
+			<vlabel>AIM2</vlabel>
+			<data name="AIM2" index="2630" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012603181"/>
+			</data>
+		</VNodes>
+		<VNodes x="387" y="116" counter="248" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>C4A</vlabel>
+			<data name="C4A" index="2303" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.121233883"/>
+				<link to="CYBB" method="M0039" weight="M0039=0.077445916"/>
+				<link to="PLD4" method="M0039" weight="M0039=0.072105831"/>
+				<link to="IFIT1B" method="M0039" weight="M0039=0.069307937"/>
+				<link to="ITGAM" method="M0039" weight="M0039=0.061338965"/>
+				<link to="CD84" method="M0039" weight="M0039=0.059508396"/>
+				<link to="PROM2" method="M0039" weight="M0039=0.057507723"/>
+				<link to="FCGR2A" method="M0039" weight="M0039=0.056047562"/>
+				<link to="VWA5A" method="M0039" weight="M0039=0.050681287"/>
+				<link to="PARP3" method="M0039" weight="M0039=0.044335869"/>
+				<link to="STAT1" method="M0039" weight="M0039=0.043853191"/>
+				<link to="HLA-DMB" method="M0039" weight="M0039=0.04200572"/>
+				<link to="SLC22A4" method="M0039" weight="M0039=0.041416644"/>
+				<link to="TNXB" method="M0039" weight="M0039=0.040342496"/>
+				<link to="SLC15A3" method="M0039" weight="M0039=0.039278672"/>
+				<link to="TRIM34" method="M0039" weight="M0039=0.037066944"/>
+				<link to="COX8C" method="M0039" weight="M0039=0.037051189"/>
+				<link to="IFITM2" method="M0039" weight="M0039=0.036174692"/>
+				<link to="IKZF1" method="M0039" weight="M0039=0.036122842"/>
+				<link to="CERKL" method="M0039" weight="M0039=0.036072758"/>
+				<link to="TAP2" method="M0039" weight="M0039=0.035464149"/>
+				<link to="DPYD" method="M0039" weight="M0039=0.033624585"/>
+				<link to="IL21R" method="M0039" weight="M0039=0.033414571"/>
+				<link to="FAM228B" method="M0039" weight="M0039=0.032794369"/>
+				<link to="ST14" method="M0039" weight="M0039=0.032044664"/>
+				<link to="CELA1" method="M0039" weight="M0039=0.031846514"/>
+				<link to="HERC6" method="M0039" weight="M0039=0.02926908"/>
+				<link to="CHI3L1" method="M0039" weight="M0039=0.029000143"/>
+				<link to="RGL3" method="M0039" weight="M0039=0.027914559"/>
+				<link to="CDH1" method="M0039" weight="M0039=0.027783325"/>
+				<link to="CEBPA" method="M0039" weight="M0039=0.027677917"/>
+				<link to="HELZ2" method="M0039" weight="M0039=0.026057086"/>
+				<link to="KLC3" method="M0039" weight="M0039=0.02561671"/>
+				<link to="DXO" method="M0039" weight="M0039=0.025603112"/>
+				<link to="IFI16" method="M0039" weight="M0039=0.024986725"/>
+				<link to="PRRG1" method="M0039" weight="M0039=0.024664728"/>
+				<link to="TFR2" method="M0039" weight="M0039=0.024122549"/>
+				<link to="DOK1" method="M0039" weight="M0039=0.023305288"/>
+				<link to="PRR5L" method="M0039" weight="M0039=0.022793742"/>
+				<link to="SYCP2" method="M0039" weight="M0039=0.022643058"/>
+				<link to="RNF213" method="M0039" weight="M0039=0.022241244"/>
+				<link to="SP110" method="M0039" weight="M0039=0.021475253"/>
+				<link to="CD14" method="M0039" weight="M0039=0.021345112"/>
+				<link to="CA2" method="M0039" weight="M0039=0.021279951"/>
+				<link to="CXCL12" method="M0039" weight="M0039=0.021242769"/>
+				<link to="DENND3" method="M0039" weight="M0039=0.021217179"/>
+				<link to="GBGT1" method="M0039" weight="M0039=0.020734635"/>
+				<link to="PARP10" method="M0039" weight="M0039=0.020240534"/>
+				<link to="RELB" method="M0039" weight="M0039=0.019257051"/>
+				<link to="SPHK1" method="M0039" weight="M0039=0.019151245"/>
+				<link to="CYTL1" method="M0039" weight="M0039=0.019114432"/>
+				<link to="PARVG" method="M0039" weight="M0039=0.018979334"/>
+				<link to="FGD2" method="M0039" weight="M0039=0.018947627"/>
+				<link to="TNS2" method="M0039" weight="M0039=0.01874651"/>
+				<link to="CIRBP" method="M0039" weight="M0039=0.018656894"/>
+				<link to="TEP1" method="M0039" weight="M0039=0.018652871"/>
+				<link to="GPLD1" method="M0039" weight="M0039=0.01826794"/>
+				<link to="INCA1" method="M0039" weight="M0039=0.017846506"/>
+				<link to="SPACA6" method="M0039" weight="M0039=0.017833133"/>
+				<link to="SLC9A4" method="M0039" weight="M0039=0.017398551"/>
+				<link to="SLC26A7" method="M0039" weight="M0039=0.017286395"/>
+				<link to="NRBP2" method="M0039" weight="M0039=0.01704973"/>
+				<link to="SH3BP2" method="M0039" weight="M0039=0.016956537"/>
+				<link to="RCN3" method="M0039" weight="M0039=0.016481305"/>
+				<link to="RUNX2" method="M0039" weight="M0039=0.016416939"/>
+				<link to="HOOK2" method="M0039" weight="M0039=0.016271757"/>
+				<link to="CREB3L2" method="M0039" weight="M0039=0.016193865"/>
+				<link to="TGIF1" method="M0039" weight="M0039=0.016158116"/>
+				<link to="ADGRL4" method="M0039" weight="M0039=0.016147556"/>
+				<link to="SEC11C" method="M0039" weight="M0039=0.016082514"/>
+				<link to="APOBEC1" method="M0039" weight="M0039=0.016080693"/>
+				<link to="NIPAL2" method="M0039" weight="M0039=0.016028624"/>
+				<link to="ADCY7" method="M0039" weight="M0039=0.015571032"/>
+				<link to="TBXA2R" method="M0039" weight="M0039=0.014916194"/>
+				<link to="MTTP" method="M0039" weight="M0039=0.014737494"/>
+				<link to="SH2D6" method="M0039" weight="M0039=0.014664546"/>
+				<link to="EPB41L5" method="M0039" weight="M0039=0.014427571"/>
+				<link to="SUGCT" method="M0039" weight="M0039=0.013996122"/>
+				<link to="C5AR2" method="M0039" weight="M0039=0.01393366"/>
+				<link to="P2RX5" method="M0039" weight="M0039=0.013744807"/>
+				<link to="SRRM4" method="M0039" weight="M0039=0.013630568"/>
+				<link to="FAM199X" method="M0039" weight="M0039=0.013566846"/>
+				<link to="TMEM173" method="M0039" weight="M0039=0.013472728"/>
+				<link to="APBA3" method="M0039" weight="M0039=0.013436445"/>
+				<link to="CYP3A4" method="M0039" weight="M0039=0.013106586"/>
+				<link to="HAUS6" method="M0039" weight="M0039=0.012927269"/>
+				<link to="NRG2" method="M0039" weight="M0039=0.012860066"/>
+				<link to="HIF3A" method="M0039" weight="M0039=0.012740387"/>
+				<link to="OPTN" method="M0039" weight="M0039=0.012702335"/>
+				<link to="SPR" method="M0039" weight="M0039=0.012690614"/>
+				<link to="LTBP4" method="M0039" weight="M0039=0.012535508"/>
+				<link to="ANXA2" method="M0039" weight="M0039=0.012523799"/>
+				<link to="NKX6-2" method="M0039" weight="M0039=0.012302345"/>
+				<link to="FOXD1" method="M0039" weight="M0039=0.012169784"/>
+				<link to="CXCL6" method="M0039" weight="M0039=0.012099848"/>
+				<link to="RELT" method="M0039" weight="M0039=0.012057902"/>
+				<link to="REX1BD" method="M0039" weight="M0039=0.012035697"/>
+				<link to="TTYH2" method="M0039" weight="M0039=0.012010936"/>
+				<link to="TSPAN4" method="M0039" weight="M0039=0.012006877"/>
+				<link to="PRDM5" method="M0039" weight="M0039=0.011897759"/>
+				<link to="TGM7" method="M0039" weight="M0039=0.011760828"/>
+				<link to="SLC24A1" method="M0039" weight="M0039=0.011720944"/>
+				<link to="SLC17A9" method="M0039" weight="M0039=0.011684527"/>
+				<link to="EYA2" method="M0039" weight="M0039=0.011526855"/>
+				<link to="GPR137B" method="M0039" weight="M0039=0.011435607"/>
+				<link to="APOL4" method="M0039" weight="M0039=0.01124716"/>
+				<link to="ISLR" method="M0039" weight="M0039=0.011126218"/>
+				<link to="CCRL2" method="M0039" weight="M0039=0.011019202"/>
+				<link to="FBXO17" method="M0039" weight="M0039=0.01101186"/>
+				<link to="SNX22" method="M0039" weight="M0039=0.010787299"/>
+				<link to="PROX2" method="M0039" weight="M0039=0.010619796"/>
+				<link to="PALLD" method="M0039" weight="M0039=0.010592677"/>
+				<link to="ZNF503" method="M0039" weight="M0039=0.010589736"/>
+				<link to="ITIH3" method="M0039" weight="M0039=0.01050198"/>
+				<link to="MYOF" method="M0039" weight="M0039=0.010494212"/>
+				<link to="FAM228A" method="M0039" weight="M0039=0.010377032"/>
+				<link to="SLFN11" method="M0039" weight="M0039=0.010297622"/>
+				<link to="RECK" method="M0039" weight="M0039=0.010288629"/>
+				<link to="NIPSNAP3A" method="M0039" weight="M0039=0.010277084"/>
+				<link to="ADGRA2" method="M0039" weight="M0039=0.010189875"/>
+				<link to="MSRB2" method="M0039" weight="M0039=0.010094992"/>
+				<link to="LAMA1" method="M0039" weight="M0039=0.010070337"/>
+				<link to="CRACR2A" method="M0039" weight="M0039=0.010031628"/>
+				<link to="COL12A1" method="M0039" weight="M0039=0.01000267"/>
+			</data>
+		</VNodes>
+		<VNodes x="308" y="41" counter="4" w="0" h="0">
+			<vlabel>EPB41L5</vlabel>
+			<data name="EPB41L5" index="2563" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.014427571"/>
+				<link to="APOD" method="M0039" weight="M0039=0.012073554"/>
+			</data>
+		</VNodes>
+		<VNodes x="153" y="382" counter="2" w="0" h="0">
+			<vlabel>MFSD10</vlabel>
+			<data name="MFSD10" index="2532" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.015935516"/>
+			</data>
+		</VNodes>
+		<VNodes x="865" y="255" counter="2" w="0" h="0">
+			<vlabel>ITIH5</vlabel>
+			<data name="ITIH5" index="2732" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.010344287"/>
+			</data>
+		</VNodes>
+		<VNodes x="341" y="5" counter="2" w="0" h="0">
+			<vlabel>COLEC12</vlabel>
+			<data name="COLEC12" index="2602" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.013260486"/>
+			</data>
+		</VNodes>
+		<VNodes x="443" y="61" counter="4" w="0" h="0">
+			<vlabel>ITIH3</vlabel>
+			<data name="ITIH3" index="2719" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01050198"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010321889"/>
+			</data>
+		</VNodes>
+		<VNodes x="248" y="457" counter="2" w="0" h="0">
+			<vlabel>PLEKHA4</vlabel>
+			<data name="PLEKHA4" index="2511" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.016636155"/>
+			</data>
+		</VNodes>
+		<VNodes x="733" y="452" counter="4" w="0" h="0">
+			<vlabel>SCAND1</vlabel>
+			<data name="SCAND1" index="2549" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015191904"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012340799"/>
+			</data>
+		</VNodes>
+		<VNodes x="190" y="308" counter="2" w="0" h="0">
+			<vlabel>EPSTI1</vlabel>
+			<data name="EPSTI1" index="2405" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.025574467"/>
+			</data>
+		</VNodes>
+		<VNodes x="311" y="135" counter="6" w="0" h="0">
+			<vlabel>RGL3</vlabel>
+			<data name="RGL3" index="2383" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.027914559"/>
+				<link to="APOD" method="M0039" weight="M0039=0.024424037"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.018678124"/>
+			</data>
+		</VNodes>
+		<VNodes x="464" y="377" counter="2" w="0" h="0">
+			<vlabel>MARVELD1</vlabel>
+			<data name="MARVELD1" index="2691" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011002472"/>
+			</data>
+		</VNodes>
+		<VNodes x="403" y="42" counter="4" w="0" h="0">
+			<vlabel>NRBP2</vlabel>
+			<data name="NRBP2" index="2508" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01704973"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010966811"/>
+			</data>
+		</VNodes>
+		<VNodes x="497" y="79" counter="2" w="0" h="0">
+			<vlabel>CRACR2A</vlabel>
+			<data name="CRACR2A" index="2754" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010031628"/>
+			</data>
+		</VNodes>
+		<VNodes x="556" y="392" counter="2" w="0" h="0">
+			<vlabel>RASA4B</vlabel>
+			<data name="RASA4B" index="2675" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.011391593"/>
+			</data>
+		</VNodes>
+		<VNodes x="384" y="41" counter="4" w="0" h="0">
+			<vlabel>DOK1</vlabel>
+			<data name="DOK1" index="2420" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.023305288"/>
+				<link to="APOD" method="M0039" weight="M0039=0.017803769"/>
+			</data>
+		</VNodes>
+		<VNodes x="821" y="545" counter="4" w="0" h="0">
+			<vlabel>CD53</vlabel>
+			<data name="CD53" index="2394" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.026273607"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.02508556"/>
+			</data>
+		</VNodes>
+		<VNodes x="245" y="23" counter="2" w="0" h="0">
+			<vlabel>HHATL</vlabel>
+			<data name="HHATL" index="2682" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.011213468"/>
+			</data>
+		</VNodes>
+		<VNodes x="282" y="366" counter="2" w="0" h="0">
+			<vlabel>EVC</vlabel>
+			<data name="EVC" index="2504" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.017341177"/>
+			</data>
+		</VNodes>
+		<VNodes x="819" y="601" counter="2" w="0" h="0">
+			<vlabel>PPFIBP2</vlabel>
+			<data name="PPFIBP2" index="2753" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010077713"/>
+			</data>
+		</VNodes>
+		<VNodes x="715" y="218" counter="2" w="0" h="0">
+			<vlabel>FAM180A</vlabel>
+			<data name="FAM180A" index="2652" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011811302"/>
+			</data>
+		</VNodes>
+		<VNodes x="847" y="310" counter="2" w="0" h="0">
+			<vlabel>ATXN7L2</vlabel>
+			<data name="ATXN7L2" index="2579" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.013867473"/>
+			</data>
+		</VNodes>
+		<VNodes x="708" y="453" counter="2" w="0" h="0">
+			<vlabel>CBR3</vlabel>
+			<data name="CBR3" index="2570" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.014201664"/>
+			</data>
+		</VNodes>
+		<VNodes x="839" y="507" counter="4" w="0" h="0">
+			<vlabel>COL5A3</vlabel>
+			<data name="COL5A3" index="2467" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.01933"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.015563276"/>
+			</data>
+		</VNodes>
+		<VNodes x="521" y="430" counter="4" w="0" h="0">
+			<vlabel>TPCN2</vlabel>
+			<data name="TPCN2" index="2613" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.012982544"/>
+				<link to="C1QC" method="M0039" weight="M0039=0.012187496"/>
+			</data>
+		</VNodes>
+		<VNodes x="781" y="489" counter="4" w="0" h="0">
+			<vlabel>LAMA2</vlabel>
+			<data name="LAMA2" index="2478" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.018668732"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.015914433"/>
+			</data>
+		</VNodes>
+		<VNodes x="404" y="79" counter="4" w="0" h="0">
+			<vlabel>LAMA1</vlabel>
+			<data name="LAMA1" index="2658" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.011700821"/>
+				<link to="C4A" method="M0039" weight="M0039=0.010070337"/>
+			</data>
+		</VNodes>
+		<VNodes x="407" y="245" counter="2" w="0" h="0">
+			<vlabel>COL12A1</vlabel>
+			<data name="COL12A1" index="2755" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01000267"/>
+			</data>
+		</VNodes>
+		<VNodes x="893" y="543" counter="4" w="0" h="0">
+			<vlabel>TMEM191C</vlabel>
+			<data name="TMEM191C" index="2558" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.014557945"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011169601"/>
+			</data>
+		</VNodes>
+		<VNodes x="348" y="60" counter="4" w="0" h="0">
+			<vlabel>MTTP</vlabel>
+			<data name="MTTP" index="2543" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.015425662"/>
+				<link to="C4A" method="M0039" weight="M0039=0.014737494"/>
+			</data>
+		</VNodes>
+		<VNodes x="500" y="192" counter="2" w="0" h="0">
+			<vlabel>NIPSNAP3A</vlabel>
+			<data name="NIPSNAP3A" index="2740" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010277084"/>
+			</data>
+		</VNodes>
+		<VNodes x="307" y="5" counter="2" w="0" h="0">
+			<vlabel>METTL7A</vlabel>
+			<data name="METTL7A" index="2749" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.010130171"/>
+			</data>
+		</VNodes>
+		<VNodes x="462" y="485" counter="4" w="0" h="0">
+			<vlabel>PCSK6</vlabel>
+			<data name="PCSK6" index="2412" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.02454873"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.016925607"/>
+			</data>
+		</VNodes>
+		<VNodes x="461" y="78" counter="4" w="0" h="0">
+			<vlabel>TTYH2</vlabel>
+			<data name="TTYH2" index="2502" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.017453589"/>
+				<link to="C4A" method="M0039" weight="M0039=0.012010936"/>
+			</data>
+		</VNodes>
+		<VNodes x="766" y="452" counter="4" w="0" h="0">
+			<vlabel>SLC2A8</vlabel>
+			<data name="SLC2A8" index="2537" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015643098"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011723015"/>
+			</data>
+		</VNodes>
+		<VNodes x="783" y="417" counter="4" w="0" h="0">
+			<vlabel>F11R</vlabel>
+			<data name="F11R" index="2612" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.013026196"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011358142"/>
+			</data>
+		</VNodes>
+		<VNodes x="263" y="384" counter="2" w="0" h="0">
+			<vlabel>OAF</vlabel>
+			<data name="OAF" index="2553" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.014956698"/>
+			</data>
+		</VNodes>
+		<VNodes x="282" y="420" counter="2" w="0" h="0">
+			<vlabel>ALPK1</vlabel>
+			<data name="ALPK1" index="2402" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.025609402"/>
+			</data>
+		</VNodes>
+		<VNodes x="556" y="534" counter="2" w="0" h="0">
+			<vlabel>NCF2</vlabel>
+			<data name="NCF2" index="2657" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.011705328"/>
+			</data>
+		</VNodes>
+		<VNodes x="521" y="80" counter="2" w="0" h="0">
+			<vlabel>PROX2</vlabel>
+			<data name="PROX2" index="2709" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010619796"/>
+			</data>
+		</VNodes>
+		<VNodes x="502" y="485" counter="4" w="0" h="0">
+			<vlabel>HAVCR2</vlabel>
+			<data name="HAVCR2" index="2500" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.017665249"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.017294678"/>
+			</data>
+		</VNodes>
+		<VNodes x="860" y="582" counter="2" w="0" h="0">
+			<vlabel>PSRC1</vlabel>
+			<data name="PSRC1" index="2720" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010496522"/>
+			</data>
+		</VNodes>
+		<VNodes x="246" y="422" counter="2" w="0" h="0">
+			<vlabel>VIM</vlabel>
+			<data name="VIM" index="2330" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.044175582"/>
+			</data>
+		</VNodes>
+		<VNodes x="712" y="70" counter="2" w="0" h="0">
+			<vlabel>AFF1</vlabel>
+			<data name="AFF1" index="2473" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.018998675"/>
+			</data>
+		</VNodes>
+		<VNodes x="365" y="134" counter="6" w="0" h="0">
+			<vlabel>CHI3L1</vlabel>
+			<data name="CHI3L1" index="2375" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.029000143"/>
+				<link to="APOD" method="M0039" weight="M0039=0.023427305"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.020024137"/>
+			</data>
+		</VNodes>
+		<VNodes x="441" y="135" counter="4" w="0" h="0">
+			<vlabel>CYTL1</vlabel>
+			<data name="CYTL1" index="2472" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.019114432"/>
+				<link to="APOD" method="M0039" weight="M0039=0.014347668"/>
+			</data>
+		</VNodes>
+		<VNodes x="228" y="384" counter="2" w="0" h="0">
+			<vlabel>PMP22</vlabel>
+			<data name="PMP22" index="2327" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.044741303"/>
+			</data>
+		</VNodes>
+		<VNodes x="747" y="600" counter="2" w="0" h="0">
+			<vlabel>SYDE1</vlabel>
+			<data name="SYDE1" index="2637" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.012282317"/>
+			</data>
+		</VNodes>
+		<VNodes x="675" y="236" counter="2" w="0" h="0">
+			<vlabel>SLC46A3</vlabel>
+			<data name="SLC46A3" index="2506" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.017252163"/>
+			</data>
+		</VNodes>
+		<VNodes x="752" y="107" counter="2" w="0" h="0">
+			<vlabel>ITGB2</vlabel>
+			<data name="ITGB2" index="2307" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.088389844"/>
+			</data>
+		</VNodes>
+		<VNodes x="674" y="69" counter="2" w="0" h="0">
+			<vlabel>CPQ</vlabel>
+			<data name="CPQ" index="2605" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013216515"/>
+			</data>
+		</VNodes>
+		<VNodes x="291" y="79" counter="6" w="0" h="0">
+			<vlabel>ITGAM</vlabel>
+			<data name="ITGAM" index="2313" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.061338965"/>
+				<link to="APOD" method="M0039" weight="M0039=0.04435423"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.033220662"/>
+			</data>
+		</VNodes>
+		<VNodes x="878" y="525" counter="4" w="0" h="0">
+			<vlabel>CDR2</vlabel>
+			<data name="CDR2" index="2461" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.020054599"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011731191"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="41" counter="4" w="0" h="0">
+			<vlabel>TAP2</vlabel>
+			<data name="TAP2" index="2354" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.035464149"/>
+				<link to="APOD" method="M0039" weight="M0039=0.024926741"/>
+			</data>
+		</VNodes>
+		<VNodes x="880" y="452" counter="4" w="0" h="0">
+			<vlabel>C14ORF39</vlabel>
+			<data name="C14ORF39" index="2560" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.014453687"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.010035349"/>
+			</data>
+		</VNodes>
+		<VNodes x="744" y="507" counter="4" w="0" h="0">
+			<vlabel>FNDC10</vlabel>
+			<data name="FNDC10" index="2599" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.013430045"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011266697"/>
+			</data>
+		</VNodes>
+		<VNodes x="264" y="273" counter="2" w="0" h="0">
+			<vlabel>SELENOM</vlabel>
+			<data name="SELENOM" index="2554" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.014786751"/>
+			</data>
+		</VNodes>
+		<VNodes x="349" y="134" counter="4" w="0" h="0">
+			<vlabel>CD14</vlabel>
+			<data name="CD14" index="2443" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.021345112"/>
+				<link to="APOD" method="M0039" weight="M0039=0.020031183"/>
+			</data>
+		</VNodes>
+		<VNodes x="902" y="346" counter="2" w="0" h="0">
+			<vlabel>EFHD1</vlabel>
+			<data name="EFHD1" index="2727" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.010401303"/>
+			</data>
+		</VNodes>
+		<VNodes x="480" y="503" counter="4" w="0" h="0">
+			<vlabel>SOX10</vlabel>
+			<data name="SOX10" index="2491" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.017917187"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.010803083"/>
+			</data>
+		</VNodes>
+		<VNodes x="848" y="191" counter="2" w="0" h="0">
+			<vlabel>LILRA4</vlabel>
+			<data name="LILRA4" index="2574" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.01402116"/>
+			</data>
+		</VNodes>
+		<VNodes x="847" y="87" counter="2" w="0" h="0">
+			<vlabel>ZC3H12A</vlabel>
+			<data name="ZC3H12A" index="2701" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.01081713"/>
+			</data>
+		</VNodes>
+		<VNodes x="709" y="236" counter="2" w="0" h="0">
+			<vlabel>NECAP2</vlabel>
+			<data name="NECAP2" index="2629" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.012665812"/>
+			</data>
+		</VNodes>
+		<VNodes x="810" y="217" counter="2" w="0" h="0">
+			<vlabel>ARSG</vlabel>
+			<data name="ARSG" index="2430" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.022546788"/>
+			</data>
+		</VNodes>
+		<VNodes x="752" y="51" counter="2" w="0" h="0">
+			<vlabel>LDLRAD3</vlabel>
+			<data name="LDLRAD3" index="2490" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.018053038"/>
+			</data>
+		</VNodes>
+		<VNodes x="462" y="412" counter="4" w="0" h="0">
+			<vlabel>ANXA5</vlabel>
+			<data name="ANXA5" index="2406" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.02538208"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.017814139"/>
+			</data>
+		</VNodes>
+		<VNodes x="500" y="503" counter="4" w="0" h="0">
+			<vlabel>ANXA3</vlabel>
+			<data name="ANXA3" index="2343" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.038721587"/>
+				<link to="C1QC" method="M0039" weight="M0039=0.037518475"/>
+			</data>
+		</VNodes>
+		<VNodes x="439" y="115" counter="4" w="0" h="0">
+			<vlabel>ANXA2</vlabel>
+			<data name="ANXA2" index="2477" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.018723408"/>
+				<link to="C4A" method="M0039" weight="M0039=0.012523799"/>
+			</data>
+		</VNodes>
+		<VNodes x="653" y="273" counter="2" w="0" h="0">
+			<vlabel>CWF19L2</vlabel>
+			<data name="CWF19L2" index="2445" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.02131282"/>
+			</data>
+		</VNodes>
+		<VNodes x="404" y="448" counter="2" w="0" h="0">
+			<vlabel>GSR</vlabel>
+			<data name="GSR" index="2685" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011182793"/>
+			</data>
+		</VNodes>
+		<VNodes x="426" y="5" counter="2" w="0" h="0">
+			<vlabel>RECK</vlabel>
+			<data name="RECK" index="2737" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010288629"/>
+			</data>
+		</VNodes>
+		<VNodes x="443" y="244" counter="2" w="0" h="0">
+			<vlabel>CXCL6</vlabel>
+			<data name="CXCL6" index="2642" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012099848"/>
+			</data>
+		</VNodes>
+		<VNodes x="272" y="114" counter="6" w="0" h="0">
+			<vlabel>PARVG</vlabel>
+			<data name="PARVG" index="2474" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.018979334"/>
+				<link to="APOD" method="M0039" weight="M0039=0.01529446"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011163883"/>
+			</data>
+		</VNodes>
+		<VNodes x="618" y="181" counter="2" w="0" h="0">
+			<vlabel>RASSF4</vlabel>
+			<data name="RASSF4" index="2585" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013665582"/>
+			</data>
+		</VNodes>
+		<VNodes x="189" y="384" counter="2" w="0" h="0">
+			<vlabel>RASSF2</vlabel>
+			<data name="RASSF2" index="2436" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.021904957"/>
+			</data>
+		</VNodes>
+		<VNodes x="859" y="433" counter="4" w="0" h="0">
+			<vlabel>EHD4</vlabel>
+			<data name="EHD4" index="2464" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.019528068"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012312133"/>
+			</data>
+		</VNodes>
+		<VNodes x="783" y="601" counter="2" w="0" h="0">
+			<vlabel>RBM15</vlabel>
+			<data name="RBM15" index="2730" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010352944"/>
+			</data>
+		</VNodes>
+		<VNodes x="898" y="472" counter="4" w="0" h="0">
+			<vlabel>ITPK1</vlabel>
+			<data name="ITPK1" index="2525" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.016183546"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012514428"/>
+			</data>
+		</VNodes>
+		<VNodes x="800" y="544" counter="4" w="0" h="0">
+			<vlabel>ACSF2</vlabel>
+			<data name="ACSF2" index="2451" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.020906639"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.01760797"/>
+			</data>
+		</VNodes>
+		<VNodes x="656" y="180" counter="2" w="0" h="0">
+			<vlabel>C6ORF10</vlabel>
+			<data name="C6ORF10" index="2388" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.026692166"/>
+			</data>
+		</VNodes>
+		<VNodes x="632" y="450" counter="2" w="0" h="0">
+			<vlabel>ATP8B1</vlabel>
+			<data name="ATP8B1" index="2535" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.015739637"/>
+			</data>
+		</VNodes>
+		<VNodes x="787" y="87" counter="2" w="0" h="0">
+			<vlabel>SMIM1</vlabel>
+			<data name="SMIM1" index="2527" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.016113424"/>
+			</data>
+		</VNodes>
+		<VNodes x="941" y="328" counter="2" w="0" h="0">
+			<vlabel>APOE</vlabel>
+			<data name="APOE" index="2344" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.038612583"/>
+			</data>
+		</VNodes>
+		<VNodes x="385" y="189" counter="6" w="0" h="0">
+			<vlabel>VWA5A</vlabel>
+			<data name="VWA5A" index="2324" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.050681287"/>
+				<link to="APOD" method="M0039" weight="M0039=0.040665826"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.028310961"/>
+			</data>
+		</VNodes>
+		<VNodes x="613" y="508" counter="2" w="0" h="0">
+			<vlabel>NFAM1</vlabel>
+			<data name="NFAM1" index="2409" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.02516288"/>
+			</data>
+		</VNodes>
+		<VNodes x="361" y="100" counter="200" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>APOD</vlabel>
+			<data name="APOD" index="2325" type="100">
+				<link to="FCGR2A" method="M0039" weight="M0039=0.050289883"/>
+				<link to="PLD4" method="M0039" weight="M0039=0.047946619"/>
+				<link to="PROM2" method="M0039" weight="M0039=0.045879509"/>
+				<link to="ITGAM" method="M0039" weight="M0039=0.04435423"/>
+				<link to="CD84" method="M0039" weight="M0039=0.042282955"/>
+				<link to="VWA5A" method="M0039" weight="M0039=0.040665826"/>
+				<link to="IFITM2" method="M0039" weight="M0039=0.039199576"/>
+				<link to="PARP3" method="M0039" weight="M0039=0.035364635"/>
+				<link to="HLA-DMB" method="M0039" weight="M0039=0.034930523"/>
+				<link to="STAT1" method="M0039" weight="M0039=0.034412407"/>
+				<link to="TRIM34" method="M0039" weight="M0039=0.032213981"/>
+				<link to="PRR5L" method="M0039" weight="M0039=0.028785237"/>
+				<link to="CA2" method="M0039" weight="M0039=0.028388176"/>
+				<link to="SLC22A4" method="M0039" weight="M0039=0.027546815"/>
+				<link to="IL21R" method="M0039" weight="M0039=0.027434065"/>
+				<link to="SLC15A3" method="M0039" weight="M0039=0.027143004"/>
+				<link to="IKZF1" method="M0039" weight="M0039=0.026514026"/>
+				<link to="PRRG1" method="M0039" weight="M0039=0.025915361"/>
+				<link to="TNXB" method="M0039" weight="M0039=0.024937119"/>
+				<link to="TAP2" method="M0039" weight="M0039=0.024926741"/>
+				<link to="CEBPA" method="M0039" weight="M0039=0.024888626"/>
+				<link to="ST14" method="M0039" weight="M0039=0.024703811"/>
+				<link to="RGL3" method="M0039" weight="M0039=0.024424037"/>
+				<link to="CERKL" method="M0039" weight="M0039=0.02400747"/>
+				<link to="CELA1" method="M0039" weight="M0039=0.0235136"/>
+				<link to="CHI3L1" method="M0039" weight="M0039=0.023427305"/>
+				<link to="IFI16" method="M0039" weight="M0039=0.022980384"/>
+				<link to="HERC6" method="M0039" weight="M0039=0.022471995"/>
+				<link to="FAM228B" method="M0039" weight="M0039=0.022134917"/>
+				<link to="DPYD" method="M0039" weight="M0039=0.021546832"/>
+				<link to="HELZ2" method="M0039" weight="M0039=0.021129248"/>
+				<link to="DXO" method="M0039" weight="M0039=0.02044951"/>
+				<link to="CD14" method="M0039" weight="M0039=0.020031183"/>
+				<link to="TNS2" method="M0039" weight="M0039=0.019776041"/>
+				<link to="ANXA2" method="M0039" weight="M0039=0.018723408"/>
+				<link to="PARP10" method="M0039" weight="M0039=0.018620877"/>
+				<link to="SLC26A7" method="M0039" weight="M0039=0.018511231"/>
+				<link to="KLC3" method="M0039" weight="M0039=0.018511164"/>
+				<link to="GPLD1" method="M0039" weight="M0039=0.018028833"/>
+				<link to="SEC11C" method="M0039" weight="M0039=0.017907437"/>
+				<link to="DOK1" method="M0039" weight="M0039=0.017803769"/>
+				<link to="TTYH2" method="M0039" weight="M0039=0.017453589"/>
+				<link to="TEP1" method="M0039" weight="M0039=0.016903869"/>
+				<link to="RNF213" method="M0039" weight="M0039=0.016855048"/>
+				<link to="TFR2" method="M0039" weight="M0039=0.016818966"/>
+				<link to="ADGRL4" method="M0039" weight="M0039=0.016375814"/>
+				<link to="CXCL12" method="M0039" weight="M0039=0.016363229"/>
+				<link to="CIRBP" method="M0039" weight="M0039=0.016274874"/>
+				<link to="TBXA2R" method="M0039" weight="M0039=0.016269013"/>
+				<link to="SYCP2" method="M0039" weight="M0039=0.0157306"/>
+				<link to="MTTP" method="M0039" weight="M0039=0.015425662"/>
+				<link to="TGIF1" method="M0039" weight="M0039=0.015345318"/>
+				<link to="PARVG" method="M0039" weight="M0039=0.01529446"/>
+				<link to="SH2D6" method="M0039" weight="M0039=0.01527856"/>
+				<link to="INCA1" method="M0039" weight="M0039=0.015219918"/>
+				<link to="RCN3" method="M0039" weight="M0039=0.01517939"/>
+				<link to="SP110" method="M0039" weight="M0039=0.015053546"/>
+				<link to="APOBEC1" method="M0039" weight="M0039=0.014781683"/>
+				<link to="NKX6-2" method="M0039" weight="M0039=0.014701835"/>
+				<link to="CYTL1" method="M0039" weight="M0039=0.014347668"/>
+				<link to="RELB" method="M0039" weight="M0039=0.014297397"/>
+				<link to="DENND3" method="M0039" weight="M0039=0.014195974"/>
+				<link to="CREB3L2" method="M0039" weight="M0039=0.013921269"/>
+				<link to="GBGT1" method="M0039" weight="M0039=0.013877668"/>
+				<link to="RELT" method="M0039" weight="M0039=0.013858423"/>
+				<link to="ISLR" method="M0039" weight="M0039=0.013749107"/>
+				<link to="OPTN" method="M0039" weight="M0039=0.013650948"/>
+				<link to="FGD2" method="M0039" weight="M0039=0.013555546"/>
+				<link to="TPM2" method="M0039" weight="M0039=0.013395348"/>
+				<link to="SH3BP2" method="M0039" weight="M0039=0.013330813"/>
+				<link to="CYP3A4" method="M0039" weight="M0039=0.013293776"/>
+				<link to="COLEC12" method="M0039" weight="M0039=0.013260486"/>
+				<link to="FOXD1" method="M0039" weight="M0039=0.012757223"/>
+				<link to="ADGRA2" method="M0039" weight="M0039=0.012302699"/>
+				<link to="ADCY7" method="M0039" weight="M0039=0.012126554"/>
+				<link to="NIPAL2" method="M0039" weight="M0039=0.012106655"/>
+				<link to="EPB41L5" method="M0039" weight="M0039=0.012073554"/>
+				<link to="C5AR2" method="M0039" weight="M0039=0.011931358"/>
+				<link to="LAMA1" method="M0039" weight="M0039=0.011700821"/>
+				<link to="EYA2" method="M0039" weight="M0039=0.011379851"/>
+				<link to="ZNF503" method="M0039" weight="M0039=0.011295071"/>
+				<link to="RPLP2" method="M0039" weight="M0039=0.011213854"/>
+				<link to="HHATL" method="M0039" weight="M0039=0.011213468"/>
+				<link to="APBA3" method="M0039" weight="M0039=0.011096946"/>
+				<link to="HOOK2" method="M0039" weight="M0039=0.011081493"/>
+				<link to="NRBP2" method="M0039" weight="M0039=0.010966811"/>
+				<link to="FAM199X" method="M0039" weight="M0039=0.01095135"/>
+				<link to="SLC17A9" method="M0039" weight="M0039=0.010804945"/>
+				<link to="SPR" method="M0039" weight="M0039=0.01079955"/>
+				<link to="PRDM5" method="M0039" weight="M0039=0.010789716"/>
+				<link to="SNX22" method="M0039" weight="M0039=0.010772086"/>
+				<link to="HAUS6" method="M0039" weight="M0039=0.010609293"/>
+				<link to="TRIM59" method="M0039" weight="M0039=0.01055576"/>
+				<link to="REX1BD" method="M0039" weight="M0039=0.010502397"/>
+				<link to="ITIH3" method="M0039" weight="M0039=0.010321889"/>
+				<link to="SLC9A4" method="M0039" weight="M0039=0.01025114"/>
+				<link to="MGST1" method="M0039" weight="M0039=0.010148266"/>
+				<link to="TSPAN4" method="M0039" weight="M0039=0.010144004"/>
+				<link to="METTL7A" method="M0039" weight="M0039=0.010130171"/>
+				<link to="SPACA6" method="M0039" weight="M0039=0.01008029"/>
+			</data>
+		</VNodes>
+		<VNodes x="272" y="79" counter="6" w="0" h="0">
+			<vlabel>ADCY7</vlabel>
+			<data name="ADCY7" index="2539" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.015571032"/>
+				<link to="APOD" method="M0039" weight="M0039=0.012126554"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011630483"/>
+			</data>
+		</VNodes>
+		<VNodes x="254" y="153" counter="4" w="0" h="0">
+			<vlabel>HAUS6</vlabel>
+			<data name="HAUS6" index="2615" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012927269"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010609293"/>
+			</data>
+		</VNodes>
+		<VNodes x="802" y="432" counter="4" w="0" h="0">
+			<vlabel>BIN2</vlabel>
+			<data name="BIN2" index="2450" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.020923021"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.016390939"/>
+			</data>
+		</VNodes>
+		<VNodes x="769" y="69" counter="2" w="0" h="0">
+			<vlabel>C2ORF74</vlabel>
+			<data name="C2ORF74" index="2651" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011845705"/>
+			</data>
+		</VNodes>
+		<VNodes x="862" y="601" counter="2" w="0" h="0">
+			<vlabel>CMTM3</vlabel>
+			<data name="CMTM3" index="2707" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010667134"/>
+			</data>
+		</VNodes>
+		<VNodes x="916" y="453" counter="2" w="0" h="0">
+			<vlabel>JPT2</vlabel>
+			<data name="JPT2" index="2699" type="100">
+				<link to="MPEG1" method="M0039" weight="M0039=0.01085688"/>
+			</data>
+		</VNodes>
+		<VNodes x="904" y="273" counter="2" w="0" h="0">
+			<vlabel>SNTB2</vlabel>
+			<data name="SNTB2" index="2697" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.01091803"/>
+			</data>
+		</VNodes>
+		<VNodes x="802" y="508" counter="4" w="0" h="0">
+			<vlabel>COL16A1</vlabel>
+			<data name="COL16A1" index="2460" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.020226423"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.014872797"/>
+			</data>
+		</VNodes>
+		<VNodes x="324" y="310" counter="2" w="0" h="0">
+			<vlabel>AIF1</vlabel>
+			<data name="AIF1" index="2626" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012727538"/>
+			</data>
+		</VNodes>
+		<VNodes x="366" y="80" counter="4" w="0" h="0">
+			<vlabel>NKX6-2</vlabel>
+			<data name="NKX6-2" index="2555" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.014701835"/>
+				<link to="C4A" method="M0039" weight="M0039=0.012302345"/>
+			</data>
+		</VNodes>
+		<VNodes x="801" y="582" counter="2" w="0" h="0">
+			<vlabel>DCAF15</vlabel>
+			<data name="DCAF15" index="2702" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010806215"/>
+			</data>
+		</VNodes>
+		<VNodes x="575" y="431" counter="2" w="0" h="0">
+			<vlabel>NFATC1</vlabel>
+			<data name="NFATC1" index="2641" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.012143612"/>
+			</data>
+		</VNodes>
+		<VNodes x="821" y="563" counter="4" w="0" h="0">
+			<vlabel>ASAH2</vlabel>
+			<data name="ASAH2" index="2425" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.022851743"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012604527"/>
+			</data>
+		</VNodes>
+		<VNodes x="189" y="434" counter="2" w="0" h="0">
+			<vlabel>MBOAT1</vlabel>
+			<data name="MBOAT1" index="2371" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.030588011"/>
+			</data>
+		</VNodes>
+		<VNodes x="714" y="198" counter="2" w="0" h="0">
+			<vlabel>ANKH</vlabel>
+			<data name="ANKH" index="2712" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010556959"/>
+			</data>
+		</VNodes>
+		<VNodes x="916" y="562" counter="2" w="0" h="0">
+			<vlabel>TP53I13</vlabel>
+			<data name="TP53I13" index="2671" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.011456162"/>
+			</data>
+		</VNodes>
+		<VNodes x="226" y="420" counter="2" w="0" h="0">
+			<vlabel>LRRC3</vlabel>
+			<data name="LRRC3" index="2648" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.011959022"/>
+			</data>
+		</VNodes>
+		<VNodes x="704" y="508" counter="2" w="0" h="0">
+			<vlabel>SOCS3</vlabel>
+			<data name="SOCS3" index="2432" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.022388033"/>
+			</data>
+		</VNodes>
+		<VNodes x="884" y="363" counter="2" w="0" h="0">
+			<vlabel>SELPLG</vlabel>
+			<data name="SELPLG" index="2322" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.051688772"/>
+			</data>
+		</VNodes>
+		<VNodes x="423" y="393" counter="2" w="0" h="0">
+			<vlabel>OR7G2</vlabel>
+			<data name="OR7G2" index="2751" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010093328"/>
+			</data>
+		</VNodes>
+		<VNodes x="725" y="416" counter="2" w="0" h="0">
+			<vlabel>ACRBP</vlabel>
+			<data name="ACRBP" index="2717" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010539308"/>
+			</data>
+		</VNodes>
+		<VNodes x="309" y="172" counter="6" w="0" h="0">
+			<vlabel>CERKL</vlabel>
+			<data name="CERKL" index="2353" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.036072758"/>
+				<link to="APOD" method="M0039" weight="M0039=0.02400747"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.021829764"/>
+			</data>
+		</VNodes>
+		<VNodes x="594" y="483" counter="2" w="0" h="0">
+			<vlabel>ADSSL1</vlabel>
+			<data name="ADSSL1" index="2466" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.019410347"/>
+			</data>
+		</VNodes>
+		<VNodes x="253" y="196" counter="2" w="0" h="0">
+			<vlabel>PALLD</vlabel>
+			<data name="PALLD" index="2710" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010592677"/>
+			</data>
+		</VNodes>
+		<VNodes x="938" y="310" counter="2" w="0" h="0">
+			<vlabel>PDPN</vlabel>
+			<data name="PDPN" index="2677" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.011296084"/>
+			</data>
+		</VNodes>
+		<VNodes x="367" y="208" counter="6" w="0" h="0">
+			<vlabel>TFR2</vlabel>
+			<data name="TFR2" index="2415" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.024122549"/>
+				<link to="APOD" method="M0039" weight="M0039=0.016818966"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.015927792"/>
+			</data>
+		</VNodes>
+		<VNodes x="518" y="523" counter="2" w="0" h="0">
+			<vlabel>CCL8</vlabel>
+			<data name="CCL8" index="2389" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.026676279"/>
+			</data>
+		</VNodes>
+		<VNodes x="272" y="135" counter="6" w="0" h="0">
+			<vlabel>PRR5L</vlabel>
+			<data name="PRR5L" index="2376" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.028785237"/>
+				<link to="C4A" method="M0039" weight="M0039=0.022793742"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.016797824"/>
+			</data>
+		</VNodes>
+		<VNodes x="207" y="291" counter="2" w="0" h="0">
+			<vlabel>FLNB</vlabel>
+			<data name="FLNB" index="2349" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.03683111"/>
+			</data>
+		</VNodes>
+		<VNodes x="497" y="466" counter="4" w="0" h="0">
+			<vlabel>UAP1L1</vlabel>
+			<data name="UAP1L1" index="2700" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010840759"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.010060223"/>
+			</data>
+		</VNodes>
+		<VNodes x="770" y="144" counter="2" w="0" h="0">
+			<vlabel>TNFRSF11A</vlabel>
+			<data name="TNFRSF11A" index="2723" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010472234"/>
+			</data>
+		</VNodes>
+		<VNodes x="274" y="328" counter="2" w="0" h="0">
+			<vlabel>RASAL3</vlabel>
+			<data name="RASAL3" index="2484" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.018388132"/>
+			</data>
+		</VNodes>
+		<VNodes x="347" y="41" counter="4" w="0" h="0">
+			<vlabel>TEP1</vlabel>
+			<data name="TEP1" index="2480" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.018652871"/>
+				<link to="APOD" method="M0039" weight="M0039=0.016903869"/>
+			</data>
+		</VNodes>
+		<VNodes x="386" y="172" counter="6" w="0" h="0">
+			<vlabel>APOBEC1</vlabel>
+			<data name="APOBEC1" index="2528" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016080693"/>
+				<link to="APOD" method="M0039" weight="M0039=0.014781683"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011849253"/>
+			</data>
+		</VNodes>
+		<VNodes x="751" y="144" counter="2" w="0" h="0">
+			<vlabel>PLA1A</vlabel>
+			<data name="PLA1A" index="2606" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013173211"/>
+			</data>
+		</VNodes>
+		<VNodes x="628" y="485" counter="2" w="0" h="0">
+			<vlabel>ASPA</vlabel>
+			<data name="ASPA" index="2744" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.010225003"/>
+			</data>
+		</VNodes>
+		<VNodes x="763" y="564" counter="4" w="0" h="0">
+			<vlabel>CRLF2</vlabel>
+			<data name="CRLF2" index="2518" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.016409253"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.014595119"/>
+			</data>
+		</VNodes>
+		<VNodes x="304" y="347" counter="2" w="0" h="0">
+			<vlabel>BLNK</vlabel>
+			<data name="BLNK" index="2438" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.021622184"/>
+			</data>
+		</VNodes>
+		<VNodes x="848" y="289" counter="2" w="0" h="0">
+			<vlabel>SFI1</vlabel>
+			<data name="SFI1" index="2348" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.03692289"/>
+			</data>
+		</VNodes>
+		<VNodes x="528" y="115" counter="2" w="0" h="0">
+			<vlabel>SUGCT</vlabel>
+			<data name="SUGCT" index="2576" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.013996122"/>
+			</data>
+		</VNodes>
+		<VNodes x="783" y="452" counter="4" w="0" h="0">
+			<vlabel>GLTP</vlabel>
+			<data name="GLTP" index="2501" type="100">
+				<link to="MPEG1" method="M0039" weight="M0039=0.017589324"/>
+				<link to="CTSS" method="M0039" weight="M0039=0.013852623"/>
+			</data>
+		</VNodes>
+		<VNodes x="764" y="508" counter="4" w="0" h="0">
+			<vlabel>GIPR</vlabel>
+			<data name="GIPR" index="2557" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.014600985"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012846318"/>
+			</data>
+		</VNodes>
+		<VNodes x="427" y="487" counter="4" w="0" h="0">
+			<vlabel>SKAP2</vlabel>
+			<data name="SKAP2" index="2368" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.03125412"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.030544313"/>
+			</data>
+		</VNodes>
+		<VNodes x="252" y="116" counter="4" w="0" h="0">
+			<vlabel>ISLR</vlabel>
+			<data name="ISLR" index="2583" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.013749107"/>
+				<link to="C4A" method="M0039" weight="M0039=0.011126218"/>
+			</data>
+		</VNodes>
+		<VNodes x="848" y="328" counter="2" w="0" h="0">
+			<vlabel>SLC14A1</vlabel>
+			<data name="SLC14A1" index="2431" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.022545006"/>
+			</data>
+		</VNodes>
+		<VNodes x="728" y="526" counter="4" w="0" h="0">
+			<vlabel>PDE8A</vlabel>
+			<data name="PDE8A" index="2377" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.028746175"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.017612955"/>
+			</data>
+		</VNodes>
+		<VNodes x="769" y="199" counter="2" w="0" h="0">
+			<vlabel>GNGT2</vlabel>
+			<data name="GNGT2" index="2356" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.033667344"/>
+			</data>
+		</VNodes>
+		<VNodes x="839" y="452" counter="4" w="0" h="0">
+			<vlabel>AHNAK</vlabel>
+			<data name="AHNAK" index="2434" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.022335089"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.015461915"/>
+			</data>
+		</VNodes>
+		<VNodes x="503" y="430" counter="4" w="0" h="0">
+			<vlabel>RIDA</vlabel>
+			<data name="RIDA" index="2571" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.014166492"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.012795108"/>
+			</data>
+		</VNodes>
+		<VNodes x="763" y="583" counter="2" w="0" h="0">
+			<vlabel>FMN1</vlabel>
+			<data name="FMN1" index="2695" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010952099"/>
+			</data>
+		</VNodes>
+		<VNodes x="483" y="412" counter="4" w="0" h="0">
+			<vlabel>STAT2</vlabel>
+			<data name="STAT2" index="2390" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.026557258"/>
+				<link to="C1QC" method="M0039" weight="M0039=0.024465689"/>
+			</data>
+		</VNodes>
+		<VNodes x="290" y="60" counter="4" w="0" h="0">
+			<vlabel>FOXD1</vlabel>
+			<data name="FOXD1" index="2624" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.012757223"/>
+				<link to="C4A" method="M0039" weight="M0039=0.012169784"/>
+			</data>
+		</VNodes>
+		<VNodes x="310" y="98" counter="6" w="0" h="0">
+			<vlabel>STAT1</vlabel>
+			<data name="STAT1" index="2332" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.043853191"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.034715323"/>
+				<link to="APOD" method="M0039" weight="M0039=0.034412407"/>
+			</data>
+		</VNodes>
+		<VNodes x="705" y="544" counter="2" w="0" h="0">
+			<vlabel>DIS3L2</vlabel>
+			<data name="DIS3L2" index="2638" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.012250741"/>
+			</data>
+		</VNodes>
+		<VNodes x="880" y="308" counter="2" w="0" h="0">
+			<vlabel>TGFBR3</vlabel>
+			<data name="TGFBR3" index="2541" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.015498936"/>
+			</data>
+		</VNodes>
+		<VNodes x="379" y="485" counter="2" w="0" h="0">
+			<vlabel>TGFBR2</vlabel>
+			<data name="TGFBR2" index="2724" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010460136"/>
+			</data>
+		</VNodes>
+		<VNodes x="479" y="523" counter="4" w="0" h="0">
+			<vlabel>RHBDF1</vlabel>
+			<data name="RHBDF1" index="2604" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.013236613"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.012098972"/>
+			</data>
+		</VNodes>
+		<VNodes x="192" y="402" counter="2" w="0" h="0">
+			<vlabel>WIPF1</vlabel>
+			<data name="WIPF1" index="2360" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.03337718"/>
+			</data>
+		</VNodes>
+		<VNodes x="728" y="490" counter="4" w="0" h="0">
+			<vlabel>SEPT4</vlabel>
+			<data name="SEPT4" index="2404" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.025597875"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.015057096"/>
+			</data>
+		</VNodes>
+		<VNodes x="872" y="144" counter="2" w="0" h="0">
+			<vlabel>ZSWIM7</vlabel>
+			<data name="ZSWIM7" index="2437" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.021894962"/>
+			</data>
+		</VNodes>
+		<VNodes x="292" y="159" counter="6" w="0" h="0">
+			<vlabel>ADGRL4</vlabel>
+			<data name="ADGRL4" index="2519" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.016375814"/>
+				<link to="C4A" method="M0039" weight="M0039=0.016147556"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011931224"/>
+			</data>
+		</VNodes>
+		<VNodes x="328" y="189" counter="4" w="0" h="0">
+			<vlabel>CREB3L2</vlabel>
+			<data name="CREB3L2" index="2524" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016193865"/>
+				<link to="APOD" method="M0039" weight="M0039=0.013921269"/>
+			</data>
+		</VNodes>
+		<VNodes x="478" y="60" counter="4" w="0" h="0">
+			<vlabel>SLC9A4</vlabel>
+			<data name="SLC9A4" index="2503" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.017398551"/>
+				<link to="APOD" method="M0039" weight="M0039=0.01025114"/>
+			</data>
+		</VNodes>
+		<VNodes x="272" y="170" counter="4" w="0" h="0">
+			<vlabel>CELA1</vlabel>
+			<data name="CELA1" index="2363" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.031846514"/>
+				<link to="APOD" method="M0039" weight="M0039=0.0235136"/>
+			</data>
+		</VNodes>
+		<VNodes x="479" y="135" counter="4" w="0" h="0">
+			<vlabel>SLC15A3</vlabel>
+			<data name="SLC15A3" index="2340" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.039278672"/>
+				<link to="APOD" method="M0039" weight="M0039=0.027143004"/>
+			</data>
+		</VNodes>
+		<VNodes x="638" y="143" counter="2" w="0" h="0">
+			<vlabel>ERAP1</vlabel>
+			<data name="ERAP1" index="2694" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010969618"/>
+			</data>
+		</VNodes>
+		<VNodes x="463" y="155" counter="4" w="0" h="0">
+			<vlabel>SH2D6</vlabel>
+			<data name="SH2D6" index="2546" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.01527856"/>
+				<link to="C4A" method="M0039" weight="M0039=0.014664546"/>
+			</data>
+		</VNodes>
+		<VNodes x="941" y="347" counter="2" w="0" h="0">
+			<vlabel>KIF13B</vlabel>
+			<data name="KIF13B" index="2618" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.012883067"/>
+			</data>
+		</VNodes>
+		<VNodes x="921" y="364" counter="2" w="0" h="0">
+			<vlabel>LAIR1</vlabel>
+			<data name="LAIR1" index="2381" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.028248537"/>
+			</data>
+		</VNodes>
+		<VNodes x="479" y="467" counter="4" w="0" h="0">
+			<vlabel>SLCO2B1</vlabel>
+			<data name="SLCO2B1" index="2545" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.015315736"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.013891377"/>
+			</data>
+		</VNodes>
+		<VNodes x="271" y="41" counter="4" w="0" h="0">
+			<vlabel>IFI16</vlabel>
+			<data name="IFI16" index="2410" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.024986725"/>
+				<link to="APOD" method="M0039" weight="M0039=0.022980384"/>
+			</data>
+		</VNodes>
+		<VNodes x="537" y="551" counter="2" w="0" h="0">
+			<vlabel>CD163</vlabel>
+			<data name="CD163" index="2729" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.01036735"/>
+			</data>
+		</VNodes>
+		<VNodes x="422" y="62" counter="4" w="0" h="0">
+			<vlabel>OPTN</vlabel>
+			<data name="OPTN" index="2587" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.013650948"/>
+				<link to="C4A" method="M0039" weight="M0039=0.012702335"/>
+			</data>
+		</VNodes>
+		<VNodes x="461" y="466" counter="78" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>C1QC</vlabel>
+			<data name="C1QC" index="2345" type="100">
+				<link to="ANXA3" method="M0039" weight="M0039=0.037518475"/>
+				<link to="SKAP2" method="M0039" weight="M0039=0.03125412"/>
+				<link to="MTHFD1L" method="M0039" weight="M0039=0.028274278"/>
+				<link to="CYP27A1" method="M0039" weight="M0039=0.026545403"/>
+				<link to="ANXA5" method="M0039" weight="M0039=0.02538208"/>
+				<link to="PCSK6" method="M0039" weight="M0039=0.02454873"/>
+				<link to="STAT2" method="M0039" weight="M0039=0.024465689"/>
+				<link to="FRMD8" method="M0039" weight="M0039=0.023834655"/>
+				<link to="SHKBP1" method="M0039" weight="M0039=0.022936105"/>
+				<link to="MAN2B2" method="M0039" weight="M0039=0.02127376"/>
+				<link to="SLC25A13" method="M0039" weight="M0039=0.021047975"/>
+				<link to="ENPP4" method="M0039" weight="M0039=0.020310663"/>
+				<link to="RGS11" method="M0039" weight="M0039=0.019204585"/>
+				<link to="NBL1" method="M0039" weight="M0039=0.01861094"/>
+				<link to="SOX10" method="M0039" weight="M0039=0.017917187"/>
+				<link to="HAVCR2" method="M0039" weight="M0039=0.017665249"/>
+				<link to="FXYD1" method="M0039" weight="M0039=0.015342376"/>
+				<link to="SLCO2B1" method="M0039" weight="M0039=0.015315736"/>
+				<link to="TRIM56" method="M0039" weight="M0039=0.015072458"/>
+				<link to="TMEM88B" method="M0039" weight="M0039=0.014258387"/>
+				<link to="RIDA" method="M0039" weight="M0039=0.014166492"/>
+				<link to="RHBDF1" method="M0039" weight="M0039=0.013236613"/>
+				<link to="MAPK12" method="M0039" weight="M0039=0.012955087"/>
+				<link to="CLK1" method="M0039" weight="M0039=0.012867347"/>
+				<link to="TPCN2" method="M0039" weight="M0039=0.012187496"/>
+				<link to="CLIC1" method="M0039" weight="M0039=0.011997802"/>
+				<link to="MBD6" method="M0039" weight="M0039=0.011548938"/>
+				<link to="CHD7" method="M0039" weight="M0039=0.011412275"/>
+				<link to="GSR" method="M0039" weight="M0039=0.011182793"/>
+				<link to="TRIM36" method="M0039" weight="M0039=0.011160604"/>
+				<link to="DNTTIP1" method="M0039" weight="M0039=0.011061329"/>
+				<link to="MARVELD1" method="M0039" weight="M0039=0.011002472"/>
+				<link to="UAP1L1" method="M0039" weight="M0039=0.010840759"/>
+				<link to="FZD10" method="M0039" weight="M0039=0.010700233"/>
+				<link to="TGFBR2" method="M0039" weight="M0039=0.010460136"/>
+				<link to="FRMD7" method="M0039" weight="M0039=0.010277896"/>
+				<link to="MERTK" method="M0039" weight="M0039=0.010246128"/>
+				<link to="MIF" method="M0039" weight="M0039=0.010232807"/>
+				<link to="OR7G2" method="M0039" weight="M0039=0.010093328"/>
+			</data>
+		</VNodes>
+		<VNodes x="903" y="299" counter="46" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>C1QB</vlabel>
+			<data name="C1QB" index="2304" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.10101491"/>
+				<link to="SELPLG" method="M0039" weight="M0039=0.051688772"/>
+				<link to="APOE" method="M0039" weight="M0039=0.038612583"/>
+				<link to="SFI1" method="M0039" weight="M0039=0.03692289"/>
+				<link to="PARP12" method="M0039" weight="M0039=0.029178564"/>
+				<link to="BHLHE41" method="M0039" weight="M0039=0.028480325"/>
+				<link to="LAIR1" method="M0039" weight="M0039=0.028248537"/>
+				<link to="SLC14A1" method="M0039" weight="M0039=0.022545006"/>
+				<link to="CLIC5" method="M0039" weight="M0039=0.020665156"/>
+				<link to="PLEKHH2" method="M0039" weight="M0039=0.02063408"/>
+				<link to="FTH1" method="M0039" weight="M0039=0.01821029"/>
+				<link to="TGFBR3" method="M0039" weight="M0039=0.015498936"/>
+				<link to="NFE2L2" method="M0039" weight="M0039=0.014440831"/>
+				<link to="TRIM47" method="M0039" weight="M0039=0.014323207"/>
+				<link to="HSPA2" method="M0039" weight="M0039=0.014246042"/>
+				<link to="ATXN7L2" method="M0039" weight="M0039=0.013867473"/>
+				<link to="KIF13B" method="M0039" weight="M0039=0.012883067"/>
+				<link to="PDPN" method="M0039" weight="M0039=0.011296084"/>
+				<link to="SNTB2" method="M0039" weight="M0039=0.01091803"/>
+				<link to="HPS3" method="M0039" weight="M0039=0.010639873"/>
+				<link to="CD83" method="M0039" weight="M0039=0.010539549"/>
+				<link to="EFHD1" method="M0039" weight="M0039=0.010401303"/>
+				<link to="ITIH5" method="M0039" weight="M0039=0.010344287"/>
+			</data>
+		</VNodes>
+		<VNodes x="827" y="255" counter="2" w="0" h="0">
+			<vlabel>LRP2BP</vlabel>
+			<data name="LRP2BP" index="2748" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010130409"/>
+			</data>
+		</VNodes>
+		<VNodes x="408" y="115" counter="6" w="0" h="0">
+			<vlabel>TNXB</vlabel>
+			<data name="TNXB" index="2338" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.040342496"/>
+				<link to="APOD" method="M0039" weight="M0039=0.024937119"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.017688456"/>
+			</data>
+		</VNodes>
+		<VNodes x="331" y="135" counter="84" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>C1QA</vlabel>
+			<data name="C1QA" index="2311" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.069637813"/>
+				<link to="PLD4" method="M0039" weight="M0039=0.041403779"/>
+				<link to="FCGR2A" method="M0039" weight="M0039=0.035573964"/>
+				<link to="STAT1" method="M0039" weight="M0039=0.034715323"/>
+				<link to="ITGAM" method="M0039" weight="M0039=0.033220662"/>
+				<link to="PARP3" method="M0039" weight="M0039=0.029810933"/>
+				<link to="VWA5A" method="M0039" weight="M0039=0.028310961"/>
+				<link to="IKZF1" method="M0039" weight="M0039=0.025471717"/>
+				<link to="SLC22A4" method="M0039" weight="M0039=0.022099958"/>
+				<link to="CERKL" method="M0039" weight="M0039=0.021829764"/>
+				<link to="CHI3L1" method="M0039" weight="M0039=0.020024137"/>
+				<link to="HERC6" method="M0039" weight="M0039=0.01925026"/>
+				<link to="FAM228B" method="M0039" weight="M0039=0.018982781"/>
+				<link to="RGL3" method="M0039" weight="M0039=0.018678124"/>
+				<link to="CEBPA" method="M0039" weight="M0039=0.018170948"/>
+				<link to="DXO" method="M0039" weight="M0039=0.01790112"/>
+				<link to="TNXB" method="M0039" weight="M0039=0.017688456"/>
+				<link to="HELZ2" method="M0039" weight="M0039=0.017312622"/>
+				<link to="PRR5L" method="M0039" weight="M0039=0.016797824"/>
+				<link to="KLC3" method="M0039" weight="M0039=0.016666465"/>
+				<link to="PRRG1" method="M0039" weight="M0039=0.016056411"/>
+				<link to="TFR2" method="M0039" weight="M0039=0.015927792"/>
+				<link to="DPYD" method="M0039" weight="M0039=0.015855224"/>
+				<link to="CA2" method="M0039" weight="M0039=0.014599407"/>
+				<link to="CIRBP" method="M0039" weight="M0039=0.013626711"/>
+				<link to="FGD2" method="M0039" weight="M0039=0.013461684"/>
+				<link to="PARP10" method="M0039" weight="M0039=0.013285501"/>
+				<link to="CXCL12" method="M0039" weight="M0039=0.012872859"/>
+				<link to="ADGRL4" method="M0039" weight="M0039=0.011931224"/>
+				<link to="APOBEC1" method="M0039" weight="M0039=0.011849253"/>
+				<link to="DENND3" method="M0039" weight="M0039=0.011838186"/>
+				<link to="TGIF1" method="M0039" weight="M0039=0.011774698"/>
+				<link to="ADCY7" method="M0039" weight="M0039=0.011630483"/>
+				<link to="SH3BP2" method="M0039" weight="M0039=0.011486279"/>
+				<link to="RELB" method="M0039" weight="M0039=0.011392351"/>
+				<link to="HOOK2" method="M0039" weight="M0039=0.01123981"/>
+				<link to="PARVG" method="M0039" weight="M0039=0.011163883"/>
+				<link to="GBGT1" method="M0039" weight="M0039=0.0109473"/>
+				<link to="SYCP2" method="M0039" weight="M0039=0.010693876"/>
+				<link to="SEC11C" method="M0039" weight="M0039=0.010461318"/>
+				<link to="TMEM173" method="M0039" weight="M0039=0.010019835"/>
+				<link to="INCA1" method="M0039" weight="M0039=0.010018443"/>
+			</data>
+		</VNodes>
+		<VNodes x="292" y="190" counter="4" w="0" h="0">
+			<vlabel>TMEM173</vlabel>
+			<data name="TMEM173" index="2594" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.013472728"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.010019835"/>
+			</data>
+		</VNodes>
+		<VNodes x="396" y="115" counter="6" w="0" h="0">
+			<vlabel>TGIF1</vlabel>
+			<data name="TGIF1" index="2526" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016158116"/>
+				<link to="APOD" method="M0039" weight="M0039=0.015345318"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011774698"/>
+			</data>
+		</VNodes>
+		<VNodes x="387" y="60" counter="4" w="0" h="0">
+			<vlabel>ZNF503</vlabel>
+			<data name="ZNF503" index="2678" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.011295071"/>
+				<link to="C4A" method="M0039" weight="M0039=0.010589736"/>
+			</data>
+		</VNodes>
+		<VNodes x="593" y="401" counter="2" w="0" h="0">
+			<vlabel>PARP9</vlabel>
+			<data name="PARP9" index="2393" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.026334284"/>
+			</data>
+		</VNodes>
+		<VNodes x="385" y="153" counter="6" w="0" h="0">
+			<vlabel>FGD2</vlabel>
+			<data name="FGD2" index="2475" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.018947627"/>
+				<link to="APOD" method="M0039" weight="M0039=0.013555546"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.013461684"/>
+			</data>
+		</VNodes>
+		<VNodes x="824" y="453" counter="4" w="0" h="0">
+			<vlabel>PARP4</vlabel>
+			<data name="PARP4" index="2421" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.023273294"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.020172586"/>
+			</data>
+		</VNodes>
+		<VNodes x="292" y="116" counter="6" w="0" h="0">
+			<vlabel>PARP3</vlabel>
+			<data name="PARP3" index="2329" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.044335869"/>
+				<link to="APOD" method="M0039" weight="M0039=0.035364635"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.029810933"/>
+			</data>
+		</VNodes>
+		<VNodes x="752" y="124" counter="2" w="0" h="0">
+			<vlabel>CABLES1</vlabel>
+			<data name="CABLES1" index="2581" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013785225"/>
+			</data>
+		</VNodes>
+		<VNodes x="860" y="396" counter="2" w="0" h="0">
+			<vlabel>RENBP</vlabel>
+			<data name="RENBP" index="2422" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.023198577"/>
+			</data>
+		</VNodes>
+		<VNodes x="518" y="578" counter="2" w="0" h="0">
+			<vlabel>CMKLR1</vlabel>
+			<data name="CMKLR1" index="2416" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.024096897"/>
+			</data>
+		</VNodes>
+		<VNodes x="783" y="526" counter="4" w="0" h="0">
+			<vlabel>PCSK1N</vlabel>
+			<data name="PCSK1N" index="2482" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.018582797"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.018129837"/>
+			</data>
+		</VNodes>
+		<VNodes x="787" y="50" counter="2" w="0" h="0">
+			<vlabel>TNFRSF1B</vlabel>
+			<data name="TNFRSF1B" index="2516" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.016421756"/>
+			</data>
+		</VNodes>
+		<VNodes x="611" y="541" counter="2" w="0" h="0">
+			<vlabel>ISG15</vlabel>
+			<data name="ISG15" index="2423" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.023141049"/>
+			</data>
+		</VNodes>
+		<VNodes x="207" y="440" counter="2" w="0" h="0">
+			<vlabel>PTGS1</vlabel>
+			<data name="PTGS1" index="2457" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.020271948"/>
+			</data>
+		</VNodes>
+		<VNodes x="365" y="5" counter="2" w="0" h="0">
+			<vlabel>SLFN11</vlabel>
+			<data name="SLFN11" index="2736" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010297622"/>
+			</data>
+		</VNodes>
+		<VNodes x="665" y="143" counter="2" w="0" h="0">
+			<vlabel>RTP1</vlabel>
+			<data name="RTP1" index="2531" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.015980796"/>
+			</data>
+		</VNodes>
+		<VNodes x="188" y="329" counter="2" w="0" h="0">
+			<vlabel>ADAP2</vlabel>
+			<data name="ADAP2" index="2734" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.010338383"/>
+			</data>
+		</VNodes>
+		<VNodes x="639" y="88" counter="2" w="0" h="0">
+			<vlabel>ADAMTS14</vlabel>
+			<data name="ADAMTS14" index="2693" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010972494"/>
+			</data>
+		</VNodes>
+		<VNodes x="728" y="564" counter="2" w="0" h="0">
+			<vlabel>TMEM160</vlabel>
+			<data name="TMEM160" index="2654" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.011732759"/>
+			</data>
+		</VNodes>
+		<VNodes x="839" y="469" counter="4" w="0" h="0">
+			<vlabel>CDH23</vlabel>
+			<data name="CDH23" index="2414" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.024253456"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.016655088"/>
+			</data>
+		</VNodes>
+		<VNodes x="770" y="31" counter="2" w="0" h="0">
+			<vlabel>TBATA</vlabel>
+			<data name="TBATA" index="2667" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011491983"/>
+			</data>
+		</VNodes>
+		<VNodes x="234" y="153" counter="2" w="0" h="0">
+			<vlabel>MYOF</vlabel>
+			<data name="MYOF" index="2721" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010494212"/>
+			</data>
+		</VNodes>
+		<VNodes x="151" y="328" counter="2" w="0" h="0">
+			<vlabel>TYROBP</vlabel>
+			<data name="TYROBP" index="2328" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.044608731"/>
+			</data>
+		</VNodes>
+		<VNodes x="347" y="172" counter="4" w="0" h="0">
+			<vlabel>PROM2</vlabel>
+			<data name="PROM2" index="2316" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.057507723"/>
+				<link to="APOD" method="M0039" weight="M0039=0.045879509"/>
+			</data>
+		</VNodes>
+		<VNodes x="345" y="23" counter="4" w="0" h="0">
+			<vlabel>SLC17A9</vlabel>
+			<data name="SLC17A9" index="2659" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011684527"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010804945"/>
+			</data>
+		</VNodes>
+		<VNodes x="810" y="70" counter="2" w="0" h="0">
+			<vlabel>GAS2L3</vlabel>
+			<data name="GAS2L3" index="2562" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.014432415"/>
+			</data>
+		</VNodes>
+		<VNodes x="231" y="61" counter="2" w="0" h="0">
+			<vlabel>CDH1</vlabel>
+			<data name="CDH1" index="2384" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.027783325"/>
+			</data>
+		</VNodes>
+		<VNodes x="366" y="245" counter="2" w="0" h="0">
+			<vlabel>IFIT1B</vlabel>
+			<data name="IFIT1B" index="2312" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.069307937"/>
+			</data>
+		</VNodes>
+		<VNodes x="405" y="210" counter="2" w="0" h="0">
+			<vlabel>CYBB</vlabel>
+			<data name="CYBB" index="2308" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.077445916"/>
+			</data>
+		</VNodes>
+		<VNodes x="227" y="365" counter="2" w="0" h="0">
+			<vlabel>HMGCLL1</vlabel>
+			<data name="HMGCLL1" index="2669" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.011485793"/>
+			</data>
+		</VNodes>
+		<VNodes x="597" y="162" counter="2" w="0" h="0">
+			<vlabel>MANBA</vlabel>
+			<data name="MANBA" index="2726" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010440753"/>
+			</data>
+		</VNodes>
+		<VNodes x="576" y="559" counter="2" w="0" h="0">
+			<vlabel>SMIM24</vlabel>
+			<data name="SMIM24" index="2660" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.011679"/>
+			</data>
+		</VNodes>
+		<VNodes x="470" y="216" counter="2" w="0" h="0">
+			<vlabel>TGM7</vlabel>
+			<data name="TGM7" index="2653" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011760828"/>
+			</data>
+		</VNodes>
+		<VNodes x="696" y="199" counter="2" w="0" h="0">
+			<vlabel>GAB2</vlabel>
+			<data name="GAB2" index="2334" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.041938062"/>
+			</data>
+		</VNodes>
+		<VNodes x="227" y="402" counter="2" w="0" h="0">
+			<vlabel>MPC1</vlabel>
+			<data name="MPC1" index="2687" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.011125788"/>
+			</data>
+		</VNodes>
+		<VNodes x="422" y="135" counter="6" w="0" h="0">
+			<vlabel>GBGT1</vlabel>
+			<data name="GBGT1" index="2452" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.020734635"/>
+				<link to="APOD" method="M0039" weight="M0039=0.013877668"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.0109473"/>
+			</data>
+		</VNodes>
+		<VNodes x="733" y="124" counter="2" w="0" h="0">
+			<vlabel>IL18BP</vlabel>
+			<data name="IL18BP" index="2698" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010868641"/>
+			</data>
+		</VNodes>
+		<VNodes x="839" y="581" counter="2" w="0" h="0">
+			<vlabel>CRY1</vlabel>
+			<data name="CRY1" index="2513" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.01656889"/>
+			</data>
+		</VNodes>
+		<VNodes x="694" y="163" counter="2" w="0" h="0">
+			<vlabel>CSRP1</vlabel>
+			<data name="CSRP1" index="2586" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013662319"/>
+			</data>
+		</VNodes>
+		<VNodes x="801" y="471" counter="4" w="0" h="0">
+			<vlabel>TMEM144</vlabel>
+			<data name="TMEM144" index="2551" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015046103"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011799371"/>
+			</data>
+		</VNodes>
+		<VNodes x="879" y="419" counter="4" w="0" h="0">
+			<vlabel>DOCK2</vlabel>
+			<data name="DOCK2" index="2366" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.031521605"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.024620679"/>
+			</data>
+		</VNodes>
+		<VNodes x="349" y="189" counter="6" w="0" h="0">
+			<vlabel>CEBPA</vlabel>
+			<data name="CEBPA" index="2385" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.027677917"/>
+				<link to="APOD" method="M0039" weight="M0039=0.024888626"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.018170948"/>
+			</data>
+		</VNodes>
+		<VNodes x="349" y="153" counter="6" w="0" h="0">
+			<vlabel>SLC22A4</vlabel>
+			<data name="SLC22A4" index="2336" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.041416644"/>
+				<link to="APOD" method="M0039" weight="M0039=0.027546815"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.022099958"/>
+			</data>
+		</VNodes>
+		<VNodes x="936" y="507" counter="2" w="0" h="0">
+			<vlabel>ARHGAP19-SLIT1</vlabel>
+			<data name="ARHGAP19-SLIT1" index="2696" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010940715"/>
+			</data>
+		</VNodes>
+		<VNodes x="594" y="448" counter="2" w="0" h="0">
+			<vlabel>ICAM1</vlabel>
+			<data name="ICAM1" index="2649" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.011916597"/>
+			</data>
+		</VNodes>
+		<VNodes x="208" y="329" counter="2" w="0" h="0">
+			<vlabel>STXBP2</vlabel>
+			<data name="STXBP2" index="2458" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.020246132"/>
+			</data>
+		</VNodes>
+		<VNodes x="840" y="545" counter="4" w="0" h="0">
+			<vlabel>BCAS1</vlabel>
+			<data name="BCAS1" index="2399" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.02589492"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.016312332"/>
+			</data>
+		</VNodes>
+		<VNodes x="762" y="489" counter="4" w="0" h="0">
+			<vlabel>ACOX3</vlabel>
+			<data name="ACOX3" index="2392" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.02653236"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.020016231"/>
+			</data>
+		</VNodes>
+		<VNodes x="460" y="190" counter="2" w="0" h="0">
+			<vlabel>COX8C</vlabel>
+			<data name="COX8C" index="2347" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.037051189"/>
+			</data>
+		</VNodes>
+		<VNodes x="250" y="402" counter="2" w="0" h="0">
+			<vlabel>SALL1</vlabel>
+			<data name="SALL1" index="2442" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.021412885"/>
+			</data>
+		</VNodes>
+		<VNodes x="821" y="526" counter="4" w="0" h="0">
+			<vlabel>MR1</vlabel>
+			<data name="MR1" index="2427" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.02269487"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.0205483"/>
+			</data>
+		</VNodes>
+		<VNodes x="288" y="136" counter="6" w="0" h="0">
+			<vlabel>CIRBP</vlabel>
+			<data name="CIRBP" index="2479" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.018656894"/>
+				<link to="APOD" method="M0039" weight="M0039=0.016274874"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.013626711"/>
+			</data>
+		</VNodes>
+		<VNodes x="443" y="42" counter="4" w="0" h="0">
+			<vlabel>GPLD1</vlabel>
+			<data name="GPLD1" index="2486" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01826794"/>
+				<link to="APOD" method="M0039" weight="M0039=0.018028833"/>
+			</data>
+		</VNodes>
+		<VNodes x="489" y="16" counter="2" w="0" h="0">
+			<vlabel>HIF3A</vlabel>
+			<data name="HIF3A" index="2625" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012740387"/>
+			</data>
+		</VNodes>
+		<VNodes x="877" y="470" counter="4" w="0" h="0">
+			<vlabel>COL27A1</vlabel>
+			<data name="COL27A1" index="2536" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015692166"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.015231708"/>
+			</data>
+		</VNodes>
+		<VNodes x="711" y="125" counter="2" w="0" h="0">
+			<vlabel>PGM5</vlabel>
+			<data name="PGM5" index="2498" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.017761282"/>
+			</data>
+		</VNodes>
+		<VNodes x="442" y="503" counter="4" w="0" h="0">
+			<vlabel>MTHFD1L</vlabel>
+			<data name="MTHFD1L" index="2380" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.028274278"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.025610859"/>
+			</data>
+		</VNodes>
+		<VNodes x="730" y="15" counter="2" w="0" h="0">
+			<vlabel>TLR3</vlabel>
+			<data name="TLR3" index="2489" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.018078964"/>
+			</data>
+		</VNodes>
+		<VNodes x="804" y="415" counter="4" w="0" h="0">
+			<vlabel>HK2</vlabel>
+			<data name="HK2" index="2538" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015615981"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012229427"/>
+			</data>
+		</VNodes>
+		<VNodes x="733" y="69" counter="2" w="0" h="0">
+			<vlabel>ADGRG6</vlabel>
+			<data name="ADGRG6" index="2424" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.022904848"/>
+			</data>
+		</VNodes>
+		<VNodes x="933" y="472" counter="2" w="0" h="0">
+			<vlabel>NTN4</vlabel>
+			<data name="NTN4" index="2725" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010453842"/>
+			</data>
+		</VNodes>
+		<VNodes x="741" y="256" counter="2" w="0" h="0">
+			<vlabel>LIPH</vlabel>
+			<data name="LIPH" index="2567" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.014279039"/>
+			</data>
+		</VNodes>
+		<VNodes x="860" y="544" counter="4" w="0" h="0">
+			<vlabel>CD9</vlabel>
+			<data name="CD9" index="2684" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.011189312"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.01084107"/>
+			</data>
+		</VNodes>
+		<VNodes x="757" y="292" counter="2" w="0" h="0">
+			<vlabel>TMEM243</vlabel>
+			<data name="TMEM243" index="2395" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.026166635"/>
+			</data>
+		</VNodes>
+		<VNodes x="284" y="402" counter="2" w="0" h="0">
+			<vlabel>PLS1</vlabel>
+			<data name="PLS1" index="2407" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.025312957"/>
+			</data>
+		</VNodes>
+		<VNodes x="890" y="598" counter="2" w="0" h="0">
+			<vlabel>IKBIP</vlabel>
+			<data name="IKBIP" index="2733" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010338709"/>
+			</data>
+		</VNodes>
+		<VNodes x="478" y="430" counter="4" w="0" h="0">
+			<vlabel>FXYD1</vlabel>
+			<data name="FXYD1" index="2544" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.015342376"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.012151491"/>
+			</data>
+		</VNodes>
+		<VNodes x="767" y="236" counter="2" w="0" h="0">
+			<vlabel>CORT</vlabel>
+			<data name="CORT" index="2505" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.017311698"/>
+			</data>
+		</VNodes>
+		<VNodes x="638" y="69" counter="2" w="0" h="0">
+			<vlabel>CTNNA3</vlabel>
+			<data name="CTNNA3" index="2492" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.017907545"/>
+			</data>
+		</VNodes>
+		<VNodes x="336" y="346" counter="2" w="0" h="0">
+			<vlabel>P2RY6</vlabel>
+			<data name="P2RY6" index="2640" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012152336"/>
+			</data>
+		</VNodes>
+		<VNodes x="696" y="33" counter="2" w="0" h="0">
+			<vlabel>KRT2</vlabel>
+			<data name="KRT2" index="2426" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.022792839"/>
+			</data>
+		</VNodes>
+		<VNodes x="812" y="483" counter="108" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>MPEG1</vlabel>
+			<data name="MPEG1" index="2305" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.094052292"/>
+				<link to="MMP12" method="M0039" weight="M0039=0.046645485"/>
+				<link to="S100A6" method="M0039" weight="M0039=0.038529345"/>
+				<link to="MYO1F" method="M0039" weight="M0039=0.028969377"/>
+				<link to="CD53" method="M0039" weight="M0039=0.02508556"/>
+				<link to="DOCK2" method="M0039" weight="M0039=0.024620679"/>
+				<link to="MR1" method="M0039" weight="M0039=0.0205483"/>
+				<link to="PARP4" method="M0039" weight="M0039=0.020172586"/>
+				<link to="ACOX3" method="M0039" weight="M0039=0.020016231"/>
+				<link to="PLEKHB1" method="M0039" weight="M0039=0.01983805"/>
+				<link to="PCSK1N" method="M0039" weight="M0039=0.018129837"/>
+				<link to="LBH" method="M0039" weight="M0039=0.018096737"/>
+				<link to="PDE8A" method="M0039" weight="M0039=0.017612955"/>
+				<link to="ACSF2" method="M0039" weight="M0039=0.01760797"/>
+				<link to="GLTP" method="M0039" weight="M0039=0.017589324"/>
+				<link to="PLA2G16" method="M0039" weight="M0039=0.017098692"/>
+				<link to="MVB12A" method="M0039" weight="M0039=0.017083209"/>
+				<link to="CDH23" method="M0039" weight="M0039=0.016655088"/>
+				<link to="BIN2" method="M0039" weight="M0039=0.016390939"/>
+				<link to="BCAS1" method="M0039" weight="M0039=0.016312332"/>
+				<link to="MFSD2B" method="M0039" weight="M0039=0.016303298"/>
+				<link to="OLFML3" method="M0039" weight="M0039=0.016162494"/>
+				<link to="MAP3K20" method="M0039" weight="M0039=0.016047876"/>
+				<link to="LAMA2" method="M0039" weight="M0039=0.015914433"/>
+				<link to="CST3" method="M0039" weight="M0039=0.015857051"/>
+				<link to="COL5A3" method="M0039" weight="M0039=0.015563276"/>
+				<link to="AHNAK" method="M0039" weight="M0039=0.015461915"/>
+				<link to="COL27A1" method="M0039" weight="M0039=0.015231708"/>
+				<link to="SEPT4" method="M0039" weight="M0039=0.015057096"/>
+				<link to="COL16A1" method="M0039" weight="M0039=0.014872797"/>
+				<link to="CRLF2" method="M0039" weight="M0039=0.014595119"/>
+				<link to="SNRNP70" method="M0039" weight="M0039=0.012862036"/>
+				<link to="GIPR" method="M0039" weight="M0039=0.012846318"/>
+				<link to="ARNTL2" method="M0039" weight="M0039=0.012819825"/>
+				<link to="ASAH2" method="M0039" weight="M0039=0.012604527"/>
+				<link to="ITPK1" method="M0039" weight="M0039=0.012514428"/>
+				<link to="SCAND1" method="M0039" weight="M0039=0.012340799"/>
+				<link to="EHD4" method="M0039" weight="M0039=0.012312133"/>
+				<link to="HK2" method="M0039" weight="M0039=0.012229427"/>
+				<link to="TRIM5" method="M0039" weight="M0039=0.012024721"/>
+				<link to="TMEM144" method="M0039" weight="M0039=0.011799371"/>
+				<link to="STK26" method="M0039" weight="M0039=0.011783597"/>
+				<link to="CDR2" method="M0039" weight="M0039=0.011731191"/>
+				<link to="SLC2A8" method="M0039" weight="M0039=0.011723015"/>
+				<link to="PLEKHG3" method="M0039" weight="M0039=0.011623119"/>
+				<link to="CGAS" method="M0039" weight="M0039=0.011536011"/>
+				<link to="F11R" method="M0039" weight="M0039=0.011358142"/>
+				<link to="FNDC10" method="M0039" weight="M0039=0.011266697"/>
+				<link to="TMEM191C" method="M0039" weight="M0039=0.011169601"/>
+				<link to="TIFA" method="M0039" weight="M0039=0.010875369"/>
+				<link to="JPT2" method="M0039" weight="M0039=0.01085688"/>
+				<link to="CD9" method="M0039" weight="M0039=0.01084107"/>
+				<link to="MOCS1" method="M0039" weight="M0039=0.010051433"/>
+				<link to="C14ORF39" method="M0039" weight="M0039=0.010035349"/>
+			</data>
+		</VNodes>
+		<VNodes x="617" y="217" counter="2" w="0" h="0">
+			<vlabel>SNAPC4</vlabel>
+			<data name="SNAPC4" index="2741" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.01024875"/>
+			</data>
+		</VNodes>
+		<VNodes x="693" y="143" counter="2" w="0" h="0">
+			<vlabel>RFTN1</vlabel>
+			<data name="RFTN1" index="2387" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.026754797"/>
+			</data>
+		</VNodes>
+		<VNodes x="309" y="153" counter="6" w="0" h="0">
+			<vlabel>HERC6</vlabel>
+			<data name="HERC6" index="2373" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.02926908"/>
+				<link to="APOD" method="M0039" weight="M0039=0.022471995"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.01925026"/>
+			</data>
+		</VNodes>
+		<VNodes x="694" y="51" counter="2" w="0" h="0">
+			<vlabel>MYL1</vlabel>
+			<data name="MYL1" index="2647" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011996009"/>
+			</data>
+		</VNodes>
+		<VNodes x="767" y="273" counter="2" w="0" h="0">
+			<vlabel>LPXN</vlabel>
+			<data name="LPXN" index="2463" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.019528597"/>
+			</data>
+		</VNodes>
+		<VNodes x="301" y="278" counter="2" w="0" h="0">
+			<vlabel>TFCP2L1</vlabel>
+			<data name="TFCP2L1" index="2326" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.046228881"/>
+			</data>
+		</VNodes>
+		<VNodes x="242" y="86" counter="2" w="0" h="0">
+			<vlabel>MGST1</vlabel>
+			<data name="MGST1" index="2746" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.010148266"/>
+			</data>
+		</VNodes>
+		<VNodes x="215" y="97" counter="2" w="0" h="0">
+			<vlabel>RPLP2</vlabel>
+			<data name="RPLP2" index="2681" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.011213854"/>
+			</data>
+		</VNodes>
+		<VNodes x="786" y="124" counter="2" w="0" h="0">
+			<vlabel>C21ORF91</vlabel>
+			<data name="C21ORF91" index="2507" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.017061798"/>
+			</data>
+		</VNodes>
+		<VNodes x="707" y="476" counter="2" w="0" h="0">
+			<vlabel>RPLP1</vlabel>
+			<data name="RPLP1" index="2663" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.011577365"/>
+			</data>
+		</VNodes>
+		<VNodes x="732" y="87" counter="2" w="0" h="0">
+			<vlabel>CORO6</vlabel>
+			<data name="CORO6" index="2610" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013065736"/>
+			</data>
+		</VNodes>
+		<VNodes x="424" y="153" counter="4" w="0" h="0">
+			<vlabel>TNS2</vlabel>
+			<data name="TNS2" index="2462" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.019776041"/>
+				<link to="C4A" method="M0039" weight="M0039=0.01874651"/>
+			</data>
+		</VNodes>
+		<VNodes x="879" y="328" counter="2" w="0" h="0">
+			<vlabel>NFE2L2</vlabel>
+			<data name="NFE2L2" index="2561" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.014440831"/>
+			</data>
+		</VNodes>
+		<VNodes x="424" y="189" counter="4" w="0" h="0">
+			<vlabel>TBXA2R</vlabel>
+			<data name="TBXA2R" index="2522" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.016269013"/>
+				<link to="C4A" method="M0039" weight="M0039=0.014916194"/>
+			</data>
+		</VNodes>
+		<VNodes x="289" y="98" counter="6" w="0" h="0">
+			<vlabel>INCA1</vlabel>
+			<data name="INCA1" index="2494" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.017846506"/>
+				<link to="APOD" method="M0039" weight="M0039=0.015219918"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.010018443"/>
+			</data>
+		</VNodes>
+		<VNodes x="460" y="504" counter="4" w="0" h="0">
+			<vlabel>SHKBP1</vlabel>
+			<data name="SHKBP1" index="2400" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.025745258"/>
+				<link to="C1QC" method="M0039" weight="M0039=0.022936105"/>
+			</data>
+		</VNodes>
+		<VNodes x="537" y="447" counter="4" w="0" h="0">
+			<vlabel>MAN2B2</vlabel>
+			<data name="MAN2B2" index="2446" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.02127376"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.017518389"/>
+			</data>
+		</VNodes>
+		<VNodes x="386" y="5" counter="2" w="0" h="0">
+			<vlabel>SLC24A1</vlabel>
+			<data name="SLC24A1" index="2655" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011720944"/>
+			</data>
+		</VNodes>
+		<VNodes x="246" y="329" counter="2" w="0" h="0">
+			<vlabel>CSF2RA</vlabel>
+			<data name="CSF2RA" index="2633" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012406855"/>
+			</data>
+		</VNodes>
+		<VNodes x="377" y="449" counter="2" w="0" h="0">
+			<vlabel>MAPK12</vlabel>
+			<data name="MAPK12" index="2614" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.012955087"/>
+			</data>
+		</VNodes>
+		<VNodes x="272" y="97" counter="6" w="0" h="0">
+			<vlabel>HOOK2</vlabel>
+			<data name="HOOK2" index="2521" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016271757"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.01123981"/>
+				<link to="APOD" method="M0039" weight="M0039=0.011081493"/>
+			</data>
+		</VNodes>
+		<VNodes x="188" y="273" counter="2" w="0" h="0">
+			<vlabel>TMEM119</vlabel>
+			<data name="TMEM119" index="2323" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.051043675"/>
+			</data>
+		</VNodes>
+		<VNodes x="743" y="199" counter="2" w="0" h="0">
+			<vlabel>NAT8</vlabel>
+			<data name="NAT8" index="2674" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011407821"/>
+			</data>
+		</VNodes>
+		<VNodes x="807" y="143" counter="2" w="0" h="0">
+			<vlabel>DCN</vlabel>
+			<data name="DCN" index="2706" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010691674"/>
+			</data>
+		</VNodes>
+		<VNodes x="498" y="115" counter="2" w="0" h="0">
+			<vlabel>P2RX5</vlabel>
+			<data name="P2RX5" index="2584" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.013744807"/>
+			</data>
+		</VNodes>
+		<VNodes x="763" y="544" counter="4" w="0" h="0">
+			<vlabel>MVB12A</vlabel>
+			<data name="MVB12A" index="2439" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.021536979"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.017083209"/>
+			</data>
+		</VNodes>
+		<VNodes x="826" y="110" counter="2" w="0" h="0">
+			<vlabel>TBXAS1</vlabel>
+			<data name="TBXAS1" index="2476" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.018826373"/>
+			</data>
+		</VNodes>
+		<VNodes x="787" y="278" counter="2" w="0" h="0">
+			<vlabel>SHC4</vlabel>
+			<data name="SHC4" index="2573" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.014026804"/>
+			</data>
+		</VNodes>
+		<VNodes x="292" y="23" counter="2" w="0" h="0">
+			<vlabel>RUNX2</vlabel>
+			<data name="RUNX2" index="2517" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016416939"/>
+			</data>
+		</VNodes>
+		<VNodes x="234" y="124" counter="2" w="0" h="0">
+			<vlabel>FBXO17</vlabel>
+			<data name="FBXO17" index="2690" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01101186"/>
+			</data>
+		</VNodes>
+		<VNodes x="424" y="79" counter="4" w="0" h="0">
+			<vlabel>C5AR2</vlabel>
+			<data name="C5AR2" index="2578" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01393366"/>
+				<link to="APOD" method="M0039" weight="M0039=0.011931358"/>
+			</data>
+		</VNodes>
+		<VNodes x="846" y="125" counter="2" w="0" h="0">
+			<vlabel>CRTAC1</vlabel>
+			<data name="CRTAC1" index="2523" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.016228024"/>
+			</data>
+		</VNodes>
+		<VNodes x="342" y="372" counter="2" w="0" h="0">
+			<vlabel>C15ORF39</vlabel>
+			<data name="C15ORF39" index="2670" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.011466609"/>
+			</data>
+		</VNodes>
+		<VNodes x="810" y="124" counter="2" w="0" h="0">
+			<vlabel>NOV</vlabel>
+			<data name="NOV" index="2745" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010202171"/>
+			</data>
+		</VNodes>
+		<VNodes x="959" y="273" counter="2" w="0" h="0">
+			<vlabel>PARP12</vlabel>
+			<data name="PARP12" index="2374" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.029178564"/>
+			</data>
+		</VNodes>
+		<VNodes x="404" y="135" counter="6" w="0" h="0">
+			<vlabel>PARP10</vlabel>
+			<data name="PARP10" index="2459" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.020240534"/>
+				<link to="APOD" method="M0039" weight="M0039=0.018620877"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.013285501"/>
+			</data>
+		</VNodes>
+		<VNodes x="284" y="309" counter="2" w="0" h="0">
+			<vlabel>NDRG1</vlabel>
+			<data name="NDRG1" index="2556" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.014648318"/>
+			</data>
+		</VNodes>
+		<VNodes x="365" y="116" counter="6" w="0" h="0">
+			<vlabel>HELZ2</vlabel>
+			<data name="HELZ2" index="2396" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.026057086"/>
+				<link to="APOD" method="M0039" weight="M0039=0.021129248"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.017312622"/>
+			</data>
+		</VNodes>
+		<VNodes x="348" y="209" counter="4" w="0" h="0">
+			<vlabel>IFITM2</vlabel>
+			<data name="IFITM2" index="2341" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.039199576"/>
+				<link to="C4A" method="M0039" weight="M0039=0.036174692"/>
+			</data>
+		</VNodes>
+		<VNodes x="715" y="268" counter="2" w="0" h="0">
+			<vlabel>IFITM1</vlabel>
+			<data name="IFITM1" index="2351" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.036174692"/>
+			</data>
+		</VNodes>
+		<VNodes x="657" y="236" counter="2" w="0" h="0">
+			<vlabel>LACC1</vlabel>
+			<data name="LACC1" index="2455" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.020595886"/>
+			</data>
+		</VNodes>
+		<VNodes x="802" y="526" counter="4" w="0" h="0">
+			<vlabel>SNRNP70</vlabel>
+			<data name="SNRNP70" index="2620" type="100">
+				<link to="MPEG1" method="M0039" weight="M0039=0.012862036"/>
+				<link to="CTSS" method="M0039" weight="M0039=0.012389228"/>
+			</data>
+		</VNodes>
+		<VNodes x="442" y="522" counter="4" w="0" h="0">
+			<vlabel>CYP27A1</vlabel>
+			<data name="CYP27A1" index="2391" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.026545403"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.016889855"/>
+			</data>
+		</VNodes>
+		<VNodes x="403" y="171" counter="6" w="0" h="0">
+			<vlabel>IKZF1</vlabel>
+			<data name="IKZF1" index="2352" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.036122842"/>
+				<link to="APOD" method="M0039" weight="M0039=0.026514026"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.025471717"/>
+			</data>
+		</VNodes>
+		<VNodes x="442" y="79" counter="4" w="0" h="0">
+			<vlabel>ST14</vlabel>
+			<data name="ST14" index="2362" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.032044664"/>
+				<link to="APOD" method="M0039" weight="M0039=0.024703811"/>
+			</data>
+		</VNodes>
+		<VNodes x="500" y="448" counter="4" w="0" h="0">
+			<vlabel>FRMD8</vlabel>
+			<data name="FRMD8" index="2418" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.023834655"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.015703023"/>
+			</data>
+		</VNodes>
+		<VNodes x="441" y="412" counter="2" w="0" h="0">
+			<vlabel>FRMD7</vlabel>
+			<data name="FRMD7" index="2739" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010277896"/>
+			</data>
+		</VNodes>
+		<VNodes x="349" y="116" counter="6" w="0" h="0">
+			<vlabel>DPYD</vlabel>
+			<data name="DPYD" index="2357" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.033624585"/>
+				<link to="APOD" method="M0039" weight="M0039=0.021546832"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.015855224"/>
+			</data>
+		</VNodes>
+		<VNodes x="836" y="433" counter="4" w="0" h="0">
+			<vlabel>S100A6</vlabel>
+			<data name="S100A6" index="2321" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.052978342"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.038529345"/>
+			</data>
+		</VNodes>
+		<VNodes x="518" y="43" counter="2" w="0" h="0">
+			<vlabel>GPR137B</vlabel>
+			<data name="GPR137B" index="2672" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011435607"/>
+			</data>
+		</VNodes>
+		<VNodes x="405" y="152" counter="6" w="0" h="0">
+			<vlabel>CA2</vlabel>
+			<data name="CA2" index="2379" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.028388176"/>
+				<link to="C4A" method="M0039" weight="M0039=0.021279951"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.014599407"/>
+			</data>
+		</VNodes>
+		<VNodes x="883" y="563" counter="2" w="0" h="0">
+			<vlabel>VEGFB</vlabel>
+			<data name="VEGFB" index="2595" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.013471591"/>
+			</data>
+		</VNodes>
+		<VNodes x="404" y="467" counter="2" w="0" h="0">
+			<vlabel>TMEM88B</vlabel>
+			<data name="TMEM88B" index="2568" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.014258387"/>
+			</data>
+		</VNodes>
+		<VNodes x="790" y="255" counter="2" w="0" h="0">
+			<vlabel>NLRC5</vlabel>
+			<data name="NLRC5" index="2419" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.023616597"/>
+			</data>
+		</VNodes>
+		<VNodes x="807" y="255" counter="2" w="0" h="0">
+			<vlabel>NLRC3</vlabel>
+			<data name="NLRC3" index="2676" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011314925"/>
+			</data>
+		</VNodes>
+		<VNodes x="539" y="503" counter="4" w="0" h="0">
+			<vlabel>SLC25A13</vlabel>
+			<data name="SLC25A13" index="2449" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.021047975"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.015689605"/>
+			</data>
+		</VNodes>
+		<VNodes x="966" y="294" counter="2" w="0" h="0">
+			<vlabel>BHLHE41</vlabel>
+			<data name="BHLHE41" index="2378" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.028480325"/>
+			</data>
+		</VNodes>
+		<VNodes x="919" y="416" counter="2" w="0" h="0">
+			<vlabel>SFT2D3</vlabel>
+			<data name="SFT2D3" index="2714" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010545812"/>
+			</data>
+		</VNodes>
+		<VNodes x="623" y="117" counter="2" w="0" h="0">
+			<vlabel>REEP6</vlabel>
+			<data name="REEP6" index="2597" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013449673"/>
+			</data>
+		</VNodes>
+		<VNodes x="455" y="97" counter="4" w="0" h="0">
+			<vlabel>SLC26A7</vlabel>
+			<data name="SLC26A7" index="2483" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.018511231"/>
+				<link to="C4A" method="M0039" weight="M0039=0.017286395"/>
+			</data>
+		</VNodes>
+		<VNodes x="442" y="447" counter="4" w="0" h="0">
+			<vlabel>RGS11</vlabel>
+			<data name="RGS11" index="2470" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.019204585"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.014367052"/>
+			</data>
+		</VNodes>
+		<VNodes x="365" y="62" counter="4" w="0" h="0">
+			<vlabel>TSPAN4</vlabel>
+			<data name="TSPAN4" index="2645" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012006877"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010144004"/>
+			</data>
+		</VNodes>
+		<VNodes x="249" y="354" counter="96" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>TREM2</vlabel>
+			<data name="TREM2" index="2310" type="100">
+				<link to="C1QA" method="M0039" weight="M0039=0.069637813"/>
+				<link to="TMEM119" method="M0039" weight="M0039=0.051043675"/>
+				<link to="TFCP2L1" method="M0039" weight="M0039=0.046228881"/>
+				<link to="PMP22" method="M0039" weight="M0039=0.044741303"/>
+				<link to="TYROBP" method="M0039" weight="M0039=0.044608731"/>
+				<link to="VIM" method="M0039" weight="M0039=0.044175582"/>
+				<link to="FLNB" method="M0039" weight="M0039=0.03683111"/>
+				<link to="WIPF1" method="M0039" weight="M0039=0.03337718"/>
+				<link to="MBOAT1" method="M0039" weight="M0039=0.030588011"/>
+				<link to="ALPK1" method="M0039" weight="M0039=0.025609402"/>
+				<link to="EPSTI1" method="M0039" weight="M0039=0.025574467"/>
+				<link to="PLS1" method="M0039" weight="M0039=0.025312957"/>
+				<link to="CSF3R" method="M0039" weight="M0039=0.023939364"/>
+				<link to="RASSF2" method="M0039" weight="M0039=0.021904957"/>
+				<link to="BLNK" method="M0039" weight="M0039=0.021622184"/>
+				<link to="SALL1" method="M0039" weight="M0039=0.021412885"/>
+				<link to="CX3CR1" method="M0039" weight="M0039=0.021336094"/>
+				<link to="PTGS1" method="M0039" weight="M0039=0.020271948"/>
+				<link to="STXBP2" method="M0039" weight="M0039=0.020246132"/>
+				<link to="RASAL3" method="M0039" weight="M0039=0.018388132"/>
+				<link to="MYO15A" method="M0039" weight="M0039=0.018091379"/>
+				<link to="MYO1D" method="M0039" weight="M0039=0.017706425"/>
+				<link to="EVC" method="M0039" weight="M0039=0.017341177"/>
+				<link to="PLEKHA4" method="M0039" weight="M0039=0.016636155"/>
+				<link to="MFSD10" method="M0039" weight="M0039=0.015935516"/>
+				<link to="OAF" method="M0039" weight="M0039=0.014956698"/>
+				<link to="SELENOM" method="M0039" weight="M0039=0.014786751"/>
+				<link to="NDRG1" method="M0039" weight="M0039=0.014648318"/>
+				<link to="PSTPIP2" method="M0039" weight="M0039=0.014479501"/>
+				<link to="RASA4" method="M0039" weight="M0039=0.013953054"/>
+				<link to="PLEC" method="M0039" weight="M0039=0.013257085"/>
+				<link to="MCC" method="M0039" weight="M0039=0.013151694"/>
+				<link to="AIF1" method="M0039" weight="M0039=0.012727538"/>
+				<link to="LARP6" method="M0039" weight="M0039=0.012696936"/>
+				<link to="AIM2" method="M0039" weight="M0039=0.012603181"/>
+				<link to="CSF2RA" method="M0039" weight="M0039=0.012406855"/>
+				<link to="DNTT" method="M0039" weight="M0039=0.012373748"/>
+				<link to="P2RY6" method="M0039" weight="M0039=0.012152336"/>
+				<link to="NFKBIZ" method="M0039" weight="M0039=0.012035093"/>
+				<link to="LRRC3" method="M0039" weight="M0039=0.011959022"/>
+				<link to="HMOX1" method="M0039" weight="M0039=0.011488325"/>
+				<link to="HMGCLL1" method="M0039" weight="M0039=0.011485793"/>
+				<link to="C15ORF39" method="M0039" weight="M0039=0.011466609"/>
+				<link to="MPC1" method="M0039" weight="M0039=0.011125788"/>
+				<link to="CHST8" method="M0039" weight="M0039=0.010574533"/>
+				<link to="PRXL2B" method="M0039" weight="M0039=0.010502907"/>
+				<link to="LRRC45" method="M0039" weight="M0039=0.010479905"/>
+				<link to="ADAP2" method="M0039" weight="M0039=0.010338383"/>
+			</data>
+		</VNodes>
+		<VNodes x="304" y="328" counter="2" w="0" h="0">
+			<vlabel>PRXL2B</vlabel>
+			<data name="PRXL2B" index="2718" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.010502907"/>
+			</data>
+		</VNodes>
+		<VNodes x="404" y="25" counter="4" w="0" h="0">
+			<vlabel>RNF213</vlabel>
+			<data name="RNF213" index="2435" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.022241244"/>
+				<link to="APOD" method="M0039" weight="M0039=0.016855048"/>
+			</data>
+		</VNodes>
+		<VNodes x="659" y="218" counter="2" w="0" h="0">
+			<vlabel>PPL</vlabel>
+			<data name="PPL" index="2337" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.040921091"/>
+			</data>
+		</VNodes>
+		<VNodes x="605" y="87" counter="2" w="0" h="0">
+			<vlabel>NRROS</vlabel>
+			<data name="NRROS" index="2692" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010980687"/>
+			</data>
+		</VNodes>
+		<VNodes x="461" y="5" counter="2" w="0" h="0">
+			<vlabel>NRG2</vlabel>
+			<data name="NRG2" index="2621" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012860066"/>
+			</data>
+		</VNodes>
+		<VNodes x="825" y="199" counter="2" w="0" h="0">
+			<vlabel>PTPN14</vlabel>
+			<data name="PTPN14" index="2636" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.01229417"/>
+			</data>
+		</VNodes>
+		<VNodes x="731" y="292" counter="2" w="0" h="0">
+			<vlabel>SPSB1</vlabel>
+			<data name="SPSB1" index="2542" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.015451166"/>
+			</data>
+		</VNodes>
+		<VNodes x="898" y="416" counter="2" w="0" h="0">
+			<vlabel>IL10RB</vlabel>
+			<data name="IL10RB" index="2661" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.01166191"/>
+			</data>
+		</VNodes>
+		<VNodes x="896" y="508" counter="4" w="0" h="0">
+			<vlabel>CST3</vlabel>
+			<data name="CST3" index="2411" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.024703011"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.015857051"/>
+			</data>
+		</VNodes>
+		<VNodes x="657" y="124" counter="2" w="0" h="0">
+			<vlabel>HVCN1</vlabel>
+			<data name="HVCN1" index="2365" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.031578321"/>
+			</data>
+		</VNodes>
+		<VNodes x="461" y="540" counter="4" w="0" h="0">
+			<vlabel>CLK1</vlabel>
+			<data name="CLK1" index="2619" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.012867347"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.011124217"/>
+			</data>
+		</VNodes>
+		<VNodes x="760" y="88" counter="2" w="0" h="0">
+			<vlabel>HPGDS</vlabel>
+			<data name="HPGDS" index="2342" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.038745819"/>
+			</data>
+		</VNodes>
+		<VNodes x="209" y="346" counter="2" w="0" h="0">
+			<vlabel>DNTT</vlabel>
+			<data name="DNTT" index="2634" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012373748"/>
+			</data>
+		</VNodes>
+		<VNodes x="618" y="246" counter="2" w="0" h="0">
+			<vlabel>SEMA3B</vlabel>
+			<data name="SEMA3B" index="2616" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.012891269"/>
+			</data>
+		</VNodes>
+		<VNodes x="572" y="467" counter="2" w="0" h="0">
+			<vlabel>SCN7A</vlabel>
+			<data name="SCN7A" index="2433" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.022377257"/>
+			</data>
+		</VNodes>
+		<VNodes x="228" y="345" counter="2" w="0" h="0">
+			<vlabel>NFKBIZ</vlabel>
+			<data name="NFKBIZ" index="2644" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012035093"/>
+			</data>
+		</VNodes>
+		<VNodes x="770" y="160" counter="2" w="0" h="0">
+			<vlabel>CRABP2</vlabel>
+			<data name="CRABP2" index="2582" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013755404"/>
+			</data>
+		</VNodes>
+		<VNodes x="173" y="354" counter="2" w="0" h="0">
+			<vlabel>HMOX1</vlabel>
+			<data name="HMOX1" index="2668" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.011488325"/>
+			</data>
+		</VNodes>
+		<VNodes x="462" y="135" counter="2" w="0" h="0">
+			<vlabel>LTBP4</vlabel>
+			<data name="LTBP4" index="2632" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012535508"/>
+			</data>
+		</VNodes>
+		<VNodes x="847" y="163" counter="2" w="0" h="0">
+			<vlabel>RBP1</vlabel>
+			<data name="RBP1" index="2631" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.012539573"/>
+			</data>
+		</VNodes>
+		<VNodes x="556" y="504" counter="2" w="0" h="0">
+			<vlabel>TMEM63A</vlabel>
+			<data name="TMEM63A" index="2596" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.013457753"/>
+			</data>
+		</VNodes>
+		<VNodes x="866" y="107" counter="2" w="0" h="0">
+			<vlabel>CTSZ</vlabel>
+			<data name="CTSZ" index="2315" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.059195544"/>
+			</data>
+		</VNodes>
+		<VNodes x="877" y="180" counter="2" w="0" h="0">
+			<vlabel>BABAM2</vlabel>
+			<data name="BABAM2" index="2656" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.011708069"/>
+			</data>
+		</VNodes>
+		<VNodes x="482" y="97" counter="4" w="0" h="0">
+			<vlabel>ADGRA2</vlabel>
+			<data name="ADGRA2" index="2635" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.012302699"/>
+				<link to="C4A" method="M0039" weight="M0039=0.010189875"/>
+			</data>
+		</VNodes>
+		<VNodes x="658" y="34" counter="2" w="0" h="0">
+			<vlabel>DQX1</vlabel>
+			<data name="DQX1" index="2540" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.015530787"/>
+			</data>
+		</VNodes>
+		<VNodes x="816" y="499" counter="156" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>CTSS</vlabel>
+			<data name="CTSS" index="2319" type="100">
+				<link to="MMP12" method="M0039" weight="M0039=0.05556211"/>
+				<link to="S100A6" method="M0039" weight="M0039=0.052978342"/>
+				<link to="MYO1F" method="M0039" weight="M0039=0.039830654"/>
+				<link to="PLEKHB1" method="M0039" weight="M0039=0.036566322"/>
+				<link to="PLA2G16" method="M0039" weight="M0039=0.033499662"/>
+				<link to="DOCK2" method="M0039" weight="M0039=0.031521605"/>
+				<link to="LBH" method="M0039" weight="M0039=0.031104769"/>
+				<link to="PDE8A" method="M0039" weight="M0039=0.028746175"/>
+				<link to="ACOX3" method="M0039" weight="M0039=0.02653236"/>
+				<link to="CD53" method="M0039" weight="M0039=0.026273607"/>
+				<link to="BCAS1" method="M0039" weight="M0039=0.02589492"/>
+				<link to="SEPT4" method="M0039" weight="M0039=0.025597875"/>
+				<link to="CST3" method="M0039" weight="M0039=0.024703011"/>
+				<link to="CDH23" method="M0039" weight="M0039=0.024253456"/>
+				<link to="PARP4" method="M0039" weight="M0039=0.023273294"/>
+				<link to="RENBP" method="M0039" weight="M0039=0.023198577"/>
+				<link to="ASAH2" method="M0039" weight="M0039=0.022851743"/>
+				<link to="MR1" method="M0039" weight="M0039=0.02269487"/>
+				<link to="SOCS3" method="M0039" weight="M0039=0.022388033"/>
+				<link to="AHNAK" method="M0039" weight="M0039=0.022335089"/>
+				<link to="MVB12A" method="M0039" weight="M0039=0.021536979"/>
+				<link to="BIN2" method="M0039" weight="M0039=0.020923021"/>
+				<link to="ACSF2" method="M0039" weight="M0039=0.020906639"/>
+				<link to="COL16A1" method="M0039" weight="M0039=0.020226423"/>
+				<link to="CDR2" method="M0039" weight="M0039=0.020054599"/>
+				<link to="EHD4" method="M0039" weight="M0039=0.019528068"/>
+				<link to="MFSD2B" method="M0039" weight="M0039=0.019418414"/>
+				<link to="COL5A3" method="M0039" weight="M0039=0.01933"/>
+				<link to="OLFML3" method="M0039" weight="M0039=0.019256976"/>
+				<link to="LAMA2" method="M0039" weight="M0039=0.018668732"/>
+				<link to="PCSK1N" method="M0039" weight="M0039=0.018582797"/>
+				<link to="MAP3K20" method="M0039" weight="M0039=0.017824568"/>
+				<link to="TIFA" method="M0039" weight="M0039=0.016916299"/>
+				<link to="STK26" method="M0039" weight="M0039=0.016609568"/>
+				<link to="CRY1" method="M0039" weight="M0039=0.01656889"/>
+				<link to="CRLF2" method="M0039" weight="M0039=0.016409253"/>
+				<link to="ITPK1" method="M0039" weight="M0039=0.016183546"/>
+				<link to="EPYC" method="M0039" weight="M0039=0.015778303"/>
+				<link to="COL27A1" method="M0039" weight="M0039=0.015692166"/>
+				<link to="SLC2A8" method="M0039" weight="M0039=0.015643098"/>
+				<link to="HK2" method="M0039" weight="M0039=0.015615981"/>
+				<link to="TRIM5" method="M0039" weight="M0039=0.015278442"/>
+				<link to="SCAND1" method="M0039" weight="M0039=0.015191904"/>
+				<link to="TMEM144" method="M0039" weight="M0039=0.015046103"/>
+				<link to="GIPR" method="M0039" weight="M0039=0.014600985"/>
+				<link to="TMEM191C" method="M0039" weight="M0039=0.014557945"/>
+				<link to="C14ORF39" method="M0039" weight="M0039=0.014453687"/>
+				<link to="CBR3" method="M0039" weight="M0039=0.014201664"/>
+				<link to="GLTP" method="M0039" weight="M0039=0.013852623"/>
+				<link to="GGACT" method="M0039" weight="M0039=0.013485232"/>
+				<link to="VEGFB" method="M0039" weight="M0039=0.013471591"/>
+				<link to="FNDC10" method="M0039" weight="M0039=0.013430045"/>
+				<link to="F11R" method="M0039" weight="M0039=0.013026196"/>
+				<link to="ARNTL2" method="M0039" weight="M0039=0.012801388"/>
+				<link to="SNRNP70" method="M0039" weight="M0039=0.012389228"/>
+				<link to="SYDE1" method="M0039" weight="M0039=0.012282317"/>
+				<link to="DIS3L2" method="M0039" weight="M0039=0.012250741"/>
+				<link to="MOCS1" method="M0039" weight="M0039=0.012153329"/>
+				<link to="TMEM160" method="M0039" weight="M0039=0.011732759"/>
+				<link to="IL10RB" method="M0039" weight="M0039=0.01166191"/>
+				<link to="RPLP1" method="M0039" weight="M0039=0.011577365"/>
+				<link to="TP53I13" method="M0039" weight="M0039=0.011456162"/>
+				<link to="CGAS" method="M0039" weight="M0039=0.011400894"/>
+				<link to="IL15RA" method="M0039" weight="M0039=0.011210745"/>
+				<link to="CD9" method="M0039" weight="M0039=0.011189312"/>
+				<link to="PLEKHG3" method="M0039" weight="M0039=0.011087887"/>
+				<link to="FMN1" method="M0039" weight="M0039=0.010952099"/>
+				<link to="ARHGAP19-SLIT1" method="M0039" weight="M0039=0.010940715"/>
+				<link to="DCAF15" method="M0039" weight="M0039=0.010806215"/>
+				<link to="CMTM3" method="M0039" weight="M0039=0.010667134"/>
+				<link to="SFT2D3" method="M0039" weight="M0039=0.010545812"/>
+				<link to="ACRBP" method="M0039" weight="M0039=0.010539308"/>
+				<link to="PSRC1" method="M0039" weight="M0039=0.010496522"/>
+				<link to="NTN4" method="M0039" weight="M0039=0.010453842"/>
+				<link to="RBM15" method="M0039" weight="M0039=0.010352944"/>
+				<link to="PIR" method="M0039" weight="M0039=0.010350165"/>
+				<link to="IKBIP" method="M0039" weight="M0039=0.010338709"/>
+				<link to="PPFIBP2" method="M0039" weight="M0039=0.010077713"/>
+			</data>
+		</VNodes>
+		<VNodes x="301" y="383" counter="2" w="0" h="0">
+			<vlabel>RASA4</vlabel>
+			<data name="RASA4" index="2577" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.013953054"/>
+			</data>
+		</VNodes>
+		<VNodes x="308" y="115" counter="6" w="0" h="0">
+			<vlabel>SEC11C</vlabel>
+			<data name="SEC11C" index="2493" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.017907437"/>
+				<link to="C4A" method="M0039" weight="M0039=0.016082514"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.010461318"/>
+			</data>
+		</VNodes>
+		<VNodes x="655" y="106" counter="2" w="0" h="0">
+			<vlabel>FAH</vlabel>
+			<data name="FAH" index="2495" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.017842953"/>
+			</data>
+		</VNodes>
+		<VNodes x="424" y="429" counter="2" w="0" h="0">
+			<vlabel>CHD7</vlabel>
+			<data name="CHD7" index="2673" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011412275"/>
+			</data>
+		</VNodes>
+		<VNodes x="599" y="126" counter="2" w="0" h="0">
+			<vlabel>CDC25A</vlabel>
+			<data name="CDC25A" index="2565" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.014313871"/>
+			</data>
+		</VNodes>
+		<VNodes x="734" y="107" counter="2" w="0" h="0">
+			<vlabel>PLIN4</vlabel>
+			<data name="PLIN4" index="2386" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.027358701"/>
+			</data>
+		</VNodes>
+		<VNodes x="828" y="52" counter="2" w="0" h="0">
+			<vlabel>FADS6</vlabel>
+			<data name="FADS6" index="2738" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010288544"/>
+			</data>
+		</VNodes>
+		<VNodes x="304" y="424" counter="2" w="0" h="0">
+			<vlabel>CX3CR1</vlabel>
+			<data name="CX3CR1" index="2444" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.021336094"/>
+			</data>
+		</VNodes>
+		<VNodes x="862" y="508" counter="4" w="0" h="0">
+			<vlabel>ARNTL2</vlabel>
+			<data name="ARNTL2" index="2623" type="100">
+				<link to="MPEG1" method="M0039" weight="M0039=0.012819825"/>
+				<link to="CTSS" method="M0039" weight="M0039=0.012801388"/>
+			</data>
+		</VNodes>
+		<VNodes x="745" y="544" counter="4" w="0" h="0">
+			<vlabel>OLFML3</vlabel>
+			<data name="OLFML3" index="2469" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.019256976"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.016162494"/>
+			</data>
+		</VNodes>
+		<VNodes x="365" y="153" counter="6" w="0" h="0">
+			<vlabel>SYCP2</vlabel>
+			<data name="SYCP2" index="2429" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.022643058"/>
+				<link to="APOD" method="M0039" weight="M0039=0.0157306"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.010693876"/>
+			</data>
+		</VNodes>
+		<VNodes x="346" y="98" counter="6" w="0" h="0">
+			<vlabel>PRRG1</vlabel>
+			<data name="PRRG1" index="2398" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.025915361"/>
+				<link to="C4A" method="M0039" weight="M0039=0.024664728"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.016056411"/>
+			</data>
+		</VNodes>
+		<VNodes x="839" y="488" counter="4" w="0" h="0">
+			<vlabel>CGAS</vlabel>
+			<data name="CGAS" index="2665" type="100">
+				<link to="MPEG1" method="M0039" weight="M0039=0.011536011"/>
+				<link to="CTSS" method="M0039" weight="M0039=0.011400894"/>
+			</data>
+		</VNodes>
+		<VNodes x="406" y="60" counter="4" w="0" h="0">
+			<vlabel>REX1BD</vlabel>
+			<data name="REX1BD" index="2643" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012035697"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010502397"/>
+			</data>
+		</VNodes>
+		<VNodes x="859" y="489" counter="4" w="0" h="0">
+			<vlabel>TIFA</vlabel>
+			<data name="TIFA" index="2510" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.016916299"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.010875369"/>
+			</data>
+		</VNodes>
+		<VNodes x="693" y="107" counter="2" w="0" h="0">
+			<vlabel>ASB2</vlabel>
+			<data name="ASB2" index="2752" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010083784"/>
+			</data>
+		</VNodes>
+		<VNodes x="840" y="416" counter="4" w="0" h="0">
+			<vlabel>MYO1F</vlabel>
+			<data name="MYO1F" index="2339" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.039830654"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.028969377"/>
+			</data>
+		</VNodes>
+		<VNodes x="264" y="309" counter="2" w="0" h="0">
+			<vlabel>MYO1D</vlabel>
+			<data name="MYO1D" index="2499" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.017706425"/>
+			</data>
+		</VNodes>
+		<VNodes x="405" y="522" counter="2" w="0" h="0">
+			<vlabel>MIF</vlabel>
+			<data name="MIF" index="2743" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010232807"/>
+			</data>
+		</VNodes>
+		<VNodes x="443" y="207" counter="2" w="0" h="0">
+			<vlabel>SRRM4</vlabel>
+			<data name="SRRM4" index="2589" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.013630568"/>
+			</data>
+		</VNodes>
+		<VNodes x="407" y="504" counter="2" w="0" h="0">
+			<vlabel>FZD10</vlabel>
+			<data name="FZD10" index="2705" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010700233"/>
+			</data>
+		</VNodes>
+		<VNodes x="170" y="402" counter="2" w="0" h="0">
+			<vlabel>CHST8</vlabel>
+			<data name="CHST8" index="2711" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.010574533"/>
+			</data>
+		</VNodes>
+		<VNodes x="327" y="59" counter="4" w="0" h="0">
+			<vlabel>SPR</vlabel>
+			<data name="SPR" index="2628" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.012690614"/>
+				<link to="APOD" method="M0039" weight="M0039=0.01079955"/>
+			</data>
+		</VNodes>
+		<VNodes x="697" y="87" counter="2" w="0" h="0">
+			<vlabel>RRAS</vlabel>
+			<data name="RRAS" index="2566" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.014303988"/>
+			</data>
+		</VNodes>
+		<VNodes x="941" y="291" counter="2" w="0" h="0">
+			<vlabel>HPS3</vlabel>
+			<data name="HPS3" index="2708" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.010639873"/>
+			</data>
+		</VNodes>
+		<VNodes x="424" y="42" counter="4" w="0" h="0">
+			<vlabel>FAM199X</vlabel>
+			<data name="FAM199X" index="2592" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.013566846"/>
+				<link to="APOD" method="M0039" weight="M0039=0.01095135"/>
+			</data>
+		</VNodes>
+		<VNodes x="575" y="523" counter="2" w="0" h="0">
+			<vlabel>ERICH5</vlabel>
+			<data name="ERICH5" index="2428" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.022665327"/>
+			</data>
+		</VNodes>
+		<VNodes x="484" y="171" counter="2" w="0" h="0">
+			<vlabel>CCRL2</vlabel>
+			<data name="CCRL2" index="2689" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011019202"/>
+			</data>
+		</VNodes>
+		<VNodes x="463" y="41" counter="4" w="0" h="0">
+			<vlabel>APBA3</vlabel>
+			<data name="APBA3" index="2598" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.013436445"/>
+				<link to="APOD" method="M0039" weight="M0039=0.011096946"/>
+			</data>
+		</VNodes>
+		<VNodes x="639" y="161" counter="2" w="0" h="0">
+			<vlabel>ALX3</vlabel>
+			<data name="ALX3" index="2715" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010544886"/>
+			</data>
+		</VNodes>
+		<VNodes x="324" y="402" counter="2" w="0" h="0">
+			<vlabel>MYO15A</vlabel>
+			<data name="MYO15A" index="2488" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.018091379"/>
+			</data>
+		</VNodes>
+		<VNodes x="764" y="471" counter="4" w="0" h="0">
+			<vlabel>STK26</vlabel>
+			<data name="STK26" index="2512" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.016609568"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.011783597"/>
+			</data>
+		</VNodes>
+		<VNodes x="348" y="78" counter="6" w="0" h="0">
+			<vlabel>FAM228B</vlabel>
+			<data name="FAM228B" index="2361" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.032794369"/>
+				<link to="APOD" method="M0039" weight="M0039=0.022134917"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.018982781"/>
+			</data>
+		</VNodes>
+		<VNodes x="487" y="42" counter="2" w="0" h="0">
+			<vlabel>FAM228A</vlabel>
+			<data name="FAM228A" index="2728" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010377032"/>
+			</data>
+		</VNodes>
+		<VNodes x="317" y="365" counter="2" w="0" h="0">
+			<vlabel>LARP6</vlabel>
+			<data name="LARP6" index="2627" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.012696936"/>
+			</data>
+		</VNodes>
+		<VNodes x="790" y="107" counter="2" w="0" h="0">
+			<vlabel>PPP1R14A</vlabel>
+			<data name="PPP1R14A" index="2520" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.016358572"/>
+			</data>
+		</VNodes>
+		<VNodes x="387" y="78" counter="4" w="0" h="0">
+			<vlabel>RCN3</vlabel>
+			<data name="RCN3" index="2514" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016481305"/>
+				<link to="APOD" method="M0039" weight="M0039=0.01517939"/>
+			</data>
+		</VNodes>
+		<VNodes x="903" y="235" counter="2" w="0" h="0">
+			<vlabel>FTH1</vlabel>
+			<data name="FTH1" index="2487" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.01821029"/>
+			</data>
+		</VNodes>
+		<VNodes x="746" y="470" counter="4" w="0" h="0">
+			<vlabel>TRIM5</vlabel>
+			<data name="TRIM5" index="2547" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015278442"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.012024721"/>
+			</data>
+		</VNodes>
+		<VNodes x="922" y="273" counter="2" w="0" h="0">
+			<vlabel>PLEKHH2</vlabel>
+			<data name="PLEKHH2" index="2454" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.02063408"/>
+			</data>
+		</VNodes>
+		<VNodes x="559" y="485" counter="2" w="0" h="0">
+			<vlabel>TNFSF13B</vlabel>
+			<data name="TNFSF13B" index="2572" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.014068442"/>
+			</data>
+		</VNodes>
+		<VNodes x="272" y="5" counter="2" w="0" h="0">
+			<vlabel>TRIM59</vlabel>
+			<data name="TRIM59" index="2713" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.01055576"/>
+			</data>
+		</VNodes>
+		<VNodes x="463" y="447" counter="4" w="0" h="0">
+			<vlabel>TRIM56</vlabel>
+			<data name="TRIM56" index="2550" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.015072458"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.014369373"/>
+			</data>
+		</VNodes>
+		<VNodes x="748" y="161" counter="2" w="0" h="0">
+			<vlabel>GJB2</vlabel>
+			<data name="GJB2" index="2485" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.018387428"/>
+			</data>
+		</VNodes>
+		<VNodes x="637" y="197" counter="2" w="0" h="0">
+			<vlabel>SOD3</vlabel>
+			<data name="SOD3" index="2515" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.016468607"/>
+			</data>
+		</VNodes>
+		<VNodes x="443" y="22" counter="2" w="0" h="0">
+			<vlabel>TPM2</vlabel>
+			<data name="TPM2" index="2600" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.013395348"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="115" counter="6" w="0" h="0">
+			<vlabel>KLC3</vlabel>
+			<data name="KLC3" index="2401" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.02561671"/>
+				<link to="APOD" method="M0039" weight="M0039=0.018511164"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.016666465"/>
+			</data>
+		</VNodes>
+		<VNodes x="310" y="79" counter="6" w="0" h="0">
+			<vlabel>SH3BP2</vlabel>
+			<data name="SH3BP2" index="2509" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016956537"/>
+				<link to="APOD" method="M0039" weight="M0039=0.013330813"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011486279"/>
+			</data>
+		</VNodes>
+		<VNodes x="879" y="490" counter="4" w="0" h="0">
+			<vlabel>PLEKHG3</vlabel>
+			<data name="PLEKHG3" index="2662" type="100">
+				<link to="MPEG1" method="M0039" weight="M0039=0.011623119"/>
+				<link to="CTSS" method="M0039" weight="M0039=0.011087887"/>
+			</data>
+		</VNodes>
+		<VNodes x="254" y="60" counter="4" w="0" h="0">
+			<vlabel>SP110</vlabel>
+			<data name="SP110" index="2441" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.021475253"/>
+				<link to="APOD" method="M0039" weight="M0039=0.015053546"/>
+			</data>
+		</VNodes>
+		<VNodes x="845" y="143" counter="2" w="0" h="0">
+			<vlabel>SEC14L5</vlabel>
+			<data name="SEC14L5" index="2364" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.031833905"/>
+			</data>
+		</VNodes>
+		<VNodes x="964" y="328" counter="2" w="0" h="0">
+			<vlabel>CLIC5</vlabel>
+			<data name="CLIC5" index="2453" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.020665156"/>
+			</data>
+		</VNodes>
+		<VNodes x="859" y="466" counter="4" w="0" h="0">
+			<vlabel>MOCS1</vlabel>
+			<data name="MOCS1" index="2639" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.012153329"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.010051433"/>
+			</data>
+		</VNodes>
+		<VNodes x="879" y="273" counter="2" w="0" h="0">
+			<vlabel>TRIM47</vlabel>
+			<data name="TRIM47" index="2564" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.014323207"/>
+			</data>
+		</VNodes>
+		<VNodes x="518" y="503" counter="4" w="0" h="0">
+			<vlabel>CLIC1</vlabel>
+			<data name="CLIC1" index="2646" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011997802"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.010659267"/>
+			</data>
+		</VNodes>
+		<VNodes x="915" y="527" counter="2" w="0" h="0">
+			<vlabel>EPYC</vlabel>
+			<data name="EPYC" index="2534" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.015778303"/>
+			</data>
+		</VNodes>
+		<VNodes x="675" y="272" counter="2" w="0" h="0">
+			<vlabel>RHPN2</vlabel>
+			<data name="RHPN2" index="2609" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013070186"/>
+			</data>
+		</VNodes>
+		<VNodes x="820" y="392" counter="2" w="0" h="0">
+			<vlabel>PIR</vlabel>
+			<data name="PIR" index="2731" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.010350165"/>
+			</data>
+		</VNodes>
+		<VNodes x="825" y="161" counter="2" w="0" h="0">
+			<vlabel>PLEKHF1</vlabel>
+			<data name="PLEKHF1" index="2591" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013574203"/>
+			</data>
+		</VNodes>
+		<VNodes x="442" y="467" counter="4" w="0" h="0">
+			<vlabel>NBL1</vlabel>
+			<data name="NBL1" index="2481" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.01861094"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.013173737"/>
+			</data>
+		</VNodes>
+		<VNodes x="187" y="366" counter="2" w="0" h="0">
+			<vlabel>CSF3R</vlabel>
+			<data name="CSF3R" index="2417" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.023939364"/>
+			</data>
+		</VNodes>
+		<VNodes x="763" y="396" counter="2" w="0" h="0">
+			<vlabel>IL15RA</vlabel>
+			<data name="IL15RA" index="2683" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.011210745"/>
+			</data>
+		</VNodes>
+		<VNodes x="440" y="171" counter="4" w="0" h="0">
+			<vlabel>IL21R</vlabel>
+			<data name="IL21R" index="2359" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.033414571"/>
+				<link to="APOD" method="M0039" weight="M0039=0.027434065"/>
+			</data>
+		</VNodes>
+		<VNodes x="500" y="393" counter="4" w="0" h="0">
+			<vlabel>MBD6</vlabel>
+			<data name="MBD6" index="2664" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011548938"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.010094269"/>
+			</data>
+		</VNodes>
+		<VNodes x="772" y="180" counter="2" w="0" h="0">
+			<vlabel>SERPING1</vlabel>
+			<data name="SERPING1" index="2370" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.030902111"/>
+			</data>
+		</VNodes>
+		<VNodes x="365" y="171" counter="6" w="0" h="0">
+			<vlabel>DENND3</vlabel>
+			<data name="DENND3" index="2448" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.021217179"/>
+				<link to="APOD" method="M0039" weight="M0039=0.014195974"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011838186"/>
+			</data>
+		</VNodes>
+		<VNodes x="906" y="328" counter="2" w="0" h="0">
+			<vlabel>HSPA2</vlabel>
+			<data name="HSPA2" index="2569" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.014246042"/>
+			</data>
+		</VNodes>
+		<VNodes x="732" y="235" counter="2" w="0" h="0">
+			<vlabel>BTG1</vlabel>
+			<data name="BTG1" index="2747" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010141424"/>
+			</data>
+		</VNodes>
+		<VNodes x="532" y="393" counter="2" w="0" h="0">
+			<vlabel>MLPH</vlabel>
+			<data name="MLPH" index="2408" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.025259963"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="227" counter="4" w="0" h="0">
+			<vlabel>SNX22</vlabel>
+			<data name="SNX22" index="2703" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010787299"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010772086"/>
+			</data>
+		</VNodes>
+		<VNodes x="392" y="414" counter="2" w="0" h="0">
+			<vlabel>TRIM36</vlabel>
+			<data name="TRIM36" index="2686" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011160604"/>
+			</data>
+		</VNodes>
+		<VNodes x="557" y="575" counter="2" w="0" h="0">
+			<vlabel>SLC36A2</vlabel>
+			<data name="SLC36A2" index="2548" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.015246064"/>
+			</data>
+		</VNodes>
+		<VNodes x="366" y="41" counter="4" w="0" h="0">
+			<vlabel>TRIM34</vlabel>
+			<data name="TRIM34" index="2346" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.037066944"/>
+				<link to="APOD" method="M0039" weight="M0039=0.032213981"/>
+			</data>
+		</VNodes>
+		<VNodes x="520" y="466" counter="4" w="0" h="0">
+			<vlabel>DNTTIP1</vlabel>
+			<data name="DNTTIP1" index="2688" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.011061329"/>
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.010144695"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="24" counter="4" w="0" h="0">
+			<vlabel>SPACA6</vlabel>
+			<data name="SPACA6" index="2496" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.017833133"/>
+				<link to="APOD" method="M0039" weight="M0039=0.01008029"/>
+			</data>
+		</VNodes>
+		<VNodes x="783" y="508" counter="4" w="0" h="0">
+			<vlabel>PLA2G16</vlabel>
+			<data name="PLA2G16" index="2358" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.033499662"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.017098692"/>
+			</data>
+		</VNodes>
+		<VNodes x="784" y="219" counter="2" w="0" h="0">
+			<vlabel>SERPINF2</vlabel>
+			<data name="SERPINF2" index="2533" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.015878799"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="172" counter="4" w="0" h="0">
+			<vlabel>RELT</vlabel>
+			<data name="RELT" index="2580" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.013858423"/>
+				<link to="C4A" method="M0039" weight="M0039=0.012057902"/>
+			</data>
+		</VNodes>
+		<VNodes x="860" y="563" counter="2" w="0" h="0">
+			<vlabel>GGACT</vlabel>
+			<data name="GGACT" index="2593" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.013485232"/>
+			</data>
+		</VNodes>
+		<VNodes x="694" y="292" counter="2" w="0" h="0">
+			<vlabel>TLE2</vlabel>
+			<data name="TLE2" index="2382" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.02812022"/>
+			</data>
+		</VNodes>
+		<VNodes x="673" y="199" counter="2" w="0" h="0">
+			<vlabel>HLA-DOB</vlabel>
+			<data name="HLA-DOB" index="2355" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.035130825"/>
+			</data>
+		</VNodes>
+		<VNodes x="804" y="453" counter="4" w="0" h="0">
+			<vlabel>MAP3K20</vlabel>
+			<data name="MAP3K20" index="2497" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.017824568"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.016047876"/>
+			</data>
+		</VNodes>
+		<VNodes x="384" y="134" counter="6" w="0" h="0">
+			<vlabel>DXO</vlabel>
+			<data name="DXO" index="2403" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.025603112"/>
+				<link to="APOD" method="M0039" weight="M0039=0.02044951"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.01790112"/>
+			</data>
+		</VNodes>
+		<VNodes x="752" y="218" counter="2" w="0" h="0">
+			<vlabel>LY86</vlabel>
+			<data name="LY86" index="2331" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.044052017"/>
+			</data>
+		</VNodes>
+		<VNodes x="582" y="185" counter="2" w="0" h="0">
+			<vlabel>SPOCK3</vlabel>
+			<data name="SPOCK3" index="2735" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010299335"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="151" counter="6" w="0" h="0">
+			<vlabel>RELB</vlabel>
+			<data name="RELB" index="2468" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.019257051"/>
+				<link to="APOD" method="M0039" weight="M0039=0.014297397"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.011392351"/>
+			</data>
+		</VNodes>
+		<VNodes x="538" y="472" counter="106" w="12" h="12" labelOn="true" ncc="255 255 153" labelSize="12" labelStyle="1" esymbol="false" ksymbol="false">
+			<vlabel>LGALS3BP</vlabel>
+			<data name="LGALS3BP" index="2306" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.093289439"/>
+				<link to="ANXA3" method="M0039" weight="M0039=0.038721587"/>
+				<link to="IGHM" method="M0039" weight="M0039=0.031382908"/>
+				<link to="SKAP2" method="M0039" weight="M0039=0.030544313"/>
+				<link to="CCL8" method="M0039" weight="M0039=0.026676279"/>
+				<link to="STAT2" method="M0039" weight="M0039=0.026557258"/>
+				<link to="PARP9" method="M0039" weight="M0039=0.026334284"/>
+				<link to="SHKBP1" method="M0039" weight="M0039=0.025745258"/>
+				<link to="MTHFD1L" method="M0039" weight="M0039=0.025610859"/>
+				<link to="MLPH" method="M0039" weight="M0039=0.025259963"/>
+				<link to="NFAM1" method="M0039" weight="M0039=0.02516288"/>
+				<link to="TRIM14" method="M0039" weight="M0039=0.024454864"/>
+				<link to="CMKLR1" method="M0039" weight="M0039=0.024096897"/>
+				<link to="ISG15" method="M0039" weight="M0039=0.023141049"/>
+				<link to="ERICH5" method="M0039" weight="M0039=0.022665327"/>
+				<link to="SCN7A" method="M0039" weight="M0039=0.022377257"/>
+				<link to="EYA4" method="M0039" weight="M0039=0.021530799"/>
+				<link to="ADSSL1" method="M0039" weight="M0039=0.019410347"/>
+				<link to="ANXA5" method="M0039" weight="M0039=0.017814139"/>
+				<link to="MAN2B2" method="M0039" weight="M0039=0.017518389"/>
+				<link to="HAVCR2" method="M0039" weight="M0039=0.017294678"/>
+				<link to="PCSK6" method="M0039" weight="M0039=0.016925607"/>
+				<link to="CYP27A1" method="M0039" weight="M0039=0.016889855"/>
+				<link to="ATP8B1" method="M0039" weight="M0039=0.015739637"/>
+				<link to="FRMD8" method="M0039" weight="M0039=0.015703023"/>
+				<link to="SLC25A13" method="M0039" weight="M0039=0.015689605"/>
+				<link to="SLC36A2" method="M0039" weight="M0039=0.015246064"/>
+				<link to="ENPP4" method="M0039" weight="M0039=0.014618921"/>
+				<link to="TRIM56" method="M0039" weight="M0039=0.014369373"/>
+				<link to="RGS11" method="M0039" weight="M0039=0.014367052"/>
+				<link to="TNFSF13B" method="M0039" weight="M0039=0.014068442"/>
+				<link to="PSMB9" method="M0039" weight="M0039=0.014009611"/>
+				<link to="SLCO2B1" method="M0039" weight="M0039=0.013891377"/>
+				<link to="TMEM63A" method="M0039" weight="M0039=0.013457753"/>
+				<link to="NBL1" method="M0039" weight="M0039=0.013173737"/>
+				<link to="TPCN2" method="M0039" weight="M0039=0.012982544"/>
+				<link to="SAMSN1" method="M0039" weight="M0039=0.012855964"/>
+				<link to="RIDA" method="M0039" weight="M0039=0.012795108"/>
+				<link to="FXYD1" method="M0039" weight="M0039=0.012151491"/>
+				<link to="NFATC1" method="M0039" weight="M0039=0.012143612"/>
+				<link to="RHBDF1" method="M0039" weight="M0039=0.012098972"/>
+				<link to="ICAM1" method="M0039" weight="M0039=0.011916597"/>
+				<link to="NCF2" method="M0039" weight="M0039=0.011705328"/>
+				<link to="SMIM24" method="M0039" weight="M0039=0.011679"/>
+				<link to="RASA4B" method="M0039" weight="M0039=0.011391593"/>
+				<link to="CLK1" method="M0039" weight="M0039=0.011124217"/>
+				<link to="SOX10" method="M0039" weight="M0039=0.010803083"/>
+				<link to="CLIC1" method="M0039" weight="M0039=0.010659267"/>
+				<link to="CD163" method="M0039" weight="M0039=0.01036735"/>
+				<link to="ASPA" method="M0039" weight="M0039=0.010225003"/>
+				<link to="DNTTIP1" method="M0039" weight="M0039=0.010144695"/>
+				<link to="MBD6" method="M0039" weight="M0039=0.010094269"/>
+				<link to="UAP1L1" method="M0039" weight="M0039=0.010060223"/>
+			</data>
+		</VNodes>
+		<VNodes x="517" y="557" counter="2" w="0" h="0">
+			<vlabel>PSMB9</vlabel>
+			<data name="PSMB9" index="2575" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.014009611"/>
+			</data>
+		</VNodes>
+		<VNodes x="840" y="526" counter="4" w="0" h="0">
+			<vlabel>LBH</vlabel>
+			<data name="LBH" index="2369" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.031104769"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.018096737"/>
+			</data>
+		</VNodes>
+		<VNodes x="290" y="226" counter="2" w="0" h="0">
+			<vlabel>MSRB2</vlabel>
+			<data name="MSRB2" index="2750" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.010094992"/>
+			</data>
+		</VNodes>
+		<VNodes x="385" y="98" counter="6" w="0" h="0">
+			<vlabel>CXCL12</vlabel>
+			<data name="CXCL12" index="2447" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.021242769"/>
+				<link to="APOD" method="M0039" weight="M0039=0.016363229"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.012872859"/>
+			</data>
+		</VNodes>
+		<VNodes x="713" y="143" counter="2" w="0" h="0">
+			<vlabel>COL2A1</vlabel>
+			<data name="COL2A1" index="2397" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.025961437"/>
+			</data>
+		</VNodes>
+		<VNodes x="423" y="96" counter="4" w="0" h="0">
+			<vlabel>CD84</vlabel>
+			<data name="CD84" index="2314" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.059508396"/>
+				<link to="APOD" method="M0039" weight="M0039=0.042282955"/>
+			</data>
+		</VNodes>
+		<VNodes x="931" y="245" counter="2" w="0" h="0">
+			<vlabel>CD83</vlabel>
+			<data name="CD83" index="2716" type="100">
+				<link to="C1QB" method="M0039" weight="M0039=0.010539549"/>
+			</data>
+		</VNodes>
+		<VNodes x="826" y="233" counter="2" w="0" h="0">
+			<vlabel>CD82</vlabel>
+			<data name="CD82" index="2611" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013041787"/>
+			</data>
+		</VNodes>
+		<VNodes x="167" y="296" counter="2" w="0" h="0">
+			<vlabel>PLEC</vlabel>
+			<data name="PLEC" index="2603" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.013257085"/>
+			</data>
+		</VNodes>
+		<VNodes x="694" y="180" counter="2" w="0" h="0">
+			<vlabel>CYP3A5</vlabel>
+			<data name="CYP3A5" index="2608" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013106586"/>
+			</data>
+		</VNodes>
+		<VNodes x="224" y="309" counter="2" w="0" h="0">
+			<vlabel>MCC</vlabel>
+			<data name="MCC" index="2607" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.013151694"/>
+			</data>
+		</VNodes>
+		<VNodes x="679" y="124" counter="2" w="0" h="0">
+			<vlabel>RHOJ</vlabel>
+			<data name="RHOJ" index="2590" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013600499"/>
+			</data>
+		</VNodes>
+		<VNodes x="306" y="61" counter="4" w="0" h="0">
+			<vlabel>CYP3A4</vlabel>
+			<data name="CYP3A4" index="2601" type="100">
+				<link to="APOD" method="M0039" weight="M0039=0.013293776"/>
+				<link to="C4A" method="M0039" weight="M0039=0.013106586"/>
+			</data>
+		</VNodes>
+		<VNodes x="763" y="432" counter="4" w="0" h="0">
+			<vlabel>MMP12</vlabel>
+			<data name="MMP12" index="2320" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.05556211"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.046645485"/>
+			</data>
+		</VNodes>
+		<VNodes x="669" y="162" counter="2" w="0" h="0">
+			<vlabel>RHOG</vlabel>
+			<data name="RHOG" index="2529" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.016064551"/>
+			</data>
+		</VNodes>
+		<VNodes x="789" y="198" counter="2" w="0" h="0">
+			<vlabel>IL17RC</vlabel>
+			<data name="IL17RC" index="2617" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.012888773"/>
+			</data>
+		</VNodes>
+		<VNodes x="403" y="5" counter="2" w="0" h="0">
+			<vlabel>SPHK1</vlabel>
+			<data name="SPHK1" index="2471" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.019151245"/>
+			</data>
+		</VNodes>
+		<VNodes x="555" y="430" counter="2" w="0" h="0">
+			<vlabel>TRIM14</vlabel>
+			<data name="TRIM14" index="2413" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.024454864"/>
+			</data>
+		</VNodes>
+		<VNodes x="811" y="88" counter="2" w="0" h="0">
+			<vlabel>TMPRSS11A</vlabel>
+			<data name="TMPRSS11A" index="2704" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.010769293"/>
+			</data>
+		</VNodes>
+		<VNodes x="280" y="450" counter="2" w="0" h="0">
+			<vlabel>PSTPIP2</vlabel>
+			<data name="PSTPIP2" index="2559" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.014479501"/>
+			</data>
+		</VNodes>
+		<VNodes x="518" y="153" counter="2" w="0" h="0">
+			<vlabel>APOL4</vlabel>
+			<data name="APOL4" index="2680" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.01124716"/>
+			</data>
+		</VNodes>
+		<VNodes x="763" y="526" counter="4" w="0" h="0">
+			<vlabel>MFSD2B</vlabel>
+			<data name="MFSD2B" index="2465" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.019418414"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.016303298"/>
+			</data>
+		</VNodes>
+		<VNodes x="789" y="162" counter="2" w="0" h="0">
+			<vlabel>APOL1</vlabel>
+			<data name="APOL1" index="2679" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.01124716"/>
+			</data>
+		</VNodes>
+		<VNodes x="482" y="559" counter="2" w="0" h="0">
+			<vlabel>IGHM</vlabel>
+			<data name="IGHM" index="2367" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.031382908"/>
+			</data>
+		</VNodes>
+		<VNodes x="594" y="504" counter="2" w="0" h="0">
+			<vlabel>SAMSN1</vlabel>
+			<data name="SAMSN1" index="2622" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.012855964"/>
+			</data>
+		</VNodes>
+		<VNodes x="612" y="429" counter="2" w="0" h="0">
+			<vlabel>EYA4</vlabel>
+			<data name="EYA4" index="2440" type="100">
+				<link to="LGALS3BP" method="M0039" weight="M0039=0.021530799"/>
+			</data>
+		</VNodes>
+		<VNodes x="386" y="24" counter="4" w="0" h="0">
+			<vlabel>EYA2</vlabel>
+			<data name="EYA2" index="2666" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011526855"/>
+				<link to="APOD" method="M0039" weight="M0039=0.011379851"/>
+			</data>
+		</VNodes>
+		<VNodes x="309" y="208" counter="4" w="0" h="0">
+			<vlabel>HLA-DMB</vlabel>
+			<data name="HLA-DMB" index="2333" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.04200572"/>
+				<link to="APOD" method="M0039" weight="M0039=0.034930523"/>
+			</data>
+		</VNodes>
+		<VNodes x="731" y="51" counter="2" w="0" h="0">
+			<vlabel>CD300C</vlabel>
+			<data name="CD300C" index="2335" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.041596164"/>
+			</data>
+		</VNodes>
+		<VNodes x="675" y="89" counter="2" w="0" h="0">
+			<vlabel>ITPR3</vlabel>
+			<data name="ITPR3" index="2372" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.030085089"/>
+			</data>
+		</VNodes>
+		<VNodes x="327" y="99" counter="6" w="0" h="0">
+			<vlabel>PLD4</vlabel>
+			<data name="PLD4" index="2309" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.072105831"/>
+				<link to="APOD" method="M0039" weight="M0039=0.047946619"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.041403779"/>
+			</data>
+		</VNodes>
+		<VNodes x="799" y="565" counter="4" w="0" h="0">
+			<vlabel>PLEKHB1</vlabel>
+			<data name="PLEKHB1" index="2350" type="100">
+				<link to="CTSS" method="M0039" weight="M0039=0.036566322"/>
+				<link to="MPEG1" method="M0039" weight="M0039=0.01983805"/>
+			</data>
+		</VNodes>
+		<VNodes x="809" y="181" counter="2" w="0" h="0">
+			<vlabel>PRDM8</vlabel>
+			<data name="PRDM8" index="2552" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.015026569"/>
+			</data>
+		</VNodes>
+		<VNodes x="463" y="116" counter="4" w="0" h="0">
+			<vlabel>PRDM5</vlabel>
+			<data name="PRDM5" index="2650" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.011897759"/>
+				<link to="APOD" method="M0039" weight="M0039=0.010789716"/>
+			</data>
+		</VNodes>
+		<VNodes x="385" y="208" counter="4" w="0" h="0">
+			<vlabel>NIPAL2</vlabel>
+			<data name="NIPAL2" index="2530" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.016028624"/>
+				<link to="APOD" method="M0039" weight="M0039=0.012106655"/>
+			</data>
+		</VNodes>
+		<VNodes x="808" y="33" counter="2" w="0" h="0">
+			<vlabel>FCGR2C</vlabel>
+			<data name="FCGR2C" index="2317" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.056047562"/>
+			</data>
+		</VNodes>
+		<VNodes x="850" y="219" counter="2" w="0" h="0">
+			<vlabel>DAAM2</vlabel>
+			<data name="DAAM2" index="2588" type="100">
+				<link to="C4B" method="M0039" weight="M0039=0.013650891"/>
+			</data>
+		</VNodes>
+		<VNodes x="329" y="78" counter="6" w="0" h="0">
+			<vlabel>FCGR2A</vlabel>
+			<data name="FCGR2A" index="2318" type="100">
+				<link to="C4A" method="M0039" weight="M0039=0.056047562"/>
+				<link to="APOD" method="M0039" weight="M0039=0.050289883"/>
+				<link to="C1QA" method="M0039" weight="M0039=0.035573964"/>
+			</data>
+		</VNodes>
+		<VNodes x="422" y="541" counter="2" w="0" h="0">
+			<vlabel>MERTK</vlabel>
+			<data name="MERTK" index="2742" type="100">
+				<link to="C1QC" method="M0039" weight="M0039=0.010246128"/>
+			</data>
+		</VNodes>
+		<VNodes x="246" y="291" counter="2" w="0" h="0">
+			<vlabel>LRRC45</vlabel>
+			<data name="LRRC45" index="2722" type="100">
+				<link to="TREM2" method="M0039" weight="M0039=0.010479905"/>
+			</data>
+		</VNodes>
+	</Nodes>
+	<Edges>
+		<VEdge from="C1QB" to="CD83"/>
+		<VEdge from="APOD" to="NIPAL2"/>
+		<VEdge from="C4A" to="C5AR2"/>
+		<VEdge from="C4A" to="SUGCT"/>
+		<VEdge from="C4A" to="COX8C"/>
+		<VEdge from="C4A" to="TRIM34"/>
+		<VEdge from="C4A" to="IFITM2"/>
+		<VEdge from="APOD" to="APOBEC1"/>
+		<VEdge from="C4A" to="SLC15A3"/>
+		<VEdge from="APOD" to="TGIF1"/>
+		<VEdge from="APOD" to="CREB3L2"/>
+		<VEdge from="C1QB" to="HPS3"/>
+		<VEdge from="APOD" to="TBXA2R"/>
+		<VEdge from="APOD" to="HOOK2"/>
+		<VEdge from="C4A" to="EPB41L5"/>
+		<VEdge from="APOD" to="METTL7A"/>
+		<VEdge from="APOD" to="MGST1"/>
+		<VEdge from="C4A" to="TNXB"/>
+		<VEdge from="C4A" to="SLC22A4"/>
+		<VEdge from="C4A" to="HLA-DMB"/>
+		<VEdge from="C4A" to="STAT1"/>
+		<VEdge from="APOD" to="ADGRL4"/>
+		<VEdge from="APOD" to="RCN3"/>
+		<VEdge from="C4A" to="NKX6-2"/>
+		<VEdge from="C4A" to="PARP3"/>
+		<VEdge from="C4A" to="VWA5A"/>
+		<VEdge from="APOD" to="SH3BP2"/>
+		<VEdge from="APOD" to="NRBP2"/>
+		<VEdge from="APOD" to="SLC9A4"/>
+		<VEdge from="APOD" to="TTYH2"/>
+		<VEdge from="LGALS3BP" to="SOX10"/>
+		<VEdge from="APOD" to="PROM2"/>
+		<VEdge from="C4A" to="SH2D6"/>
+		<VEdge from="CTSS" to="MAP3K20"/>
+		<VEdge from="C4A" to="MTTP"/>
+		<VEdge from="C4A" to="FCGR2A"/>
+		<VEdge from="C4A" to="PROM2"/>
+		<VEdge from="C4A" to="CD84"/>
+		<VEdge from="C4A" to="ITGAM"/>
+		<VEdge from="C4A" to="IFIT1B"/>
+		<VEdge from="LGALS3BP" to="NBL1"/>
+		<VEdge from="C4A" to="ADCY7"/>
+		<VEdge from="C4B" to="COL2A1"/>
+		<VEdge from="APOD" to="ITIH3"/>
+		<VEdge from="C4A" to="NIPAL2"/>
+		<VEdge from="C4B" to="TMEM243"/>
+		<VEdge from="CTSS" to="PCSK1N"/>
+		<VEdge from="C4A" to="PLD4"/>
+		<VEdge from="C4A" to="CYBB"/>
+		<VEdge from="APOD" to="TRIM59"/>
+		<VEdge from="C1QC" to="CYP27A1"/>
+		<VEdge from="C1QC" to="STAT2"/>
+		<VEdge from="C4A" to="COL12A1"/>
+		<VEdge from="C4A" to="CRACR2A"/>
+		<VEdge from="C4A" to="MSRB2"/>
+		<VEdge from="LGALS3BP" to="RGS11"/>
+		<VEdge from="C4A" to="APOBEC1"/>
+		<VEdge from="C4A" to="TGIF1"/>
+		<VEdge from="CTSS" to="LAMA2"/>
+		<VEdge from="C4A" to="CREB3L2"/>
+		<VEdge from="C4B" to="C6ORF10"/>
+		<VEdge from="C4A" to="TBXA2R"/>
+		<VEdge from="C4B" to="RFTN1"/>
+		<VEdge from="C4A" to="HOOK2"/>
+		<VEdge from="C4B" to="PLIN4"/>
+		<VEdge from="C4B" to="TLE2"/>
+		<VEdge from="APOD" to="SNX22"/>
+		<VEdge from="C1QC" to="MTHFD1L"/>
+		<VEdge from="LGALS3BP" to="ADSSL1"/>
+		<VEdge from="CTSS" to="ARHGAP19-SLIT1"/>
+		<VEdge from="CTSS" to="FMN1"/>
+		<VEdge from="C4A" to="NIPSNAP3A"/>
+		<VEdge from="C4A" to="ADGRL4"/>
+		<VEdge from="C4A" to="RUNX2"/>
+		<VEdge from="CTSS" to="OLFML3"/>
+		<VEdge from="C4A" to="RCN3"/>
+		<VEdge from="CTSS" to="COL5A3"/>
+		<VEdge from="CTSS" to="MFSD2B"/>
+		<VEdge from="CTSS" to="EHD4"/>
+		<VEdge from="LGALS3BP" to="DNTTIP1"/>
+		<VEdge from="CTSS" to="CDR2"/>
+		<VEdge from="CTSS" to="COL16A1"/>
+		<VEdge from="C4B" to="ITPR3"/>
+		<VEdge from="C4B" to="SERPING1"/>
+		<VEdge from="C4A" to="RECK"/>
+		<VEdge from="C4A" to="SLFN11"/>
+		<VEdge from="LGALS3BP" to="ENPP4"/>
+		<VEdge from="C4B" to="REEP6"/>
+		<VEdge from="CTSS" to="CD9"/>
+		<VEdge from="CTSS" to="IL15RA"/>
+		<VEdge from="APOD" to="VWA5A"/>
+		<VEdge from="C4A" to="SH3BP2"/>
+		<VEdge from="C4B" to="PLEKHF1"/>
+		<VEdge from="C4A" to="NRBP2"/>
+		<VEdge from="C4B" to="RHOJ"/>
+		<VEdge from="C4A" to="SLC9A4"/>
+		<VEdge from="C4A" to="TTYH2"/>
+		<VEdge from="C1QC" to="SKAP2"/>
+		<VEdge from="C4B" to="HVCN1"/>
+		<VEdge from="C4B" to="SEC14L5"/>
+		<VEdge from="CTSS" to="ACSF2"/>
+		<VEdge from="CTSS" to="BIN2"/>
+		<VEdge from="LGALS3BP" to="RASA4B"/>
+		<VEdge from="C4A" to="FAM228A"/>
+		<VEdge from="LGALS3BP" to="SLC25A13"/>
+		<VEdge from="LGALS3BP" to="MAN2B2"/>
+		<VEdge from="C4B" to="DAAM2"/>
+		<VEdge from="C4A" to="MYOF"/>
+		<VEdge from="C4B" to="CSRP1"/>
+		<VEdge from="C4B" to="RASSF4"/>
+		<VEdge from="CTSS" to="TP53I13"/>
+		<VEdge from="LGALS3BP" to="EYA4"/>
+		<VEdge from="C4B" to="CRABP2"/>
+		<VEdge from="C4B" to="CABLES1"/>
+		<VEdge from="C4B" to="GNGT2"/>
+		<VEdge from="C4B" to="HLA-DOB"/>
+		<VEdge from="C4B" to="IFITM1"/>
+		<VEdge from="LGALS3BP" to="MBD6"/>
+		<VEdge from="LGALS3BP" to="SMIM24"/>
+		<VEdge from="C4A" to="ITIH3"/>
+		<VEdge from="C1QA" to="INCA1"/>
+		<VEdge from="CTSS" to="CGAS"/>
+		<VEdge from="C1QA" to="SEC11C"/>
+		<VEdge from="LGALS3BP" to="SCN7A"/>
+		<VEdge from="C4A" to="PALLD"/>
+		<VEdge from="CTSS" to="RPLP1"/>
+		<VEdge from="CTSS" to="PLEKHG3"/>
+		<VEdge from="C4B" to="LILRA4"/>
+		<VEdge from="CTSS" to="IL10RB"/>
+		<VEdge from="C4B" to="SHC4"/>
+		<VEdge from="C1QC" to="RIDA"/>
+		<VEdge from="CTSS" to="MVB12A"/>
+		<VEdge from="CTSS" to="AHNAK"/>
+		<VEdge from="CTSS" to="SOCS3"/>
+		<VEdge from="LGALS3BP" to="NCF2"/>
+		<VEdge from="C4B" to="HPGDS"/>
+		<VEdge from="C4A" to="PROX2"/>
+		<VEdge from="LGALS3BP" to="ERICH5"/>
+		<VEdge from="C4A" to="SNX22"/>
+		<VEdge from="C4B" to="LIPH"/>
+		<VEdge from="CTSS" to="TMEM160"/>
+		<VEdge from="C1QC" to="TMEM88B"/>
+		<VEdge from="C4B" to="RRAS"/>
+		<VEdge from="LGALS3BP" to="ISG15"/>
+		<VEdge from="C4B" to="CDC25A"/>
+		<VEdge from="C4B" to="GAS2L3"/>
+		<VEdge from="CTSS" to="MR1"/>
+		<VEdge from="CTSS" to="ASAH2"/>
+		<VEdge from="C4B" to="PPL"/>
+		<VEdge from="LGALS3BP" to="ICAM1"/>
+		<VEdge from="C4B" to="CD300C"/>
+		<VEdge from="CTSS" to="RENBP"/>
+		<VEdge from="C4B" to="GAB2"/>
+		<VEdge from="CTSS" to="PARP4"/>
+		<VEdge from="LGALS3BP" to="CLIC1"/>
+		<VEdge from="C4B" to="LY86"/>
+		<VEdge from="LGALS3BP" to="NFATC1"/>
+		<VEdge from="C1QA" to="CIRBP"/>
+		<VEdge from="LGALS3BP" to="FRMD8"/>
+		<VEdge from="LGALS3BP" to="CMKLR1"/>
+		<VEdge from="C1QA" to="FGD2"/>
+		<VEdge from="C1QA" to="PARVG"/>
+		<VEdge from="LGALS3BP" to="TRIM14"/>
+		<VEdge from="LGALS3BP" to="PCSK6"/>
+		<VEdge from="C4B" to="PRDM8"/>
+		<VEdge from="C1QC" to="TRIM56"/>
+		<VEdge from="CTSS" to="CDH23"/>
+		<VEdge from="CTSS" to="CST3"/>
+		<VEdge from="MPEG1" to="MAP3K20"/>
+		<VEdge from="LGALS3BP" to="NFAM1"/>
+		<VEdge from="C1QA" to="RELB"/>
+		<VEdge from="CTSS" to="MOCS1"/>
+		<VEdge from="LGALS3BP" to="MLPH"/>
+		<VEdge from="CTSS" to="DIS3L2"/>
+		<VEdge from="CTSS" to="SYDE1"/>
+		<VEdge from="LGALS3BP" to="ANXA5"/>
+		<VEdge from="C1QC" to="SLCO2B1"/>
+		<VEdge from="LGALS3BP" to="SHKBP1"/>
+		<VEdge from="C1QC" to="FXYD1"/>
+		<VEdge from="C4B" to="SPSB1"/>
+		<VEdge from="C4B" to="DQX1"/>
+		<VEdge from="C4B" to="FCGR2C"/>
+		<VEdge from="CTSS" to="SEPT4"/>
+		<VEdge from="C4B" to="CTSZ"/>
+		<VEdge from="LGALS3BP" to="SAMSN1"/>
+		<VEdge from="C1QA" to="PARP10"/>
+		<VEdge from="MPEG1" to="PCSK1N"/>
+		<VEdge from="C1QA" to="GBGT1"/>
+		<VEdge from="CTSS" to="ARNTL2"/>
+		<VEdge from="C4B" to="SERPINF2"/>
+		<VEdge from="CTSS" to="SNRNP70"/>
+		<VEdge from="C4B" to="RTP1"/>
+		<VEdge from="C4B" to="ITGB2"/>
+		<VEdge from="C4B" to="LGALS3BP"/>
+		<VEdge from="LGALS3BP" to="CLK1"/>
+		<VEdge from="C4B" to="MPEG1"/>
+		<VEdge from="C4B" to="C1QB"/>
+		<VEdge from="C4B" to="C4A"/>
+		<VEdge from="LGALS3BP" to="TPCN2"/>
+		<VEdge from="MPEG1" to="LAMA2"/>
+		<VEdge from="C4B" to="ASB2"/>
+		<VEdge from="C1QC" to="OR7G2"/>
+		<VEdge from="C1QA" to="DENND3"/>
+		<VEdge from="C1QA" to="CXCL12"/>
+		<VEdge from="C4B" to="RHOG"/>
+		<VEdge from="C4B" to="SMIM1"/>
+		<VEdge from="CTSS" to="F11R"/>
+		<VEdge from="C4B" to="CRTAC1"/>
+		<VEdge from="MPEG1" to="JPT2"/>
+		<VEdge from="C4B" to="PPP1R14A"/>
+		<VEdge from="C4B" to="LRP2BP"/>
+		<VEdge from="C4B" to="BTG1"/>
+		<VEdge from="LGALS3BP" to="RHBDF1"/>
+		<VEdge from="MPEG1" to="OLFML3"/>
+		<VEdge from="APOD" to="PLD4"/>
+		<VEdge from="C4B" to="NOV"/>
+		<VEdge from="MPEG1" to="COL5A3"/>
+		<VEdge from="MPEG1" to="MFSD2B"/>
+		<VEdge from="MPEG1" to="EHD4"/>
+		<VEdge from="C1QC" to="MIF"/>
+		<VEdge from="C4B" to="SNAPC4"/>
+		<VEdge from="C1QC" to="MERTK"/>
+		<VEdge from="MPEG1" to="CDR2"/>
+		<VEdge from="MPEG1" to="COL16A1"/>
+		<VEdge from="C4B" to="TNFRSF1B"/>
+		<VEdge from="C4B" to="SOD3"/>
+		<VEdge from="MPEG1" to="CD9"/>
+		<VEdge from="C4B" to="FADS6"/>
+		<VEdge from="C1QC" to="FRMD7"/>
+		<VEdge from="C4B" to="SPOCK3"/>
+		<VEdge from="C1QA" to="PLD4"/>
+		<VEdge from="C1QA" to="SYCP2"/>
+		<VEdge from="MPEG1" to="ACSF2"/>
+		<VEdge from="MPEG1" to="BIN2"/>
+		<VEdge from="C4B" to="C21ORF91"/>
+		<VEdge from="C4B" to="SLC46A3"/>
+		<VEdge from="C4B" to="CORT"/>
+		<VEdge from="C1QC" to="HAVCR2"/>
+		<VEdge from="C4B" to="MANBA"/>
+		<VEdge from="C4B" to="TNFRSF11A"/>
+		<VEdge from="C1QC" to="TGFBR2"/>
+		<VEdge from="C1QA" to="TFR2"/>
+		<VEdge from="MPEG1" to="CGAS"/>
+		<VEdge from="MPEG1" to="PLEKHG3"/>
+		<VEdge from="MPEG1" to="MVB12A"/>
+		<VEdge from="TREM2" to="MYO1D"/>
+		<VEdge from="C4B" to="ALX3"/>
+		<VEdge from="C4B" to="ANKH"/>
+		<VEdge from="MPEG1" to="AHNAK"/>
+		<VEdge from="C1QA" to="DXO"/>
+		<VEdge from="C1QA" to="KLC3"/>
+		<VEdge from="C4B" to="DCN"/>
+		<VEdge from="TREM2" to="MYO15A"/>
+		<VEdge from="MPEG1" to="MR1"/>
+		<VEdge from="C4B" to="TMPRSS11A"/>
+		<VEdge from="C1QC" to="FZD10"/>
+		<VEdge from="MPEG1" to="ASAH2"/>
+		<VEdge from="TREM2" to="RASAL3"/>
+		<VEdge from="C4B" to="ZC3H12A"/>
+		<VEdge from="MPEG1" to="PARP4"/>
+		<VEdge from="C1QC" to="UAP1L1"/>
+		<VEdge from="MPEG1" to="CDH23"/>
+		<VEdge from="MPEG1" to="CST3"/>
+		<VEdge from="MPEG1" to="MOCS1"/>
+		<VEdge from="APOD" to="CD84"/>
+		<VEdge from="MPEG1" to="SEPT4"/>
+		<VEdge from="TREM2" to="MPC1"/>
+		<VEdge from="MPEG1" to="ARNTL2"/>
+		<VEdge from="C1QB" to="FTH1"/>
+		<VEdge from="MPEG1" to="SNRNP70"/>
+		<VEdge from="TREM2" to="STXBP2"/>
+		<VEdge from="TREM2" to="PTGS1"/>
+		<VEdge from="MPEG1" to="F11R"/>
+		<VEdge from="TREM2" to="C15ORF39"/>
+		<VEdge from="TREM2" to="CX3CR1"/>
+		<VEdge from="TREM2" to="SALL1"/>
+		<VEdge from="C1QB" to="SNTB2"/>
+		<VEdge from="TREM2" to="HMGCLL1"/>
+		<VEdge from="TREM2" to="HMOX1"/>
+		<VEdge from="TREM2" to="BLNK"/>
+		<VEdge from="TREM2" to="RASSF2"/>
+		<VEdge from="C1QB" to="PLEKHH2"/>
+		<VEdge from="C1QB" to="CLIC5"/>
+		<VEdge from="APOD" to="SPACA6"/>
+		<VEdge from="APOD" to="INCA1"/>
+		<VEdge from="APOD" to="SEC11C"/>
+		<VEdge from="C1QB" to="PDPN"/>
+		<VEdge from="TREM2" to="LRRC3"/>
+		<VEdge from="TREM2" to="NFKBIZ"/>
+		<VEdge from="TREM2" to="P2RY6"/>
+		<VEdge from="TREM2" to="CSF3R"/>
+		<VEdge from="APOD" to="GPLD1"/>
+		<VEdge from="APOD" to="SLC26A7"/>
+		<VEdge from="APOD" to="TEP1"/>
+		<VEdge from="TREM2" to="DNTT"/>
+		<VEdge from="TREM2" to="CSF2RA"/>
+		<VEdge from="TREM2" to="AIM2"/>
+		<VEdge from="C1QB" to="SLC14A1"/>
+		<VEdge from="TREM2" to="PLS1"/>
+		<VEdge from="TREM2" to="EPSTI1"/>
+		<VEdge from="APOD" to="CIRBP"/>
+		<VEdge from="TREM2" to="ALPK1"/>
+		<VEdge from="APOD" to="ANXA2"/>
+		<VEdge from="APOD" to="FGD2"/>
+		<VEdge from="APOD" to="PARVG"/>
+		<VEdge from="APOD" to="CYTL1"/>
+		<VEdge from="C1QC" to="ANXA3"/>
+		<VEdge from="TREM2" to="LARP6"/>
+		<VEdge from="TREM2" to="AIF1"/>
+		<VEdge from="APOD" to="RELB"/>
+		<VEdge from="APOD" to="TNS2"/>
+		<VEdge from="APOD" to="HHATL"/>
+		<VEdge from="APOD" to="RPLP2"/>
+		<VEdge from="APOD" to="PARP10"/>
+		<VEdge from="APOD" to="GBGT1"/>
+		<VEdge from="C4A" to="SPACA6"/>
+		<VEdge from="TREM2" to="MCC"/>
+		<VEdge from="C4A" to="INCA1"/>
+		<VEdge from="C4A" to="SEC11C"/>
+		<VEdge from="TREM2" to="PLEC"/>
+		<VEdge from="APOD" to="ITGAM"/>
+		<VEdge from="APOD" to="ZNF503"/>
+		<VEdge from="APOD" to="DENND3"/>
+		<VEdge from="APOD" to="CXCL12"/>
+		<VEdge from="APOD" to="CD14"/>
+		<VEdge from="APOD" to="SP110"/>
+		<VEdge from="C4A" to="GPLD1"/>
+		<VEdge from="C4A" to="SLC26A7"/>
+		<VEdge from="C4A" to="TEP1"/>
+		<VEdge from="APOD" to="EYA2"/>
+		<VEdge from="APOD" to="RNF213"/>
+		<VEdge from="C1QB" to="KIF13B"/>
+		<VEdge from="C4A" to="CIRBP"/>
+		<VEdge from="C4A" to="ANXA2"/>
+		<VEdge from="C4A" to="FGD2"/>
+		<VEdge from="C4A" to="PARVG"/>
+		<VEdge from="C4A" to="CYTL1"/>
+		<VEdge from="APOD" to="SLC17A9"/>
+		<VEdge from="C4A" to="SPHK1"/>
+		<VEdge from="APOD" to="LAMA1"/>
+		<VEdge from="APOD" to="PRDM5"/>
+		<VEdge from="APOD" to="SYCP2"/>
+		<VEdge from="C4A" to="FBXO17"/>
+		<VEdge from="APOD" to="DOK1"/>
+		<VEdge from="C4A" to="RELB"/>
+		<VEdge from="C4A" to="TNS2"/>
+		<VEdge from="APOD" to="TSPAN4"/>
+		<VEdge from="APOD" to="REX1BD"/>
+		<VEdge from="C4A" to="CCRL2"/>
+		<VEdge from="APOD" to="TFR2"/>
+		<VEdge from="C4A" to="APOL4"/>
+		<VEdge from="APOD" to="IFI16"/>
+		<VEdge from="C4A" to="PARP10"/>
+		<VEdge from="C4A" to="GBGT1"/>
+		<VEdge from="APOD" to="ADGRA2"/>
+		<VEdge from="C4A" to="ZNF503"/>
+		<VEdge from="C4A" to="GPR137B"/>
+		<VEdge from="APOD" to="DXO"/>
+		<VEdge from="LGALS3BP" to="PARP9"/>
+		<VEdge from="APOD" to="KLC3"/>
+		<VEdge from="LGALS3BP" to="CYP27A1"/>
+		<VEdge from="LGALS3BP" to="STAT2"/>
+		<VEdge from="C4A" to="DENND3"/>
+		<VEdge from="C4A" to="CXCL12"/>
+		<VEdge from="CTSS" to="BCAS1"/>
+		<VEdge from="C4A" to="CD14"/>
+		<VEdge from="C4A" to="SP110"/>
+		<VEdge from="CTSS" to="CD53"/>
+		<VEdge from="APOD" to="SPR"/>
+		<VEdge from="CTSS" to="ACOX3"/>
+		<VEdge from="APOD" to="FOXD1"/>
+		<VEdge from="LGALS3BP" to="CCL8"/>
+		<VEdge from="C4A" to="EYA2"/>
+		<VEdge from="LGALS3BP" to="MTHFD1L"/>
+		<VEdge from="C4A" to="RNF213"/>
+		<VEdge from="APOD" to="HAUS6"/>
+		<VEdge from="C4A" to="SLC17A9"/>
+		<VEdge from="C4A" to="LAMA1"/>
+		<VEdge from="C4A" to="SLC24A1"/>
+		<VEdge from="C4A" to="TGM7"/>
+		<VEdge from="C4A" to="PRDM5"/>
+		<VEdge from="C4A" to="SYCP2"/>
+		<VEdge from="CTSS" to="PDE8A"/>
+		<VEdge from="C4A" to="DOK1"/>
+		<VEdge from="LGALS3BP" to="TMEM63A"/>
+		<VEdge from="APOD" to="COLEC12"/>
+		<VEdge from="APOD" to="CYP3A4"/>
+		<VEdge from="APOD" to="TPM2"/>
+		<VEdge from="CTSS" to="FNDC10"/>
+		<VEdge from="LGALS3BP" to="SKAP2"/>
+		<VEdge from="C4A" to="TSPAN4"/>
+		<VEdge from="LGALS3BP" to="IGHM"/>
+		<VEdge from="C4A" to="REX1BD"/>
+		<VEdge from="C4A" to="CXCL6"/>
+		<VEdge from="CTSS" to="VEGFB"/>
+		<VEdge from="CTSS" to="GGACT"/>
+		<VEdge from="CTSS" to="LBH"/>
+		<VEdge from="C4A" to="TFR2"/>
+		<VEdge from="CTSS" to="DOCK2"/>
+		<VEdge from="C4A" to="IFI16"/>
+		<VEdge from="C4A" to="ADGRA2"/>
+		<VEdge from="C4B" to="PGM5"/>
+		<VEdge from="C4A" to="LTBP4"/>
+		<VEdge from="C4B" to="FAH"/>
+		<VEdge from="C4B" to="CTNNA3"/>
+		<VEdge from="C4B" to="LDLRAD3"/>
+		<VEdge from="C1QC" to="SOX10"/>
+		<VEdge from="CTSS" to="PLA2G16"/>
+		<VEdge from="C4A" to="DXO"/>
+		<VEdge from="C4A" to="KLC3"/>
+		<VEdge from="CTSS" to="PLEKHB1"/>
+		<VEdge from="LGALS3BP" to="PSMB9"/>
+		<VEdge from="LGALS3BP" to="TNFSF13B"/>
+		<VEdge from="LGALS3BP" to="RIDA"/>
+		<VEdge from="C4A" to="SPR"/>
+		<VEdge from="C4A" to="HIF3A"/>
+		<VEdge from="C4A" to="FOXD1"/>
+		<VEdge from="C4B" to="TLR3"/>
+		<VEdge from="C4A" to="NRG2"/>
+		<VEdge from="LGALS3BP" to="ANXA3"/>
+		<VEdge from="C4B" to="GJB2"/>
+		<VEdge from="CTSS" to="CBR3"/>
+		<VEdge from="C1QC" to="NBL1"/>
+		<VEdge from="C1QA" to="PRRG1"/>
+		<VEdge from="C4A" to="HAUS6"/>
+		<VEdge from="C1QA" to="HELZ2"/>
+		<VEdge from="C4B" to="TBXAS1"/>
+		<VEdge from="C4B" to="AFF1"/>
+		<VEdge from="CTSS" to="C14ORF39"/>
+		<VEdge from="CTSS" to="MYO1F"/>
+		<VEdge from="C1QC" to="RGS11"/>
+		<VEdge from="C4B" to="IL18BP"/>
+		<VEdge from="C4B" to="ERAP1"/>
+		<VEdge from="C4B" to="ADAMTS14"/>
+		<VEdge from="LGALS3BP" to="TRIM56"/>
+		<VEdge from="C4B" to="NRROS"/>
+		<VEdge from="C1QC" to="MARVELD1"/>
+		<VEdge from="CTSS" to="TMEM191C"/>
+		<VEdge from="CTSS" to="GIPR"/>
+		<VEdge from="C1QA" to="CEBPA"/>
+		<VEdge from="C4A" to="CYP3A4"/>
+		<VEdge from="C1QA" to="RGL3"/>
+		<VEdge from="CTSS" to="TMEM144"/>
+		<VEdge from="C4B" to="LPXN"/>
+		<VEdge from="LGALS3BP" to="SLC36A2"/>
+		<VEdge from="CTSS" to="S100A6"/>
+		<VEdge from="CTSS" to="MMP12"/>
+		<VEdge from="LGALS3BP" to="SLCO2B1"/>
+		<VEdge from="LGALS3BP" to="FXYD1"/>
+		<VEdge from="C1QC" to="DNTTIP1"/>
+		<VEdge from="C1QC" to="TRIM36"/>
+		<VEdge from="C1QC" to="GSR"/>
+		<VEdge from="C1QA" to="CA2"/>
+		<VEdge from="CTSS" to="SCAND1"/>
+		<VEdge from="CTSS" to="TRIM5"/>
+		<VEdge from="C1QA" to="PRR5L"/>
+		<VEdge from="C1QA" to="CHI3L1"/>
+		<VEdge from="C1QA" to="HERC6"/>
+		<VEdge from="C4B" to="LACC1"/>
+		<VEdge from="C1QC" to="ENPP4"/>
+		<VEdge from="C4B" to="APOL1"/>
+		<VEdge from="LGALS3BP" to="ATP8B1"/>
+		<VEdge from="C1QA" to="TMEM173"/>
+		<VEdge from="MPEG1" to="BCAS1"/>
+		<VEdge from="C4B" to="NLRC3"/>
+		<VEdge from="C4B" to="NAT8"/>
+		<VEdge from="MPEG1" to="CD53"/>
+		<VEdge from="C1QC" to="CHD7"/>
+		<VEdge from="MPEG1" to="ACOX3"/>
+		<VEdge from="CTSS" to="HK2"/>
+		<VEdge from="CTSS" to="SLC2A8"/>
+		<VEdge from="CTSS" to="COL27A1"/>
+		<VEdge from="C1QC" to="SLC25A13"/>
+		<VEdge from="CTSS" to="EPYC"/>
+		<VEdge from="C4B" to="CWF19L2"/>
+		<VEdge from="C1QA" to="FAM228B"/>
+		<VEdge from="C1QC" to="MAN2B2"/>
+		<VEdge from="C4B" to="TBATA"/>
+		<VEdge from="CTSS" to="PPFIBP2"/>
+		<VEdge from="C1QC" to="MBD6"/>
+		<VEdge from="C1QA" to="DPYD"/>
+		<VEdge from="CTSS" to="ITPK1"/>
+		<VEdge from="C4B" to="ZSWIM7"/>
+		<VEdge from="C1QA" to="CERKL"/>
+		<VEdge from="C1QA" to="IKZF1"/>
+		<VEdge from="LGALS3BP" to="ASPA"/>
+		<VEdge from="C4B" to="ARSG"/>
+		<VEdge from="C4B" to="BABAM2"/>
+		<VEdge from="MPEG1" to="PDE8A"/>
+		<VEdge from="C4B" to="FAM180A"/>
+		<VEdge from="C4B" to="C2ORF74"/>
+		<VEdge from="CTSS" to="CRLF2"/>
+		<VEdge from="C4B" to="KRT2"/>
+		<VEdge from="CTSS" to="CRY1"/>
+		<VEdge from="CTSS" to="STK26"/>
+		<VEdge from="C4B" to="ADGRG6"/>
+		<VEdge from="CTSS" to="TIFA"/>
+		<VEdge from="MPEG1" to="FNDC10"/>
+		<VEdge from="C4B" to="MYL1"/>
+		<VEdge from="MPEG1" to="LBH"/>
+		<VEdge from="CTSS" to="IKBIP"/>
+		<VEdge from="C1QC" to="CLIC1"/>
+		<VEdge from="MPEG1" to="DOCK2"/>
+		<VEdge from="CTSS" to="PIR"/>
+		<VEdge from="LGALS3BP" to="HAVCR2"/>
+		<VEdge from="CTSS" to="RBM15"/>
+		<VEdge from="C1QA" to="TNXB"/>
+		<VEdge from="C1QA" to="SLC22A4"/>
+		<VEdge from="C4B" to="NLRC5"/>
+		<VEdge from="C1QC" to="FRMD8"/>
+		<VEdge from="LGALS3BP" to="CD163"/>
+		<VEdge from="C1QA" to="STAT1"/>
+		<VEdge from="CTSS" to="GLTP"/>
+		<VEdge from="C1QC" to="PCSK6"/>
+		<VEdge from="CTSS" to="NTN4"/>
+		<VEdge from="C4B" to="PTPN14"/>
+		<VEdge from="MPEG1" to="PLA2G16"/>
+		<VEdge from="CTSS" to="PSRC1"/>
+		<VEdge from="C4B" to="RBP1"/>
+		<VEdge from="C1QA" to="PARP3"/>
+		<VEdge from="MPEG1" to="PLEKHB1"/>
+		<VEdge from="C1QA" to="VWA5A"/>
+		<VEdge from="C1QC" to="ANXA5"/>
+		<VEdge from="C1QC" to="SHKBP1"/>
+		<VEdge from="CTSS" to="ACRBP"/>
+		<VEdge from="C4B" to="NECAP2"/>
+		<VEdge from="CTSS" to="SFT2D3"/>
+		<VEdge from="C1QA" to="FCGR2A"/>
+		<VEdge from="C1QA" to="ITGAM"/>
+		<VEdge from="LGALS3BP" to="UAP1L1"/>
+		<VEdge from="C1QA" to="ADCY7"/>
+		<VEdge from="MPEG1" to="C14ORF39"/>
+		<VEdge from="CTSS" to="CMTM3"/>
+		<VEdge from="C1QC" to="CLK1"/>
+		<VEdge from="C4B" to="IL17RC"/>
+		<VEdge from="MPEG1" to="MYO1F"/>
+		<VEdge from="C4B" to="SEMA3B"/>
+		<VEdge from="CTSS" to="DCAF15"/>
+		<VEdge from="C1QC" to="MAPK12"/>
+		<VEdge from="C1QC" to="TPCN2"/>
+		<VEdge from="C4B" to="CD82"/>
+		<VEdge from="C4B" to="CORO6"/>
+		<VEdge from="MPEG1" to="TMEM191C"/>
+		<VEdge from="MPEG1" to="GIPR"/>
+		<VEdge from="MPEG1" to="TMEM144"/>
+		<VEdge from="C1QA" to="APOBEC1"/>
+		<VEdge from="C1QA" to="TGIF1"/>
+		<VEdge from="C4B" to="RHPN2"/>
+		<VEdge from="C4B" to="CYP3A5"/>
+		<VEdge from="C4B" to="PLA1A"/>
+		<VEdge from="C4B" to="CPQ"/>
+		<VEdge from="C1QA" to="HOOK2"/>
+		<VEdge from="C1QC" to="RHBDF1"/>
+		<VEdge from="MPEG1" to="S100A6"/>
+		<VEdge from="MPEG1" to="MMP12"/>
+		<VEdge from="APOD" to="FCGR2A"/>
+		<VEdge from="MPEG1" to="SCAND1"/>
+		<VEdge from="MPEG1" to="TRIM5"/>
+		<VEdge from="C1QA" to="ADGRL4"/>
+		<VEdge from="TREM2" to="MBOAT1"/>
+		<VEdge from="MPEG1" to="HK2"/>
+		<VEdge from="MPEG1" to="SLC2A8"/>
+		<VEdge from="MPEG1" to="COL27A1"/>
+		<VEdge from="C1QA" to="SH3BP2"/>
+		<VEdge from="TREM2" to="WIPF1"/>
+		<VEdge from="MPEG1" to="ITPK1"/>
+		<VEdge from="C1QB" to="LAIR1"/>
+		<VEdge from="MPEG1" to="CRLF2"/>
+		<VEdge from="TREM2" to="RASA4"/>
+		<VEdge from="C1QB" to="BHLHE41"/>
+		<VEdge from="MPEG1" to="STK26"/>
+		<VEdge from="MPEG1" to="TIFA"/>
+		<VEdge from="C1QB" to="PARP12"/>
+		<VEdge from="TREM2" to="FLNB"/>
+		<VEdge from="MPEG1" to="GLTP"/>
+		<VEdge from="TREM2" to="VIM"/>
+		<VEdge from="TREM2" to="PSTPIP2"/>
+		<VEdge from="TREM2" to="NDRG1"/>
+		<VEdge from="TREM2" to="SELENOM"/>
+		<VEdge from="TREM2" to="OAF"/>
+		<VEdge from="TREM2" to="TYROBP"/>
+		<VEdge from="TREM2" to="PMP22"/>
+		<VEdge from="TREM2" to="TFCP2L1"/>
+		<VEdge from="TREM2" to="TMEM119"/>
+		<VEdge from="APOD" to="PRRG1"/>
+		<VEdge from="APOD" to="HELZ2"/>
+		<VEdge from="C1QB" to="ATXN7L2"/>
+		<VEdge from="C1QB" to="SFI1"/>
+		<VEdge from="C1QB" to="APOE"/>
+		<VEdge from="TREM2" to="C1QA"/>
+		<VEdge from="APOD" to="CEBPA"/>
+		<VEdge from="C1QB" to="HSPA2"/>
+		<VEdge from="APOD" to="RGL3"/>
+		<VEdge from="C1QB" to="TRIM47"/>
+		<VEdge from="C1QB" to="NFE2L2"/>
+		<VEdge from="TREM2" to="MFSD10"/>
+		<VEdge from="APOD" to="CA2"/>
+		<VEdge from="APOD" to="PRR5L"/>
+		<VEdge from="APOD" to="CHI3L1"/>
+		<VEdge from="APOD" to="HERC6"/>
+		<VEdge from="APOD" to="APBA3"/>
+		<VEdge from="C1QB" to="SELPLG"/>
+		<VEdge from="APOD" to="FAM199X"/>
+		<VEdge from="APOD" to="CELA1"/>
+		<VEdge from="APOD" to="ST14"/>
+		<VEdge from="APOD" to="FAM228B"/>
+		<VEdge from="C1QB" to="TGFBR3"/>
+		<VEdge from="APOD" to="OPTN"/>
+		<VEdge from="TREM2" to="PLEKHA4"/>
+		<VEdge from="APOD" to="ISLR"/>
+		<VEdge from="APOD" to="RELT"/>
+		<VEdge from="APOD" to="IL21R"/>
+		<VEdge from="APOD" to="DPYD"/>
+		<VEdge from="APOD" to="TAP2"/>
+		<VEdge from="TREM2" to="ADAP2"/>
+		<VEdge from="APOD" to="CERKL"/>
+		<VEdge from="APOD" to="IKZF1"/>
+		<VEdge from="C4A" to="PRRG1"/>
+		<VEdge from="C4A" to="HELZ2"/>
+		<VEdge from="TREM2" to="EVC"/>
+		<VEdge from="APOD" to="C5AR2"/>
+		<VEdge from="APOD" to="TRIM34"/>
+		<VEdge from="TREM2" to="LRRC45"/>
+		<VEdge from="APOD" to="IFITM2"/>
+		<VEdge from="APOD" to="SLC15A3"/>
+		<VEdge from="C4A" to="CEBPA"/>
+		<VEdge from="C4A" to="CDH1"/>
+		<VEdge from="C4A" to="RGL3"/>
+		<VEdge from="APOD" to="EPB41L5"/>
+		<VEdge from="APOD" to="TNXB"/>
+		<VEdge from="TREM2" to="PRXL2B"/>
+		<VEdge from="APOD" to="SLC22A4"/>
+		<VEdge from="APOD" to="HLA-DMB"/>
+		<VEdge from="APOD" to="STAT1"/>
+		<VEdge from="TREM2" to="CHST8"/>
+		<VEdge from="C4A" to="CA2"/>
+		<VEdge from="C4A" to="PRR5L"/>
+		<VEdge from="C4A" to="CHI3L1"/>
+		<VEdge from="C4A" to="HERC6"/>
+		<VEdge from="APOD" to="NKX6-2"/>
+		<VEdge from="C4A" to="APBA3"/>
+		<VEdge from="APOD" to="PARP3"/>
+		<VEdge from="C1QB" to="ITIH5"/>
+		<VEdge from="C4A" to="TMEM173"/>
+		<VEdge from="C4A" to="FAM199X"/>
+		<VEdge from="C4A" to="CELA1"/>
+		<VEdge from="C4A" to="ST14"/>
+		<VEdge from="C4A" to="FAM228B"/>
+		<VEdge from="APOD" to="SH2D6"/>
+		<VEdge from="APOD" to="MTTP"/>
+		<VEdge from="C1QB" to="EFHD1"/>
+		<VEdge from="C4A" to="SRRM4"/>
+		<VEdge from="C4A" to="OPTN"/>
+		<VEdge from="C4A" to="P2RX5"/>
+		<VEdge from="C4A" to="ISLR"/>
+		<VEdge from="C4A" to="RELT"/>
+		<VEdge from="C4A" to="IL21R"/>
+		<VEdge from="C4A" to="DPYD"/>
+		<VEdge from="C4A" to="TAP2"/>
+		<VEdge from="C4A" to="CERKL"/>
+		<VEdge from="C4A" to="IKZF1"/>
+		<VEdge from="APOD" to="ADCY7"/>
+	</Edges>
+</VisAnt>

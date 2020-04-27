@@ -1,0 +1,7 @@
+"","red....MicrogliByothersCuffdiff2FCover20__"
+"1","DGKZ"
+"2","MADD"
+"3","NFKBIE"
+"4","NRGN"
+"5","ROGDI"
+"6","SLC22A17"

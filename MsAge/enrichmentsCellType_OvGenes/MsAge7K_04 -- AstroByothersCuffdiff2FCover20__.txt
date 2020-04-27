@@ -1,0 +1,8 @@
+"","MsAge7K_04....AstroByothersCuffdiff2FCover20__"
+"1","APOE"
+"2","ASPG"
+"3","C4A"
+"4","C4B"
+"5","EIF2AK2"
+"6","PARP3"
+"7","SLC14A1"
