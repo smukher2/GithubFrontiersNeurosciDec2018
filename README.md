@@ -8,10 +8,11 @@ Shradha Mukherjee1,2,3*#, Christine Klaus4*, Mihaela Pricop-Jeckstadt5, Jeremy M
 
 These * authors contributed equally # Corresponding authors
 
-# We hope you find these research findings and bioinformatics pipeline useful. Please help by citing us as follows. Thank you.
+# Citation: We hope you find these research findings and bioinformatics pipeline useful. Please help by citing us as follows. Thank you.
 
 **Mukherjee, S., Klaus, C., Pricop-Jeckstadt, M., Miller, J. A. & Struebing, F. L. A Microglial Signature Directing Human Aging and Neurodegeneration-Related Gene Networks. Frontiers in neuroscience 13, 2, doi:10.3389/fnins.2019.00002 (2019).
  
+
 # Organization
 
 **1 RNAseq_ASUcyverseCluster_Results+Script/ contains 
@@ -33,7 +34,7 @@ contains the codes, input files and results for entire analysis of the human agi
 
 contains the codes, input files and results for preservation analysis and hypergeometric enrichment test to compare the WGCNA results obtained from HumanAgeDis/ and MouseAge/ The minimum files and codes required to reproduce our results here are Pres&Hyper_HumanAgeVsOthers.Rproj, Pres&Hyper_HumanAgeVsOthers.Rmd and InputPreservation/  After downloading these if the user runs the Pres&Hyper_HumanAgeVsOthers.Rmd code in RStudio using command 'knit to html' or 'Run all' it should reproduce our results. 
 
-# Acknowledgement: This pipeline is adapted from the following SVA and WGCNA pipelines. 
+# Acknowledgement: 
 
 1) SVA: Dr. Jeff Leek http://jtleek.com/genstats/inst/doc/02_13_batch-effects.html and https://www.bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf
 2) WGCNA: Dr. Jeremy Miller https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/JMiller/
