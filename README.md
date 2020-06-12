@@ -8,11 +8,10 @@ Shradha Mukherjee1,2,3*#, Christine Klaus4*, Mihaela Pricop-Jeckstadt5, Jeremy M
 
 These * authors contributed equally # Corresponding authors
 
-# We hope you find this work and bioinformatics pipeline useful. At your discretion please feel free to cite us as follows. Thank you for your time and consideration. 
+# We hope you find these research findings and bioinformatics pipeline useful. Please help by citing us as follows. Thank you.
 
-**Citation
-
-
+**Mukherjee, S., Klaus, C., Pricop-Jeckstadt, M., Miller, J. A. & Struebing, F. L. A Microglial Signature Directing Human Aging and Neurodegeneration-Related Gene Networks. Frontiers in neuroscience 13, 2, doi:10.3389/fnins.2019.00002 (2019).
+ 
 # Organization
 
 **1 RNAseq_ASUcyverseCluster_Results+Script/ contains 
