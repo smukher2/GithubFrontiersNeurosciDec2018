@@ -1,0 +1,3 @@
+#To set language on github repository
+*.Rmd linguist-language=R
+*.html linguist-language=R
