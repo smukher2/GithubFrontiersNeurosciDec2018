@@ -1,5 +1,4 @@
 #To set language on github repository
-*.Rmd linguist-language=R
-*.html linguist-language=R
+*.sh    eol=Shell
 *.Rmd    eol=R
 *.html  eol=R
