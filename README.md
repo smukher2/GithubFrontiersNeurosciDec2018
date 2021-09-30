@@ -14,7 +14,7 @@ These * authors contributed equally # Corresponding authors
  
 # Contact Information
 Shradha Mukherjee*#
-Address: Shradha Mukherjee, PhD; Alias Goldy; Garland Avenue, Downtown Los Angeles, Los Angeles, CA 90017, U.S. Email: smukher2@gmail.com
+Address: Shradha Mukherjee, PhD; Email: smukher2@gmail.com
 * First author and # Corresponding author
 
 Shradha Mukherjee, PhD in Biochemistry,                                                                                                                                       
